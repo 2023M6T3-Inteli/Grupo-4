@@ -11,7 +11,10 @@
     "scheduler": "^0.23.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build:tailwind && <your-start-command>",
+    "build": "npm run build:tailwind && <your-build-command>",
+    "build:tailwind": "postcss src/index.css -o src/tailwind.css",
+    "test": "<your-test-command>"
   },
   "keywords": [],
   "author": "",
