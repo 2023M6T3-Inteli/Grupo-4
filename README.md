@@ -184,6 +184,23 @@ Exemplo de Diagrama de Casos de Uso
 Atualizar a cada revisão/atualização da arquitetura, mantendo todas as 3 versões no documento..
 
 
+## Arquitetura de Mensageria 
+	
+### Vantagens e Desvantagens Arquitetura de Mensageria 
+
+
+| Vantagens                                | Desvantagens                                        |
+|------------------------------------------|-----------------------------------------------------|
+| Desacoplamento                           | Complexidade na implementação e manutenção do sistema de mensageria. Exige conhecimento técnico especializado.|
+| Resiliência                              | A latência pode ser maior do que em sistemas de comunicação direta.|
+| Escalabilidade                           | Custos de infraestrutura podem ser significativos, principalmente para sistemas com alta demanda.|
+| Entrega garantida                        |                                                       |
+| Maior confiabilidade                     | Pode haver problemas de segurança se o sistema de mensageria não for bem configurado e gerenciado.|
+| Integração fácil com diferentes tecnologias| A falha no sistema de mensageria pode afetar todo o sistema, incluindo o desempenho e a disponibilidade.|
+| Flexibilidade                            | A falta de padronização pode dificultar a interoperabilidade com outros sistemas e tecnologias. |
+| Melhora no desempenho                    | As mensagens podem ser perdidas se o sistema de mensageria não for configurado adequadamente. |
+|                                     | Possibilidade de aumento da complexidade do sistema como um todo.|
+
 <center>
 [template-documento4](../img/template-documento4.jpg)
 
