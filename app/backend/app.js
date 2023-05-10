@@ -3,7 +3,6 @@ require('express-async-errors')
 require('dotenv').config()
 var bodyParser = require('body-parser')
 const cors = require('cors')
-const { PrismaClient } = require('@prisma/client')
 
 const app = express()
 app.use(cors())

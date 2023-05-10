@@ -11,7 +11,6 @@ router.post(
     "/auth",
     [body("email", "Email é necessário").exists({ checkFalsy: true })],
     [body("password", "Senha é necessária").exists({ checkFalsy: true })],
-    unsureAuthenticated.unsureAuthenticated,
     userController.Authenticated
 );
 
