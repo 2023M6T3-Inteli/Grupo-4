@@ -10,7 +10,7 @@ const App = () => {
       <Routes>
         {/* Add your other routes here */}
         <Route path="/" element={<div>LOGIN</div>} />
-        <Route path="/new-project" component={NewProject} />
+        <Route path="/newproject" element={<NewProject />} />
         {/* <Route path="/home" element={<Home/>} /> */}
       </Routes>
     </Router>
