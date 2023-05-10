@@ -1,0 +1,13 @@
+.feed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2.5rem;
+    margin-top: 8rem;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    background-color: var(--primary-600);
+}

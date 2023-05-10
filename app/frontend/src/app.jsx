@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Feed from "./pages/feed";
 // import Home from './pages/home';
 // Import other necessary components
 
@@ -9,6 +10,7 @@ const App = () => {
       <Routes>
         {/* Add your other routes here */}
         <Route path="/" element={<div>LOGIN</div>} />
+        <Route path="/feed" element={<Feed />} />
         {/* <Route path="/home" element={<Home/>} /> */}
       </Routes>
     </Router>

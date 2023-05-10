@@ -1,0 +1,32 @@
+.nav {
+  width: 100%;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    li{
+      width: fit-content;
+
+      
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: var(--neutral-50);
+      font-size: 2rem;
+      font-weight: lighter;
+      transition: 200ms;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  }
+}
+
+.active {
+  border-bottom: 1px solid var(--neutral-50);
+}
