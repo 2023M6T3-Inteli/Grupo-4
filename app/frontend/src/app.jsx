@@ -1,6 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NewProject from './pages/NewProject';
+// import Home from './pages/home';
 // Import other necessary components
 
 const App = () => {
@@ -8,7 +9,9 @@ const App = () => {
     <Router>
       <Routes>
         {/* Add your other routes here */}
+        <Route path="/" element={<div>LOGIN</div>} />
         <Route path="/new-project" component={NewProject} />
+        {/* <Route path="/home" element={<Home/>} /> */}
       </Routes>
     </Router>
   );
