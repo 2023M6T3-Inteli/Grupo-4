@@ -38,6 +38,7 @@ const Navbar = (props) => {
             <i className="fa-solid fa-bell fa-shake"></i>
         </button>
     </nav>
+    <div className={s.behind}></div>
 
     <div ref={nav} className={s.navigation}>
         <ul>

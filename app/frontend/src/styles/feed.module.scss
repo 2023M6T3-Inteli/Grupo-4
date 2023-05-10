@@ -1,13 +1,19 @@
-.feed{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 2.5rem;
-    margin-top: 8rem;
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--primary-600);
+  padding-top: 1rem;
 }
 
-.header{
-    position: fixed;
-    width: 100%;
-    background-color: var(--primary-600);
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2.5rem;
+  margin-top: 1rem;
+}
+
+.behind {
+  width: 100%;
+  height: 9.6rem;
 }

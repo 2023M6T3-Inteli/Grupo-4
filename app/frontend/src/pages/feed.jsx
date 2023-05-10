@@ -50,6 +50,7 @@ const Feed = (props) => {
           />
           <Search />
         </div>
+        <div className={styles.behind}></div>
         <main className={styles.feed}>
           {contentPage &&
             contents.map((content) => {
