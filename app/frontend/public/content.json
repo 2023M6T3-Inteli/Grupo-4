@@ -31,7 +31,7 @@
         "area": "Data Science",
         "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
       },
-      "video": null
+      "video": "https://www.youtube.com/embed/eKRBDvX4htI"
     },
     {
       "title": "Cloud systems structures",
@@ -43,6 +43,32 @@
         "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
       },
       "video": "https://www.youtube.com/embed/nRgyLkZkbmQ"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Mobile Aplication Project",
+      "status": "ACTIVE",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "leader": "Mariana Paula",
+      "deadline": "xx/xx/xxxx",
+      "tags": ["HTML", "CSS", "JavaScript", "React Native"]
+    },
+    {
+      "title": "Mobile Aplication Project",
+      "status": "ACTIVE",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "leader": "Mariana Paula",
+      "deadline": "xx/xx/xxxx",
+      "tags": ["HTML", "CSS", "JavaScript", "React Native"]
+    },
+    {
+      "title": "Mobile Aplication Project",
+      "status": "ACTIVE",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "leader": "Mariana Paula",
+      "deadline": "xx/xx/xxxx",
+      "tags": ["HTML", "CSS", "JavaScript", "React Native"]
     }
   ]
 }
