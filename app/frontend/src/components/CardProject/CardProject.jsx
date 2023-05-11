@@ -1,7 +1,7 @@
 import React from "react";
-import styles from '../styles/cardProject.module.scss'
+import styles from './cardProject.module.scss'
 
-export const CardProject = () => {
+const CardProject = () => {
     return (
        <div className={styles.container}>
          <div className={styles.card}>
@@ -23,13 +23,10 @@ export const CardProject = () => {
                </div>
             </div>
             <div>
-                <div className={styles.alltags}>
-                    <div className={styles.tag}>
-                        <p>Python</p>
-                </div>
-                <div className={styles.tag}>
-                        <p>JavaScript</p>
-                </div>
+                <div className={styles.tags}>
+                    {["HTML", "JavaScript", "Python", "AWS", "React"].slice(0, 3).map(tag => (
+                        <p>{tag}</p>
+                    ))}
                 </div>
             </div>
         </div>
@@ -37,3 +34,4 @@ export const CardProject = () => {
   );
 };
   
+export default CardProject;

@@ -5,6 +5,7 @@ import ContentCard from "../components/ContentCard/ContentCard";
 import ProjectReduces from "../components/ProjectReduced/projectReduces";
 import ContentReduced from "../components/ContentReduced/contentReduced";
 import FeedNav from "../components/FeedNav/FeedNav";
+import CardProject from "../components/CardProject/CardProject";
 
 const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
@@ -98,7 +99,15 @@ const Perfil = (props) => {
               contents.map((content) => {
                 return <ContentCard user={content.user} content={content} />;
               })}
-            {projectPage && <p>feed de projetos</p>}
+            {projectPage && 
+            <>
+              <CardProject />
+              <CardProject />
+              <CardProject />
+              <CardProject />
+            </>
+            
+            }
           </div>
         </div>
         
