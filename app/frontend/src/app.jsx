@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Perfil from "./pages/Perfil/perfil";
+import Perfil from "./pages/perfil";
 import Feed from "./pages/feed";
 // import Home from './pages/home';
 // Import other necessary components

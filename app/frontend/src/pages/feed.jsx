@@ -18,6 +18,7 @@ const Feed = (props) => {
       const data = await response.json();
 
       setContents(data.contents);
+      console.log(data.contents);
       setisLoading(false);
     };
 
