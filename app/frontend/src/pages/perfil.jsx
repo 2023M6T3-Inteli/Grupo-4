@@ -9,6 +9,7 @@ import FeedNav from "../components/FeedNav/FeedNav";
 const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
   const [projectPage, setProjectPage] = useState(false);
+  const [contents, setContents] = useState([]);
 
   const changeToProjectHandler = () => {
     setContentPage(false);
@@ -19,6 +20,18 @@ const Perfil = (props) => {
     setContentPage(true);
     setProjectPage(false);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/content.json");
+      const data = await response.json();
+
+      setContents(data.contents);
+      console.log(data.contents);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -81,17 +94,11 @@ const Perfil = (props) => {
 
         <div className={styles.personal}>
           <div className={styles.personalDiv}>
-            {projectPage ?
-            <>
-              <ProjectReduces /> 
-              <ProjectReduces />
-            </>
-            : 
-            <>
-              <ContentReduced />
-              <ContentReduced />
-            </>
-            }
+            {contentPage &&
+              contents.map((content) => {
+                return <ContentCard user={content.user} content={content} />;
+              })}
+            {projectPage && <p>feed de projetos</p>}
           </div>
         </div>
         

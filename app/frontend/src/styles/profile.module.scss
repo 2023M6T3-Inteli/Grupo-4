@@ -153,9 +153,28 @@
     align-items: center;
     justify-content: center;
     .personalDiv {
+        height: 400px;
+        overflow-y: scroll;
+        width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+    }
+    .personalDiv::-webkit-scrollbar {
+        width: 5px;
+        display: none;
+      }
+      
+      /* Track */
+    .personalDiv::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px grey;
+        border-radius: 10px;
+      }
+      
+      /* Handle */
+    .personalDiv::-webkit-scrollbar-thumb {
+        background: var(--primary-600);
+        border-radius: 10px;
     }
 }
