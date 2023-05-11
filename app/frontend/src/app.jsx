@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Perfil from "./pages/perfil";
 import Feed from "./pages/feed";
+import FeedProject from "./pages/feedProject";
 // import Home from './pages/home';
 // Import other necessary components
 
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<div>LOGIN</div>} />
         <Route path="/profile" element={<Perfil />} />
         <Route path="/feed" element={<Feed />} />
+        <Route path="/feedProject" element={<FeedProject/>} />
         {/* <Route path="/home" element={<Home/>} /> */}
       </Routes>
     </Router>
