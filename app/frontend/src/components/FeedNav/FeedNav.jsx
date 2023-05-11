@@ -5,10 +5,10 @@ const FeedNav = (props) => {
     <nav className={styles.nav}>
       <ul>
         <li className={props.contentPage && styles.active}>
-          <button onClick={props.onChangeToContent}>CONTENTS</button>
+          <button onClick={props.onChangeToContent}>{props.option1}</button>
         </li>
         <li className={props.projectPage && styles.active}>
-          <button onClick={props.onChangeToProject}>PROJECTS</button>
+          <button onClick={props.onChangeToProject}>{props.option2}</button>
         </li>
       </ul>
     </nav>

@@ -5,6 +5,8 @@ import {HiOutlineHome} from 'react-icons/hi';
 import {FiPlusSquare} from 'react-icons/fi';
 import {IoPersonOutline} from 'react-icons/io5';
 
+import { Router, useNavigate } from "react-router-dom";
+
 const Navbar = (props) => {
 
     const nav = useRef();
@@ -76,7 +78,7 @@ const Navbar = (props) => {
                 </ul>
             </li>
             <li>
-                <label>
+                <label onClick={() => {window.location.href = "/profile"}}>
                     <IoPersonOutline/>
                     <h1>PROFILE</h1>
                 </label>
