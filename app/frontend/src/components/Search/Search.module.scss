@@ -1,0 +1,49 @@
+.content {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+
+  button {
+    background-color: transparent;
+    border: none;
+    height: 3.5rem;
+    width: 3.5rem;
+    padding: 0.5rem;
+    margin-left: 2rem;
+
+    i {
+      color: var(--neutral-50);
+    }
+  }
+}
+
+.inputField {
+  position: relative;
+  width: 100%;
+
+  input {
+    border: none;
+    border-bottom: 1px solid var(--neutral-50);
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    width: 100%;
+    background: transparent;
+    color: var(--neutral-50);
+
+    &::placeholder {
+        color: var(--neutral-50);
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+  }
+
+  i {
+    color: var(--neutral-50);
+    position: absolute;
+    left: 0;
+    margin-left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
