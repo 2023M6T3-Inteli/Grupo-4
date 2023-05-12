@@ -4,15 +4,18 @@ import { TbLayoutDashboard } from "react-icons/tb";
 import { HiOutlineHome } from "react-icons/hi";
 import { FiPlusSquare } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const nav = useRef();
   const dropdownFeed = useRef();
   const dropdownCreation = useRef();
+  const navigate = useNavigate();
 
   const toggleNav = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     nav.current.classList.toggle(s.active);
+    window.document.body.classList.toggle(s.overflowHidden)
   };
 
   const toggleDropdownFeed = (e) => {
@@ -26,6 +29,11 @@ const Navbar = (props) => {
     dropdownCreation.current.classList.toggle(s.active);
     console.log(dropdownCreation.current);
   };
+
+  const navigateHandler = (route) => {
+    toggleNav()
+    navigate(route)
+  } 
 
   return (
     <>
@@ -55,13 +63,13 @@ const Navbar = (props) => {
               <h1>FEED</h1>
             </label>
             <ul>
-              <li ref={dropdownFeed}>
-                <a href="/feed/contents">
+              <li ref={dropdownFeed} >
+                <button onClick={() => navigateHandler("/feed/contents")}>
                   <h2>CONTENTS</h2>
-                </a>
-                <a href="/feed/projects">
+                </button>
+                <button  onClick={() => navigateHandler("/feed/projects")}>
                   <h2>PROJECTS</h2>
-                </a>
+                </button>
               </li>
             </ul>
           </li>
@@ -79,13 +87,11 @@ const Navbar = (props) => {
             </ul>
           </li>
           <li>
-            <label
-              onClick={() => {
-                window.location.href = "/profile";
-              }}
-            >
-              <IoPersonOutline />
-              <h1>PROFILE</h1>
+            <label>
+              <button className={s.profile} onClick={() => navigateHandler("/profile")}>
+                <IoPersonOutline />
+                <h1>PROFILE</h1>
+              </button>
             </label>
           </li>
         </ul>

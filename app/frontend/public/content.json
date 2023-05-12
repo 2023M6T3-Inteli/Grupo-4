@@ -68,6 +68,8 @@
       "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
       "deadline": "15/05/2023",
+      "startDate": "15/05/2023",
+      "endDate": "15/05/2023",
       "tags": ["HTML", "CSS", "JavaScript", "React Native"],
       "user": {
         "name": "Luiz Alencar",
@@ -81,6 +83,8 @@
       "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
       "deadline": "15/05/2023",
+      "startDate": "15/05/2023",
+      "endDate": "15/05/2023",
       "tags": ["HTML", "CSS", "JavaScript", "React Native"],
       "user": {
         "name": "Luiz Alencar",
@@ -94,6 +98,8 @@
       "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
       "deadline": "15/05/2023",
+      "startDate": "15/05/2023",
+      "endDate": "15/05/2023",
       "tags": ["HTML", "CSS", "JavaScript", "React Native"],
       "user": {
         "name": "Luiz Alencar",

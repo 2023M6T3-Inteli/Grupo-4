@@ -4,11 +4,15 @@ import styles from "./ContentCard.module.scss";
 import Modal from "../CardModal/Modal";
 import { AnimatePresence } from "framer-motion";
 import ContentCardView from "../ContentCardView/ContentCardView";
+import { useLocation } from "react-router-dom";
 
-const ContentCard = ({user, content}) => {
+const ContentCard = ({ user, content }) => {
   const [modalOpen, setModalOpen] = useState(false);
-
   const { title, description, tags, media } = content;
+
+  const path = useLocation();
+
+  const pathName = path.pathname;
 
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
@@ -48,10 +52,14 @@ const ContentCard = ({user, content}) => {
         </main>
       </button>
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
-        {modalOpen && (
-           <Modal modalOpen={modalOpen} handleClose={close}>
-            <ContentCardView handleClose={close} content={content} user={user}/>
-           </Modal>
+        {modalOpen && pathName !== "/profile" && (
+          <Modal modalOpen={modalOpen} handleClose={close}>
+            <ContentCardView
+              handleClose={close}
+              content={content}
+              user={user}
+            />
+          </Modal>
         )}
       </AnimatePresence>
     </>

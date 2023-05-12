@@ -65,7 +65,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
         <div className={styles.infosBx}>
           <div>
             <AiFillTag fill="var(--primary-600)" size={15} />
-            <h4>Links</h4>
+            <h4>Tags</h4>
           </div>
           <div>
             {tags.map((tag) => (

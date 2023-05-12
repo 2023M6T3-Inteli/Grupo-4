@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import styles from "./ProjectCard.module.scss";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../CardModal/Modal";
-import ApplyModal from "../ApplyModal/applyModal";
+import ProjectCardView from "../ProjectCardView/ProjectCardView";
+
+import styles from "./ProjectCard.module.scss";
+import { useLocation } from "react-router-dom";
 
 const ProjectCard = ({ project, user }) => {
   const { title, status, description, leader, deadline, tags } = project;
-
   const [modalOpen, setModalOpen] = useState(false);
+
+  const path = useLocation();
+
+  const pathName = path.pathname;
 
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
@@ -48,9 +53,9 @@ const ProjectCard = ({ project, user }) => {
         </div>
       </button>
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
-        {modalOpen && (
+        {modalOpen && pathName !== "/profile" && (
           <Modal modalOpen={modalOpen} handleClose={close}>
-            <ApplyModal
+            <ProjectCardView
               handleClose={close}
               project={project}
               user={user}

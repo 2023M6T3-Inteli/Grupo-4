@@ -5,9 +5,15 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { CiMenuKebab } from "react-icons/ci";
 
 import styles from "./applyModal.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const ApplyModal = ({ project, user, handleClose }) => {
   const { title, status, deadline } = project;
+  const navigate = useNavigate()
+
+  const subscribeHandler = () => {
+    navigate('/profile')
+  }
 
   return (
     <>
@@ -77,7 +83,7 @@ const ApplyModal = ({ project, user, handleClose }) => {
         </div>
       </div>
       <div className={styles.btnSumbit}>
-        <button>SUBSCRIBE</button>
+        <button onClick={subscribeHandler}>SUBSCRIBE</button>
       </div>
     </>
   );
