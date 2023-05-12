@@ -14,71 +14,95 @@ const VisualizeProject = () => {
 return(
   <div className={styles.container}>
     <div className={styles.ground}>
+      <div className={styles.intro}>
       <div>
         <img src={arrow} width={28} className={styles.arrow}/>
       </div>
 
-      <div>
-        <img src={heart} width={28} className={styles.heart}/>
+      <div className={styles.endintro}>
+        <div>
+          <img src={heart} width={28} className={styles.heart}/>
+        </div>
+
+        <div>
+          <img src={plus} width={28} className={styles.plus}/>
+        </div>
+      </div>
       </div>
 
-      <div>
-        <img src={plus} width={28} className={styles.plus}/>
-      </div>
-
-    <h1> Mobile Application Project </h1>
+    <div className={styles.title}>
+    <p> Mobile Application Project </p>
+    </div>
       <div className={styles.Leader}>
-        <img src= {user} width={20} alt="user"/>
+        <div className={styles.icon}>
+        <img src= {user} width={22} alt="user"/>
+        </div>
         <div>
           <p> Leader: Mariana Paula </p>
         </div>
       </div>
 
       <div className={styles.description}>
-        <img src={description} width={20} /> 
+        <div className={styles.icon}>
+        <img src={description} width={22} height={22}/> 
+        </div>
         <div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
         </div>
       </div>
 
       <div className={styles.calendar}>
-        <img src={calendar} width={20} />
+        <div className={styles.icon}>
+        <img src={calendar} width={22} />
+        </div>
         <div>
           <p>Start date: 10/01/2023</p>
         </div>
       </div>
 
       <div className={styles.calendar}>
-        <img src={calendar} width={20} />
+        <div className={styles.icon}>
+        <img src={calendar} width={22}  />
+        </div>
         <div>
           <p>End date: 10/10/2023</p>
         </div>
       </div>
 
       <div className={styles.tag}>
-        <img src={tag} width={20} />
+        <div className={styles.icon}>
+        <img src={tag} width={22} />
+        </div>
         <div>
           <p>TAGS</p>
         </div>
       </div>
 
       <div className={styles.vector}>
-        <img src={vector} width={20} />
+        <div className={styles.icon}>
+        <img src={vector} width={22} height={22} />
+        </div>
         <div>
+          <div className={styles.roles}>
           <p>ROLES</p>
+          </div>
         <div/>
-        <div>
+        <div className={styles.rowrole}>
           <p>Development | available: 6 roles</p>
         </div>
-        <div>
+        <div className={styles.rowrole}>
           <p>Dev Ops | available: 8 roles</p>
-        </div>
+        </div >
+        <div className={styles.rowrole}>
           <p>Marketing | available: 5 roles</p>
+          </div>
         </div>
       </div>
 
       <div className={styles.calendar}>
-        <img src={calendar} width={20} />
+        <div className={styles.icon}>
+        <img src={calendar} width={22} />
+        </div>
         <div>
           <p>Dead Line: 10/02/2023</p>
         </div>
