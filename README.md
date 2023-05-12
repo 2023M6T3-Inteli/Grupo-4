@@ -211,7 +211,26 @@ Atualizar a cada revisão/atualização da arquitetura, mantendo todas as 3 vers
 
 ## Arquitetura de Mensageria 
 	
+### Diagramas 
+![Arquitetura de Mensageria](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/1ffbc105-9b0c-4f53-8c90-a6a5081c4691)
+![Fluxo de Dados - Diagrama de sequência básico](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/8bb13a97-b7bb-4811-bda7-bdcf2c0a1294)
+
+Proteção contra ataques DDoS:
+O Load Balancer é o principal atuante nessa parte, pois com as configurações corretas, ele consegue aplicar técnicas capazes de lidar com os ataques. Seguem alguma aplicações:
+1- Filtragem de tráfego: Configurar com a finalidade de bloquear IPs e solicitações suspeitas.
+2- Distribuir o tráfego: Como o Load Balancer tem a capacidade de aumentar a quantidade de servidores, é possível distribuir essa grande quantidade de tráfego em diversos servidores.
+3- Serviços externos: Caso o Load Balancer não consiga lidar com ataques DDoS utilizando todas as técnicas já citadas, é possível dialogar com serviços externos para que o DDoS seja neutralizado.
+	
 ### Vantagens e Desvantagens Arquitetura de Mensageria 
+
+Vantagens:
+1- Comunicação de forma assíncrona: A comunicação de forma assíncrona permite que os diferentes componentes de um sistema distribuído se comuniquem sem a necessidade de disponibilidade a todo tempo. Possibilitando a interação de forma flexível, exemplificando, caso um serviço esteja fora do ar, não ocorrerá um erro total do sistema ao requisitar esse serviço.
+2- Individualidade: Os componentes se comunicam via mensagem, sem a necessidade de informações específicas um sobre o outro.
+3- Mensagens Escaláveis: Caso perceba-se uma demanda alta no sistema de mensagens, é possível mudar a quantidade de servidores e nós no processamento da informação.
+
+Desvantagens:
+1- Complexidade de implementação: Ao implementar em casos avançados, necessita-se de mais critérios de qualidade, como tratamento de erros, garantia de rapidez, etc. Sendo assim, é necessária boa organização e competência vinda de uma equipe para a implementação desse tipo de sistema.
+2- Sobrecarga do sistema: Pelo fato da comunicação ser assíncrona, caso um serviço não estiver disponível, aquela informação ficará aguardando até poder ser enviada, com isso, pode ocorrer uma sobrecarga de todo o sistema pelo fatos dessas mensagens estarem exigindo processamento. O que pode ocasionar em demora nas requisições, alta latência, etc.
 
 
 | Vantagens                                | Desvantagens                                        |
