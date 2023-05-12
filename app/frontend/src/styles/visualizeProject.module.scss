@@ -70,27 +70,11 @@
     }
 }
 
-.calendar{
-  display: flex;
-  flex-direction: row;
-  margin-right: 10px;
-  margin-bottom: 12px;
-  margin-top: 10px;
-  align-items: center;
-    div{
-      p{
-      color: white;
-      font-size: 14px;
-      }
-    }
-}
 
 .calendar{
   display: flex;
   flex-direction: row;
   margin-right: 10px;
-  margin-bottom: 12px;
-  margin-top: 10px;
   align-items: center;
     div{
       p{
@@ -138,7 +122,7 @@
     }
 }
 
-.calendar{
+.calendarDeadline{
   display: flex;
   flex-direction: row;
   margin-right: 10px;

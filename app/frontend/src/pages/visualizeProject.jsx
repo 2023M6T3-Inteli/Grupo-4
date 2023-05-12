@@ -99,7 +99,7 @@ return(
         </div>
       </div>
 
-      <div className={styles.calendar}>
+      <div className={styles.calendarDeadline}>
         <div className={styles.icon}>
         <img src={calendar} width={22} />
         </div>
