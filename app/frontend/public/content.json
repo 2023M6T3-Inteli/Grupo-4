@@ -77,25 +77,25 @@
     {
       "title": "Mobile Aplication Project",
       "status": "ACTIVE",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
-      "deadline": "xx/xx/xxxx",
+      "deadline": "15/05/2023",
       "tags": ["HTML", "CSS", "JavaScript", "React Native"]
     },
     {
       "title": "Mobile Aplication Project",
       "status": "ACTIVE",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
-      "deadline": "xx/xx/xxxx",
+      "deadline": "15/05/2023",
       "tags": ["HTML", "CSS", "JavaScript", "React Native"]
     },
     {
       "title": "Mobile Aplication Project",
       "status": "ACTIVE",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
-      "deadline": "xx/xx/xxxx",
+      "deadline": "15/05/2023",
       "tags": ["HTML", "CSS", "JavaScript", "React Native"]
     }
   ]

@@ -5,12 +5,13 @@ import ContentCard from "../components/ContentCard/ContentCard";
 import ProjectReduces from "../components/ProjectReduced/projectReduces";
 import ContentReduced from "../components/ContentReduced/contentReduced";
 import FeedNav from "../components/FeedNav/FeedNav";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
+import CardProject from "../components/ProjectCard/ProjectCard";
 
 const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
   const [projectPage, setProjectPage] = useState(false);
   const [contents, setContents] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   const changeToProjectHandler = () => {
     setContentPage(false);
@@ -28,7 +29,7 @@ const Perfil = (props) => {
       const data = await response.json();
 
       setContents(data.contents);
-      console.log(data.contents);
+      setProjects(data.projects);
     };
 
     fetchData();
@@ -100,13 +101,9 @@ const Perfil = (props) => {
                 return <ContentCard user={content.user} content={content} />;
               })}
             {projectPage && 
-            <>
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-              <ProjectCard />
-            </>
-            
+              projects.map((project) => {
+                return <CardProject project={project} />;
+              })
             }
           </div>
         </div>

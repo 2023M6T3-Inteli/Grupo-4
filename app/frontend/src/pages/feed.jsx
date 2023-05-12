@@ -5,6 +5,7 @@ import Search from "../components/Search/Search";
 import styles from "../styles/feed.module.scss";
 import ContentCard from "../components/ContentCard/ContentCard";
 import CardProject from "../components/ProjectCard/ProjectCard";
+import ApplyModal from "../components/ApplyModal/applyModal";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -44,6 +45,7 @@ const Feed = (props) => {
   if (!isLoading && contents) {
     return (
       <>
+        {/* <ApplyModal /> */}
         <div className={styles.header}>
           <FeedNav
             onChangeToProject={changeToProjectHandler}

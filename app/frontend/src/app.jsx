@@ -2,7 +2,7 @@ import React from "react";
 import {Route, Routes } from "react-router-dom";
 import Perfil from "./pages/perfil";
 import Feed from "./pages/feed";
-import { useLocation } from "react-router-dom";
+import {Link, useLocation} from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/login";
 // import Home from './pages/home';

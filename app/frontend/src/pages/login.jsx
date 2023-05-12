@@ -8,6 +8,7 @@ const Login = (props) => {
     const [ typePass, setTypePass ] = useState("password");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
+    const [ alreadySSO, setAlreadySSO ] = useState(false);
 
     const navigate = useNavigate();
 
@@ -22,7 +23,7 @@ const Login = (props) => {
     const submit = () => {
         console.log(email, password)
         if(email === "admin" && password === "admin"){
-            navigate("/feedProject")
+            navigate("/feed/project")
         } else {
             window.alert("Email ou senha incorretos")
         }
@@ -37,18 +38,33 @@ const Login = (props) => {
             <img src={logoDell}></img>
         </div>
 
-        <div className={styles.inputsLogin}>
-            <input type="text" placeholder="Email" onChange={event => setEmail(event.target.value)}></input>
-        </div>
+        { alreadySSO ?
+            <>
+                <div className={styles.inputsLogin}>
+                    <input type="text" placeholder="Email" onChange={event => setEmail(event.target.value)}></input>
+                </div>
 
-        <div className={styles.inputsLoginPassWord}>
-            <input type={typePass} placeholder="Password" onChange={event => setPassword(event.target.value)}></input>
-            <i onClick={() => {verifyPass()}} class="fa-regular fa-circle fa-2x"/>
-        </div>
+                <div className={styles.inputsLoginPassWord}>
+                    <input type={typePass} placeholder="Password" onChange={event => setPassword(event.target.value)}></input>
+                    {
+                        typePass === "password" ?
+                        <i onClick={() => {verifyPass()}} class="fa-regular fa-circle fa-2x"/>
+                        :
+                        <i onClick={() => {verifyPass()}} class="fa-solid fa-circle fa-2x"/>
+                    }
+                </div>
 
-        <div className={styles.btnLogin}>
-            <button onClick={() => {submit()}}>Entrar</button>
-        </div>
+                <div className={styles.btnLogin}>
+                    <button onClick={() => {submit()}}>Entrar</button>
+                </div>
+            </> : 
+            <>
+                <div className={styles.btnSSO}>
+                    <button onClick={() => {setAlreadySSO(true)}}>Entrar com Dell</button>
+                </div>
+            </>
+        }
+        
       </div>
     </>
   )
