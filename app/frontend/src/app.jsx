@@ -5,6 +5,7 @@ import Feed from "./pages/feed";
 import { useLocation} from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/login";
+import VisualizeProject from "./pages/visualizeProject";
 // import Home from './pages/home';
 // Import other necessary components
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/profile" element={<Perfil />} />
         <Route path="/feed/contents" element={<Feed showContent={true} />} />
         <Route path="/feed/projects" element={<Feed showProject={true} />} />
+        <Route path="/visualizeproject" element={<VisualizeProject/>} />
         {/* <Route path="/home" element={<Home/>} /> */}
       </Routes>
     </>
