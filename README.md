@@ -14,12 +14,16 @@
 </table>
 
 . Nome do Projeto: xxxx
-. Nome do Parceiro: xxxx
+. Nome do Parceiro: Dell technologies
 . Nome do Grupo: xxxx
-. Integrantes do grupo…
-  aaaaaa
-  bbbbbb
-  cccccc
+. Integrantes do grupo:
+  Alexandre Fonseca 
+  Beatriz Hirasaki
+  Felipe Gomes
+  Luiz Alencar
+  Mariana Silva
+  Pedro Baptista
+  Stefano Tinelli
 
 <font size="+12"><center>
 Template do Documento do Projeto
@@ -79,7 +83,9 @@ Solução de otimização de corte de bobinas de papel
 
 ## Parceiro de Negócios
 
-Breve descrição da instituição representada pelo parceiro de negócios, porte, onde atua, área de mercado que atua e posicionamento no mercado.
+Nosso parceiro de negócio é a Dell, uma empresa voltada principalmente para a venda de computadores com a maior parte dos seus clientes sendo outras empresas. É uma empresa conhecida por sua capacidade de inovação e que busca oferecer soluções tecnológicas personalizadas para atender as necessidades de seus clientes,  mas existem também outras especialidades como a venda de outras tecnologias (mouses, fone de ouvido, consoles e acessórios para videogame) e um portfólio de soluções de TI (servidores, storage, hiperconvergência e proteção de dados).
+
+A Dell Technologies é líder no mercado de computadores e equipamentos de tecnologia, sendo uma das maiores fabricantes de computadores do mundo, e também no segmento corporativo com 38,5% das vendas do mercado brasileiro e de pequenas empresas com 45,2% das vendas de desktops e notebooks segundo dados da IDC Quartely Personal Computing Devide Tracker.
 
 
 ## Problema
@@ -94,22 +100,41 @@ Nesta seção, serão apresentados os problemas identificados e as necessidades 
 
 ### Matriz de avaliação de valor Oceano Azul
 
-Definir 8 atributos que são importantes para os clientes e diferenciá-los da concorrência por meio das ações de Reduzir, Eliminar, Aumentar e Criar.
+Matriz Oceano Azul é uma ferramenta estratégica utilizada por empresas para a criação de novos mercados, nos quais há pouca ou nenhuma concorrência, ou seja, o oceano ainda não foi explorado. propõe uma mudança de foco das empresas para a criação de novos mercados, como a solução que será desenvolvida que traz algo inovador e estratégico para o aprendizado interno da empresa. E de forma geral, é uma ferramenta estratégica que incentiva a pensar fora da caixa e criar novos “mercados”.
+
+A matriz é dividida em quatro etapas: eliminar, reduzir, aumentar e criar. Na primeira etapa, as empresas devem identificar quais aspectos do mercado existente podem ser eliminados. Na segunda etapa, é preciso reduzir os aspectos que não são essenciais para o cliente. Na terceira etapa, a empresa deve identificar quais aspectos podem ser aumentados, como por exemplo, aumentar a eficiência ou a qualidade do produto ou serviço. Na última etapa, a empresa deve criar algo novo, que atenda às necessidades do cliente de uma forma inovadora e diferenciada.
 
 
 ### Proposta de Valor e Value Proposition Canvas
 
-Apresenta o Canvas de Proposta de Valor com relação à solução.
+O Value Proposition Canvas é uma ferramenta valiosíssima de planejamento estratégico que ajuda as empresas a definir o valor que oferecem aos clientes. Ele consiste em um framework que objetiva certificar a compatibilidade do produto em desenvolvimento para com o mercado. Isso é feito por meio da modelagem da relação entre o valor agregado a tal produto e as expectativas inerentes ao público alvo - que por sua vez permite certificar qual o valor criado pelo produto, e qual o público alvo para tal produto.
 
 
 ### Matriz de Risco
 
-Apresenta a matriz de risco com relação ao projeto.
+Matriz de Risco é uma ferramenta utilizada para identificar e avaliar os riscos de um projeto, atividade ou processo. É uma representação visual que ajuda a empresa a identificar quais são os riscos mais significativos e a priorizar ações para gerenciá-los.
+
+Com base na avaliação dos riscos, a matriz de risco permite identificar quais são os riscos mais críticos e, portanto, exigem maior atenção e ação imediata, e a partir disso, é possível definir um plano de gerenciamento de riscos, que inclui ações preventivas e de mitigação para minimizar os impactos dos riscos identificados.
 
 
 ### Análise financeira do projeto
 
-Informar o quanto o parceiro tem projetado para investir no projeto e quais são as projeções de custos e de receitas, relacionadas ao projeto (para o período de um ano), que o parceiro projeta ter.
+O primeiro ponto a ser considerado é o tipo de projeto. Levando em conta o atual, não existe nenhum valor de gasto projetado pelo fato de ser um projeto interno da Dell em parceria com a faculdade Inteli. Contudo, é possível analisar o custo do projeto e quais serão as vantagens ao concluí-lo.
+
+O custo principal do projeto é a hospedagem de toda a plataforma, sendo assim, é necessário pensar na quantidade de acessos à plataforma como uma base para o cálculo do custo. A Dell possui 175.000 funcionários ao redor do mundo, e tendo um cenário otimista ao pensar na aceitação da plataforma, pode-se dizer que cerca de 10% dos colaboradores acessarão a plataforma ao mesmo tempo. Com isso, é necessário utilizar instâncias com alto poder de processamento como a EC2 M5.
+
+O preço de utilização por demanda é de aproximadamente 1 dólar/hora, então minimamente ao mês o gasto será de 720 dólares, porém caso ocorra um aumento do tráfego, a demanda por máquinas pode ser maior, consequentemente aumentando o custo.
+
+Além disso, é necessário considerar o custo da hospedagem do banco de dados, também do modelo m5. O preço de utilização dessa categoria é de 0,42 dólar/hora, considerando em uma perspectiva mensal, o gasto seria de 300 dólares.
+
+Para tudo funcionar de maneira contínua, é necessário alocar horas de um funcionário com conhecimento em AWS no projeto, caso ocorra algum erro na aplicação na produção, ou seja requisitada alguma manutenção.
+
+É possível estimar também o gasto com a equipe que desenvolverá toda a engenharia.
+
+Lembrando que os valores presentes na planilha são referentes a um gasto mensal, com a possibilidade de visualização na coluna valor mensal.
+
+OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fato de que a cada um funcionário perdido, há um grande investimento de dinheiro e tempo gastos em tal. O qual nossa aplicação também ajuda, pois nós garantimos uma maior retenção desses.
+
 
 
 ## Mapeamento do processo
