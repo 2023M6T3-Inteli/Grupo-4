@@ -179,31 +179,7 @@ A seção de requisitos do sistema é atualizada constantemente durante o ciclo 
 
 ## Requisitos Funcionais
 Esta seção da documentação do software fornece uma descrição detalhada dos requisitos do sistema. Ela inclui informações sobre as funcionalidades esperadas do software, as restrições e limitações do sistema e outras especificações relevantes.
-Código	Descrição do Requisito	Tipo	Grupo	Prioridade
-RF01	O sistema deve permitir o usuário acessar os dois feeds, de projeto e conteúdo	Funcional	Acessibilidade	HIGH
-RF02	O sistema deve permitir a criação de novos projetos	Funcional	Controle	HIGH
-RF03	O sistema deve permitir a edição das informações do projeto	Funcional	Controle	HIGH
-RF04	O sistema deve permitir a exclusão de projetos criados 	Funcional	Controle	HIGH
-RF05	O sistema deve permitir os funcionários se inscreverem nos projetos	Funcional	Acessibilidade	HIGH
-RF06	O sistema deve permitir o líder do projeto aprovar ou reprovar um candidato	Funcional	Controle	HIGH
-RF07	O sistema deve permitir o responsável do projeto adicionar um co-responsável	Funcional	Funcionamento	MEDIUM
-RF08	O sistema deve permitir o usuário pesquisar os projetos e os conteúdos	Funcional	Acessibilidade	HIGH
-RF09	O sistema deve permitir o usuário efetuar login na plataforma	Funcional	Acessibilidade	HIGH
-RF10	O sistema deve permitir o usuário curtir os conteúdos que tem interesse	Funcional	Acessibilidade	MEDIUM
-RF11	O sistema deve permitir o usuário compartilhar conteúdos que tem interesse 	Funcional	Funcionamento	MEDIUM
-RF12	O sistema deve permitir o usuário filtrar os projetos por características específicas 	Funcional	Visualização	MEDIUM
-RF13	O sistema deve permitir os líderes do projeto visualizar o perfil dos usuários inscritos 	Funcional	Controle	MEDIUM
-RF14	O sistema deve permitir os líderes criar e selecionar funções para o projeto	Funcional	Controle	HIGH
-RF15	O sistema deve permitir o cancelamento de um projeto pelo seu criador	Funcional	Controle	HIGH
-RF16	O sistema deve mostrar no perfil do usuário o histórico de projetos que ele realizou 	Funcional	Funcionamento	MEDIUM
-RF17	O sistema deve enviar um email de aprovação do projeto para o gestor do líder do projeto	Funcional	Comunicação	MEDIUM
-RF18	O sistema deve fazer match entre os conteúdos curtidos pelo usuário e os projetos 	Funcional	Funcionamento	HIGH
-RF19	O usuário deve enviar notificação para o usuário sempre que alguém enviar um conteúdo para ela	Funcional	Funcionamento	MEDIUM
-RF20	O sistema deve permitir o usuário publicar conteúdos na plataforma	Funcional	Acessibilidade	HIGH
-RF21	O sistema deve permitir os usuários denunciarem conteúdos impróprios na aplicação	Funcional	Acessibilidade	HIGH
-RF22	O sistema deve permitir o usuário responder um questionário com suas preferências	Funcional	Acessibilidade	MEDIUM
-RF23	O sistema deve fazer recomendações ao usuário de acordo com suas preferências 	Funcional	Funcionamento	HIGH
-RF24	O sistema deve permitir os usuários moderadores excluirem conteúdos denunciados 	Funcional	Acessibilidade	HIGH
+
 
 ## Requisitos não Funcionais
 
