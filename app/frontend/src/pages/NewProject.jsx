@@ -37,24 +37,46 @@ const NewProject = () => {
     setTags(newTags);
   };
 
-  return (
-    <div className={styles.container}>
+
+
+
+//pagina
+
+return (
+
+  <div>
+
+    <div>
+
+    <div className={styles.header}>
+
+      <h1>Create New Project</h1>
+
+    </div> 
+
+    </div>
+    <div className={styles.generalContainer}>
+
+    <div>
 
       <div>
-      <h1>Create New Project</h1>
-      </div>
-
-      <div className={styles.labelContainer}>
+      
       <label>
          Title:
          <input value={title} onChange={(e) => setTitle(e.target.value)} />
        </label>
+       </div>
+      
+      <div>
        <label>
          Leader:
          <input value={leader} onChange={(e) => setLeader(e.target.value)} />
        </label>
       </div>
-      <div className={styles.labelContainer}>
+      
+      
+      
+      <div >
        <label>
          Description:
          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
@@ -73,7 +95,7 @@ const NewProject = () => {
        </label>
         </div>
 
-      <div className={styles.dateContainer}>
+      <div classname={styles.date} >
        <label>
          Start Date:
          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
@@ -83,7 +105,7 @@ const NewProject = () => {
          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
        </label>
         </div>
-      <div className={styles.dateContainer}>
+      <div >
       <label>
          Deadline:
         <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
@@ -95,16 +117,15 @@ const NewProject = () => {
      </div>
     
 
-     <div className={styles.dateContainer}>
-      <h2>Roles</h2>
+     
+     <div className="rolesContainer">
+      
       {roles.map((role, index) => (
-        <div key={index}>
-          <label>
-            Role Name:
-            </label>
+        <div key={index} className="roleItem">
+          
             <input
               value={role.name}
-              onChange={(e) => handleRoleChange(index, 'name', e.target.value)}
+              onChange={(e) => handleRoleChange(index, 'name', e.target.value)} placeholder='role'
             />
           
           <label>
@@ -120,24 +141,40 @@ const NewProject = () => {
         </div>
         
       ))}
-
+    </div>
       <div>
       <button type="button" onClick={handleAddRole}>+</button>
       </div>
       </div>
-      <div className={styles.dateContainer}>
-      <h2>Tags</h2>
-      {tags.map((tag, index) => (
-        <div key={index}>
-        <input
-          value={tag}
-          onChange={(e) => handleTagChange(index, e.target.value)}
-          />
-          </div>
-          ))}
-      <div>
-      <button onClick={handleAddTag}>+</button>
-      </div>
+      <div className={styles.tagsContainer}>
+  <h3>Tags</h3>
+  {tags.map((tag, index) => (
+    <div key={index}>
+      <input
+        value={tag}
+        onChange={(e) => handleTagChange(index, e.target.value)}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: 'var(--neutral-50)',
+          backgroundColor: 'var(--primary-600)',
+          height: '3rem',
+          width: 'auto',
+          padding: '0.5rem 1rem',
+          borderRadius: '0.8rem',
+          border: 'none',
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+          fontWeight: 'lighter',
+          fontSize: '11pt',
+          margin: '1rem 1rem 0 0'
+        }}
+      />
+    </div>
+  ))}
+  <button onClick={handleAddTag}>+</button>
+</div>
+
     </div>
     </div>
 );
