@@ -23,7 +23,7 @@ const Login = (props) => {
     const submit = () => {
         console.log(email, password)
         if(email === "admin" && password === "admin"){
-            navigate("/feed")
+            navigate("/feed/contents")
         } else {
             window.alert("Email ou senha incorretos")
         }

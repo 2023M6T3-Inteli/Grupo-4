@@ -56,11 +56,11 @@ const Navbar = (props) => {
             </label>
             <ul>
               <li ref={dropdownFeed}>
-                <a href="/feed">
-                  <h2>PROJECTS</h2>
-                </a>
-                <a href="/feed">
+                <a href="/feed/contents">
                   <h2>CONTENTS</h2>
+                </a>
+                <a href="/feed/projects">
+                  <h2>PROJECTS</h2>
                 </a>
               </li>
             </ul>
