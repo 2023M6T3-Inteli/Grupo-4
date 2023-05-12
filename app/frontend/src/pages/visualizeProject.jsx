@@ -107,7 +107,9 @@ return(
           <p>Dead Line: 10/02/2023</p>
         </div>
       </div>
-
+      <div className={styles.button}>
+          <button >Subscribe</button>
+        </div>
     </div>
 
   </div>
