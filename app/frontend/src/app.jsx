@@ -14,16 +14,14 @@ const App = () => {
   const pathName = path.pathname;
 
   return (
-    <Router>
-      <Routes>
-        {/* Add your other routes here */}
-        <Route path="/" element={<div>LOGIN</div>} />
-        <Route path="/profile" element={<Perfil />} />
-        <Route path="/feed" element={<Feed showContent={true} />} />
-        <Route path="/feed" element={<Feed showProject={true} />} />
-        {/* <Route path="/home" element={<Home/>} /> */}
-      </Routes>
-    </Router>
+    <Routes>
+      {/* Add your other routes here */}
+      <Route path="/" element={<div>LOGIN</div>} />
+      <Route path="/profile" element={<Perfil />} />
+      <Route path="/feed" element={<Feed showContent={true} />} />
+      <Route path="/feed" element={<Feed showProject={true} />} />
+      {/* <Route path="/home" element={<Home/>} /> */}
+    </Routes>
   );
 };
 
