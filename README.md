@@ -108,6 +108,7 @@ A matriz é dividida em quatro etapas: eliminar, reduzir, aumentar e criar. Na p
 ### Proposta de Valor e Value Proposition Canvas
 
 O Value Proposition Canvas é uma ferramenta valiosíssima de planejamento estratégico que ajuda as empresas a definir o valor que oferecem aos clientes. Ele consiste em um framework que objetiva certificar a compatibilidade do produto em desenvolvimento para com o mercado. Isso é feito por meio da modelagem da relação entre o valor agregado a tal produto e as expectativas inerentes ao público alvo - que por sua vez permite certificar qual o valor criado pelo produto, e qual o público alvo para tal produto.
+![Canvas Value Proposition](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/ddbd6d63-189d-4b06-bde6-e03deb96d5a2)
 
 
 ### Matriz de Risco
@@ -115,6 +116,7 @@ O Value Proposition Canvas é uma ferramenta valiosíssima de planejamento estra
 Matriz de Risco é uma ferramenta utilizada para identificar e avaliar os riscos de um projeto, atividade ou processo. É uma representação visual que ajuda a empresa a identificar quais são os riscos mais significativos e a priorizar ações para gerenciá-los.
 
 Com base na avaliação dos riscos, a matriz de risco permite identificar quais são os riscos mais críticos e, portanto, exigem maior atenção e ação imediata, e a partir disso, é possível definir um plano de gerenciamento de riscos, que inclui ações preventivas e de mitigação para minimizar os impactos dos riscos identificados.
+![Matriz de Risco](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/6f4ef38c-f419-4167-891d-a3acf4f608e5)
 
 
 ### Análise financeira do projeto
@@ -134,6 +136,7 @@ Para tudo funcionar de maneira contínua, é necessário alocar horas de um func
 Lembrando que os valores presentes na planilha são referentes a um gasto mensal, com a possibilidade de visualização na coluna valor mensal.
 
 OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fato de que a cada um funcionário perdido, há um grande investimento de dinheiro e tempo gastos em tal. O qual nossa aplicação também ajuda, pois nós garantimos uma maior retenção desses.
+![Análise financeira](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/53466f2a-bf02-40ad-a309-b3854add02a3)
 
 
 
@@ -180,6 +183,18 @@ A seção de requisitos do sistema é atualizada constantemente durante o ciclo 
 ## Requisitos Funcionais
 Esta seção da documentação do software fornece uma descrição detalhada dos requisitos do sistema. Ela inclui informações sobre as funcionalidades esperadas do software, as restrições e limitações do sistema e outras especificações relevantes.
 
+| Código   |Descrição do Requisito                          | Tipo                  |Grupo                 |Prioridade        |
+|----------|------------------------------------------------|-----------------------|----------------------|------------------|
+| RF01     | O sistema deve permitir o usuário acessar os dois feeds, de projeto e conteúdo| Funcional | Acessibilidade| HIGH |
+| RF02     | O sistema deve permitir a criação de novos projetos| Funcional | Controle | HIGH |
+| RF03     | O sistema deve permitir a edição das informações do projeto| Funcional | Controle | HIGH |
+| RF04     | O sistema deve permitir a exclusão de projetos criados | Funcional | Controle | HIGH |
+| RF05     | O sistema deve permitir os funcionários se inscreverem nos projetos| Funcional | Acessibilidade| HIGH |
+| RF06     | O sistema deve permitir o líder do projeto aprovar ou reprovar um candidato| Funcional | Controle | HIGH |
+| RF07     | O sistema deve permitir o responsável do projeto adicionar um co-responsável| Funcional | Funcionamento | MEDIUM |
+| RF08     | O sistema deve permitir o usuário pesquisar os projetos e os conteúdos| Funcional | Acessibilidade | HIGH |
+| RF09     | O sistema deve permitir o usuário efetuar login na plataforma| Funcional | Acessibilidade | HIGH |
+	
 
 ## Requisitos não Funcionais
 
