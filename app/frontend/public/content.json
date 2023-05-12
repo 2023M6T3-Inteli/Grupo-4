@@ -1,7 +1,7 @@
 {
   "contents": [
     {
-      "title": "Cloud systems structures",
+      "title": "Cloud systems structures 1",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
       "tags": ["AWS", "JavaScript"],
       "user": {
@@ -9,7 +9,30 @@
         "area": "Data Science",
         "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
       },
-      "video": null
+      "media": null,
+      "links": [
+        "medium.com",
+        "youtube.com"
+      ]
+    },
+    {
+      "title": "Cloud systems structures 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "tags": ["AWS", "JavaScript"],
+      "user": {
+        "name": "Luiz Alencar",
+        "area": "Data Science",
+        "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
+      },
+      "media": [
+        "https://www.youtube.com/embed/nRgyLkZkbmQ",
+        "https://images.unsplash.com/photo-1683009427042-e094996f9780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+      ],
+      "links": [
+        "medium.com",
+        "youtube.com"
+      ]
     },
     {
       "title": "Cloud systems structures",
@@ -20,7 +43,15 @@
         "area": "Data Science",
         "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
       },
-      "video": "https://www.youtube.com/embed/nRgyLkZkbmQ"
+      "media": [
+        "https://www.youtube.com/embed/eKRBDvX4htI",
+        "https://images.unsplash.com/photo-1683009427042-e094996f9780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+      ],
+      "links": [
+        "medium.com",
+        "youtube.com"
+      ]
     },
     {
       "title": "Cloud systems structures",
@@ -31,18 +62,15 @@
         "area": "Data Science",
         "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
       },
-      "video": "https://www.youtube.com/embed/eKRBDvX4htI"
-    },
-    {
-      "title": "Cloud systems structures",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-      "tags": ["AWS", "JavaScript"],
-      "user": {
-        "name": "Luiz Alencar",
-        "area": "Data Science",
-        "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
-      },
-      "video": "https://www.youtube.com/embed/nRgyLkZkbmQ"
+      "media": [
+        "https://www.youtube.com/embed/nRgyLkZkbmQ",
+        "https://images.unsplash.com/photo-1683009427042-e094996f9780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+      ],
+      "links": [
+        "medium.com",
+        "youtube.com"
+      ]
     }
   ],
   "projects": [

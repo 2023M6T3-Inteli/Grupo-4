@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./cardProject.module.scss";
+import styles from "./ProjectCard.module.scss";
 
-const CardProject = (props) => {
+const ProjectCard = (props) => {
   const { title, status, description, leader, deadline, tags } = props.project;
 
   return (
@@ -36,4 +36,4 @@ const CardProject = (props) => {
   );
 };
 
-export default CardProject;
+export default ProjectCard;

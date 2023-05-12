@@ -4,7 +4,7 @@ import Search from "../components/Search/Search";
 
 import styles from "../styles/feed.module.scss";
 import ContentCard from "../components/ContentCard/ContentCard";
-import CardProject from "../components/CardProject/CardProject";
+import CardProject from "../components/ProjectCard/ProjectCard";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
