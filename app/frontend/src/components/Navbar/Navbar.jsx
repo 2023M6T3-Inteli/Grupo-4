@@ -1,7 +1,7 @@
 import s from "./Navbar.module.scss";
 import { useRef } from "react";
 import { TbLayoutDashboard } from "react-icons/tb";
-import { HiOutlineHome } from "react-icons/hi";
+// import { HiOutlineHome } from "react-icons/hi";
 import { FiPlusSquare } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const Navbar = (props) => {
 
   const toggleNav = (e) => {
     e?.preventDefault();
+    window.scrollTo(0, 0)
     nav.current.classList.toggle(s.active);
     window.document.body.classList.toggle(s.overflowHidden)
   };
@@ -49,14 +50,14 @@ const Navbar = (props) => {
 
       <div ref={nav} className={s.navigation}>
         <ul>
-          <li>
+          {/* <li>
             <a href="./home">
               <label>
                 <HiOutlineHome />
                 <h1>HOME</h1>
               </label>
             </a>
-          </li>
+          </li> */}
           <li>
             <label onClick={toggleDropdownFeed}>
               <TbLayoutDashboard />
