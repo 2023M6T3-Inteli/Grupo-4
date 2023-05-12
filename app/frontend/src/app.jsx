@@ -20,8 +20,8 @@ const App = () => {
         {/* Add your other routes here */}
         <Route path="/" element={<Login />} />
         <Route path="/profile" element={<Perfil />} />
-        <Route path="/feed/content" element={<Feed showContent={true} />} />
-        <Route path="/feed/project" element={<Feed showProject={true} />} />
+        <Route path="/feed" element={<Feed showContent={true} />} />
+        <Route path="/feed" element={<Feed showProject={true} />} />
         {/* <Route path="/home" element={<Home/>} /> */}
       </Routes>
     </>
