@@ -7,7 +7,7 @@ import { CiMenuKebab } from "react-icons/ci";
 import styles from "./applyModal.module.scss";
 
 const ApplyModal = ({ project, user, handleClose }) => {
-  const { title, status, deadline, description, tags, media, links } = project;
+  const { title, status, deadline } = project;
 
   return (
     <>
