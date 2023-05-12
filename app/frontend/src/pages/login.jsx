@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "../styles/login.module.scss";
 import logoDell from "../Assets/Dell.png";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const Login = (props) => {
     const submit = () => {
         console.log(email, password)
         if(email === "admin" && password === "admin"){
-            navigate("/feed/project")
+            navigate("/feed")
         } else {
             window.alert("Email ou senha incorretos")
         }
@@ -35,7 +35,7 @@ const Login = (props) => {
     <>
       <div className={styles.bodyLogin}>
         <div className={styles.logoDell}>
-            <img src={logoDell}></img>
+            <img src={logoDell} alt="logo" />
         </div>
 
         { alreadySSO ?

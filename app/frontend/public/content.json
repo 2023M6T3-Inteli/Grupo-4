@@ -10,10 +10,7 @@
         "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
       },
       "media": null,
-      "links": [
-        "medium.com",
-        "youtube.com"
-      ]
+      "links": ["medium.com", "youtube.com"]
     },
     {
       "title": "Cloud systems structures 2",
@@ -29,10 +26,7 @@
         "https://images.unsplash.com/photo-1683009427042-e094996f9780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
       ],
-      "links": [
-        "medium.com",
-        "youtube.com"
-      ]
+      "links": ["medium.com", "youtube.com"]
     },
     {
       "title": "Cloud systems structures",
@@ -48,10 +42,7 @@
         "https://images.unsplash.com/photo-1683009427042-e094996f9780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
       ],
-      "links": [
-        "medium.com",
-        "youtube.com"
-      ]
+      "links": ["medium.com", "youtube.com"]
     },
     {
       "title": "Cloud systems structures",
@@ -67,10 +58,7 @@
         "https://images.unsplash.com/photo-1683009427042-e094996f9780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
       ],
-      "links": [
-        "medium.com",
-        "youtube.com"
-      ]
+      "links": ["medium.com", "youtube.com"]
     }
   ],
   "projects": [
@@ -80,7 +68,12 @@
       "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
       "deadline": "15/05/2023",
-      "tags": ["HTML", "CSS", "JavaScript", "React Native"]
+      "tags": ["HTML", "CSS", "JavaScript", "React Native"],
+      "user": {
+        "name": "Luiz Alencar",
+        "area": "Data Science",
+        "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
+      }
     },
     {
       "title": "Mobile Aplication Project",
@@ -88,7 +81,12 @@
       "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
       "deadline": "15/05/2023",
-      "tags": ["HTML", "CSS", "JavaScript", "React Native"]
+      "tags": ["HTML", "CSS", "JavaScript", "React Native"],
+      "user": {
+        "name": "Luiz Alencar",
+        "area": "Data Science",
+        "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
+      }
     },
     {
       "title": "Mobile Aplication Project",
@@ -96,7 +94,12 @@
       "description": "Teste de Projeto para a apresentação do projeto de aplicativo mobile",
       "leader": "Mariana Paula",
       "deadline": "15/05/2023",
-      "tags": ["HTML", "CSS", "JavaScript", "React Native"]
+      "tags": ["HTML", "CSS", "JavaScript", "React Native"],
+      "user": {
+        "name": "Luiz Alencar",
+        "area": "Data Science",
+        "picture": "https://avatars.githubusercontent.com/u/68920578?v=4"
+      }
     }
   ]
 }
