@@ -8,10 +8,13 @@ const userController = require("../controllers/user");
 const unsureAuthenticated = require("../middlewares/unsureAuthenticated");
 
 router.post(
-    "/auth",
+    "/register",
     [body("email", "Email é necessário").exists({ checkFalsy: true })],
     [body("password", "Senha é necessária").exists({ checkFalsy: true })],
-    userController.Authenticated
+    [body("name", "Nome é necessária").exists({ checkFalsy: true })],
+    [body("area", "Area é necessária").exists({ checkFalsy: true })],
+    [body("tags", "Tags é necessária").exists({ checkFalsy: true })],
+    userController.Create
 );
 
 //Exporta o ROUTER
