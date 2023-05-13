@@ -8,7 +8,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
   const { title, description, tags, media, links } = content;
 
   return (
-    <>
+    <div className={styles.container}>
       <header className={styles.header}>
         <div>
           <button onClick={handleClose}>
@@ -77,7 +77,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
           <img src="/temporary/blue-stars.svg" alt="stars_icon" />
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

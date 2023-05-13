@@ -24,7 +24,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
   const open = () => setModalOpen(true);
 
   return (
-    <>
+    <div className={styles.container}>
       <header className={styles.header}>
         <button onClick={handleClose}>
           <IoIosArrowBack size={25} />
@@ -150,7 +150,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           </CentralModal>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 
