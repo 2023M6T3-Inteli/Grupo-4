@@ -4,6 +4,7 @@ import { TbLayoutDashboard } from "react-icons/tb";
 // import { HiOutlineHome } from "react-icons/hi";
 import { FiPlusSquare } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
+import { AiOutlineStar } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
@@ -92,6 +93,14 @@ const Navbar = (props) => {
               <button className={s.profile} onClick={() => navigateHandler("/profile")}>
                 <IoPersonOutline />
                 <h1>PROFILE</h1>
+              </button>
+            </label>
+          </li>
+          <li>
+            <label>
+              <button className={s.profile} onClick={() => navigateHandler("/ranking")}>
+                <AiOutlineStar />
+                <h1>RANKING</h1>
               </button>
             </label>
           </li>
