@@ -50,14 +50,14 @@ return (
 
     <div className={styles.header}>
 
-      <h1>Create New Project</h1>
-
+     
     </div> 
 
     </div>
     <div className={styles.generalContainer}>
 
     <div>
+    <h3>  Create New Project </h3>
 
       <div>
       
@@ -95,7 +95,7 @@ return (
        </label>
         </div>
 
-      <div classname={styles.date} >
+      <div className={styles.date} >
        <label>
          Start Date:
          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />

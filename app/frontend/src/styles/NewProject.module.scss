@@ -65,7 +65,22 @@
 }
 
 
-  
+.date{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+    .date input{
+      width: 5px;
+      height: 30px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-bottom: 1px solid white;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+} 
 
 
 input, textarea, select {
