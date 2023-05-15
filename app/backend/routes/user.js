@@ -17,5 +17,40 @@ router.post(
     userController.Create
 );
 
+router.post(
+    "/auth",
+    [body("email", "Email é necessário").exists({ checkFalsy: true })],
+    [body("password", "Senha é necessária").exists({ checkFalsy: true })],
+    userController.Auth
+);
+
+router.put(
+    "/update/:id",
+    [param("id", "ID é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    userController.Update
+);
+
+router.delete(
+    "/delete/:id",
+    [param("id", "ID é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    userController.Delete
+);
+
+router.get(
+    "/getUserByID/:id",
+    [param("id", "ID é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    userController.GetUser
+);
+
+router.get(
+    "/get",
+    unsureAuthenticated.unsureAuthenticated,
+    userController.GetUserCalling
+);
+
+
 //Exporta o ROUTER
 module.exports = router;
