@@ -1,0 +1,14 @@
+.modal {
+  position: absolute;
+  bottom: 0;
+  width: clamp(50%, 700px, 90%);
+  height: calc(100vh - 8.5rem);
+  background: var(--neutral-900);
+  color: var(--neutral-50);
+  margin: auto;
+  padding: 2rem;
+
+  border-radius: 0.5rem 0.5rem 0 0; 
+  display: flex;
+  flex-direction: column;
+}
