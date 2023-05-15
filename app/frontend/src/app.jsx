@@ -1,4 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NewProject from './pages/NewProject';
+import NewContent from "./pages/NewContent";
 import {Route, Routes } from "react-router-dom";
 import Perfil from "./pages/perfil";
 import Feed from "./pages/feed";
@@ -19,6 +22,9 @@ const App = () => {
       {pathName === "/" ? null : <Navbar />}
       <Routes>
         {/* Add your other routes here */}
+        <Route path="/" element={<div>LOGIN</div>} />
+        <Route path="/newproject" element={<NewProject />} />
+        <Route path="/newcontent" element={<NewContent />} />
         <Route path="/" element={<Login />} />
         <Route path="/profile" element={<Perfil />} />
         <Route path="/feed/contents" element={<Feed showContent={true} showProject={false}/>} />
