@@ -17,18 +17,18 @@
 . Nome do Parceiro: Dell technologies
 . Nome do Grupo: xxxx
 . Integrantes do grupo:
-  Alexandre Fonseca 
-  Beatriz Hirasaki
-  Felipe Gomes
-  Luiz Alencar
-  Mariana Silva
-  Pedro Baptista
-  Stefano Tinelli
+  Alexandre Fonseca <br/>
+  Beatriz Hirasaki <br/>
+  Felipe Gomes <br/>
+  Luiz Alencar <br/>
+  Mariana Silva <br/>
+  Pedro Baptista <br/>
+  Stefano Tinelli <br/>
 
 <font size="+12"><center>
-Template do Documento do Projeto
-Módulo 6 - Engenharia de Software
-Solução de otimização de corte de bobinas de papel
+Template do Documento do Projeto <br/>
+Módulo 6 - Engenharia de Software <br/>
+
 </center></font>
 
 >*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos.*
@@ -341,10 +341,13 @@ Recursos e funcionalidades de inclusão e acessibilidade já devem estar previst
 	
 O grupo deve demonstrar que a UI: (1) se adequa a diferentes contextos e necessidades do usuário, já que se trata de uma aplicação mobile, (2) é transparente, ou seja, atualiza o usuário de forma clara e precisa sobre cada processo que ocorre no sistema, (3) oferece feedbacks (visuais, textuais e, se aplicável, sonoros e táteis) rápidos/imediatos, (4) implementa linguagem amigável e personalizável para constituir uma experiência (4a) coerente com a identidade da marca e (4b) intuitiva e fluida, mitigando possíveis erros do usuário.
 	
+link para wireframe: https://www.figma.com/file/jKjtj5vSs9huTVwh0fj8cL/M2-G4?type=design&node-id=1%3A2&t=soqkiayCKvyOWzt0-1
 
 ## Design de Interface  - Seleção de Estilos
 	
 Refere-se ao design visual, cores, tipografia, imagens, logotipos, ou seja, os elementos visuais que compõem o produto. Aqui você deve colocar o link para seu documento de guia de estilos e também colar as capturas de tela destes estilos.
+![M2-G4](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/3924c154-f9f7-449a-b707-a979b5442f76)
+
 
 # Projeto de Banco de Dados
 
