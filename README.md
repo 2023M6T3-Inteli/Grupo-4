@@ -258,6 +258,15 @@ Exemplo de Diagrama de Casos de Uso
 
 Atualizar a cada revisão/atualização da arquitetura, mantendo todas as 3 versões no documento..
 
+## Versão 1
+<img src="https://imgur.com/1nSwzws.png"></img>
+
+## Versão 2
+<img src="https://imgur.com/UkTlRNK.png"></img>
+
+## Fluxo de Dados
+<img src="https://imgur.com/txCjN9e.png"></img>
+
 
 ## Arquitetura de Mensageria 
 	
@@ -368,7 +377,7 @@ O modelo lógico de banco de dados é uma representação abstrata e simplificad
 
 ## Teste Unitário
 
-Link ou imagem da tabela com dados organizados dos testes realizados.
+<img src="https://imgur.com/tvplcJG.png"></img>
 
 
 ## Teste de Integração
