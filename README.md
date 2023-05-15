@@ -194,12 +194,43 @@ Esta seção da documentação do software fornece uma descrição detalhada dos
 | RF07     | O sistema deve permitir o responsável do projeto adicionar um co-responsável| Funcional | Funcionamento | MEDIUM |
 | RF08     | O sistema deve permitir o usuário pesquisar os projetos e os conteúdos| Funcional | Acessibilidade | HIGH |
 | RF09     | O sistema deve permitir o usuário efetuar login na plataforma| Funcional | Acessibilidade | HIGH |
+| RF10     | O sistema deve permitir o usuário curtir os conteúdos que têm interesse| Funcional | Acessibilidade | MEDIUM |
+| RF11     | O sistema deve permitir o usuário compartilhar conteúdos que tem interesse | Funcional | Acessibilidade | MEDIUM |
+| RF12     | O sistema deve permitir o usuário filtrar os projetos por características específicas | Funcional | Acessibilidade | MEDIUM |
+| RF13     | O sistema deve permitir os líderes do projeto visualizar o perfil dos usuários inscritos | Funcional | Acessibilidade | HIGH |
+| RF14     | O sistema deve permitir os líderes criar e selecionar funções para o projeto | Funcional | Acessibilidade | HIGH |
+| RF15     | O sistema deve permitir o cancelamento de um projeto pelo seu criador | Funcional | Acessibilidade | MEDIUM |
+| RF16     | O sistema deve mostrar no perfil do usuário o histórico de projetos que ele realizou | Funcional | Acessibilidade | LOW |
+| RF17     | O sistema deve enviar um email de aprovação do projeto para o gestor do líder do projeto | Funcional | Acessibilidade | HIGH |
+| RF18     | O sistema deve fazer match entre os conteúdos curtidos pelo usuário e os projetos | Funcional | Acessibilidade | HIGH |
+| RF19     | O usuário deve enviar notificação para o usuário sempre que alguém enviar um conteúdo para ela | Funcional | Acessibilidade | MEDIUM |
+| RF20     | O sistema deve permitir o usuário publicar conteúdos na plataforma | Funcional | Acessibilidade | HIGH |
+| RF21     | O sistema deve permitir os usuários denunciarem conteúdos impróprios na aplicação | Funcional | Acessibilidade | MEDIUM |
+| RF22     | O sistema deve permitir o usuário responder um questionário com suas preferências | Funcional | Acessibilidade | HIGH |
+| RF23     | O sistema deve fazer recomendações ao usuário de acordo com suas preferências | Funcional | Acessibilidade | HIGH |
+| RF24     | O sistema deve permitir os usuários moderadores excluirem conteúdos denunciados | Funcional | Acessibilidade | HIGH |
 	
 
 ## Requisitos não Funcionais
 
 Descreve os recursos necessários para sua execução, os requisitos de segurança e privacidade.
 
+| Código   |Descrição do Requisito                          | Tipo                  |Grupo                 |Prioridade        |
+|----------|------------------------------------------------|-----------------------|----------------------|------------------|
+| RNF0 | O sistema deve ser fluído e rápido com tempo de resposta de 3,5 seg, 99% | Não Funcional | Performance | HIGH
+| RNF1 | O sistema deve ser intuitivo ao usuário | Não Funcional | Usabilidade | MEDIUM
+| RNF2 | O sistema deve seguir as normas LGPD | Não Funcional | Segurança | HIGH
+| RNF3 | O sistema deve permitir apenas o responsável fazer alterações no seu projeto | Não Funcional | Controle | HIGH
+| RNF4 | O sistema deverá ter alta disponibilidade, 99% | Não Funcional | Disponibilidade | HIGH
+| RNF5 | O sistema não apresentará informações de cunho privativo aos seus usuários | Não Funcional | Segurança | HIGH
+| RNF6 | O sistema deve receber aprovação do gestor do criador do projeto para ficar disponível | Não Funcional | Implementação | HIGH
+| RNF7 | A interface do sistema deve ser desenvolvida em inglês | Não Funcional | Implementação | HIGH
+| RNF8 | O sistema deve ser alocado na nuvem da AWS | Não Funcional | Implementação | HIGH
+| RNF9 | O sistema deve ter proteção contra acesso não autorizado | Não Funcional | Segurança | HIGH
+| RNF10 | O sistema deve ser capaz de rodar em diferentes plataformas com mínimas alterações | Não Funcional | Implementação | HIGH
+| RNF11 | O sistema deve ser fácil de se manter e atualizar | Não Funcional | Manutenção | HIGH
+| RNF12 | O sistema deve manter a integridade da criação dos projetos | Não Funcional | Segurança | MEDIUM
+| RNF13 | O sistema deve ter a capacidade de aguentar o uso dos usuários | Não Funcional | Atuação | HIGH
 
 ## Perfis de Usuários 
 
@@ -318,11 +349,13 @@ O Modelo Entidade-Relacionamento - MER
 entidades e tipos de entidades
 atributos e tipos de atributos
 relacionamentos e tipos de relacionamentos
+<img src="https://imgur.com/SRMAAUa.png"></img>
 
 
 ## Modelo Lógico 
 
 O modelo lógico de banco de dados é uma representação abstrata e simplificada dos dados armazenados no sistema. É utilizado para entender como os dados são relacionados e para garantir a integridade e consistência dos dados armazenados. Incluir  uma descrição detalhada das tabelas, campos e relações presentes no modelo lógico de banco de dados. Também serão apresentadas as regras de negócio e as restrições aplicadas aos dados para garantir a integridade e a consistência dos dados armazenados.
+<img src="https://imgur.com/k5ff2E8.png"></img>
 
 
 # Testes de Software
