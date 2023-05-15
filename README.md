@@ -103,6 +103,8 @@ Nesta seção, serão apresentados os problemas identificados e as necessidades 
 Matriz Oceano Azul é uma ferramenta estratégica utilizada por empresas para a criação de novos mercados, nos quais há pouca ou nenhuma concorrência, ou seja, o oceano ainda não foi explorado. propõe uma mudança de foco das empresas para a criação de novos mercados, como a solução que será desenvolvida que traz algo inovador e estratégico para o aprendizado interno da empresa. E de forma geral, é uma ferramenta estratégica que incentiva a pensar fora da caixa e criar novos “mercados”.
 
 A matriz é dividida em quatro etapas: eliminar, reduzir, aumentar e criar. Na primeira etapa, as empresas devem identificar quais aspectos do mercado existente podem ser eliminados. Na segunda etapa, é preciso reduzir os aspectos que não são essenciais para o cliente. Na terceira etapa, a empresa deve identificar quais aspectos podem ser aumentados, como por exemplo, aumentar a eficiência ou a qualidade do produto ou serviço. Na última etapa, a empresa deve criar algo novo, que atenda às necessidades do cliente de uma forma inovadora e diferenciada.
+	
+<img src="https://imgur.com/6EUaRfB.png"></img>
 
 
 ### Proposta de Valor e Value Proposition Canvas
@@ -142,7 +144,7 @@ OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fat
 
 ## Mapeamento do processo
 
-Apresentar a modelagem do processo "to be", representando em alto nível o fluxo de trabalho a ser realizado dentro da solução.
+<img src="https://imgur.com/SQMtxEg.png"></img>
 
 
 ## Descritivo da Solução
@@ -241,6 +243,8 @@ A seção de perfil de usuário da documentação de software é responsável po
 
 A seção de casos de uso da documentação de software é uma parte crucial que descreve as funcionalidades 
 do software e como elas serão utilizadas pelos usuários. Aqui, são listados todos os cenários possíveis de uso do software, incluindo as ações que o usuário pode realizar, as interações com o sistema e os resultados esperados. Os casos de uso são descritos em detalhes, incluindo a descrição do objetivo da funcionalidade, as entradas de dados, as ações do usuário e os resultados esperados. Além disso, também são incluídos os critérios de aceitação, que são os padrões que o software precisa atender para ser considerado como funcionando corretamente.
+
+<img src="https://imgur.com/GfgmuM9.png"></img>
 
 
 <center>
