@@ -70,7 +70,7 @@ model ProjectUser {
 }
 
 model Content {
-  id          String       @id
+  id          String       @id @default(uuid())
   title       String
   description String
   links       String
@@ -84,7 +84,7 @@ model Content {
 
 
 model ContentUser {
-  id         String   @id
+  id         String   @id @default(uuid())
   userId     String
   contentId  String
   abilities  String

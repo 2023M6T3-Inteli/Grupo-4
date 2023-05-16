@@ -54,5 +54,28 @@ CREATE TABLE "ProjectUser" (
     FOREIGN KEY ("roleId") REFERENCES "Role" ("id")
 );
 
+CREATE TABLE `Content` (
+  `id` TEXT NOT NULL,
+  `title` TEXT NOT NULL,
+  `description` TEXT NOT NULL,
+  `links` TEXT NOT NULL,
+  `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ownerId` TEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`ownerId`) REFERENCES `User` (`id`)
+);
+
+CREATE TABLE `ContentUser` (
+  `id` TEXT NOT NULL,
+  `userId` TEXT NOT NULL,
+  `contentId` TEXT NOT NULL,
+  `abilities` TEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`userId`) REFERENCES `User` (`id`),
+  FOREIGN KEY (`contentId`) REFERENCES `Content` (`id`)
+);
+
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
