@@ -20,11 +20,11 @@ model User {
 
 
 model Project {
-  id            Int            @id @default(autoincrement())
+  id            String         @id @default(uuid())
   title         String
   description   String
   projectType   String
-  coleaderId    Int
+  coleaderId    String
   offers        Int
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
@@ -34,32 +34,35 @@ model Project {
   deliveryTime  DateTime
   roles         Role[]
   tags          Tag[]
-  ownerId       Int
+  ownerId       String
   projectUsers  ProjectUser[]
 }
 
 model Role {
-  id        Int     @id @default(autoincrement())
-  name      String
-  count     Int
-  projectId Int
-  project   Project @relation(fields: [projectId], references: [id])
+  id            String         @id @default(uuid())
+  name          String
+  count         Int
+  projectId     String
+  project       Project        @relation(fields: [projectId], references: [id])
+  projectUsers  ProjectUser[]
 }
 
 model Tag {
-  id        Int     @id @default(autoincrement())
-  name      String
-  projectId Int
-  project   Project @relation(fields: [projectId], references: [id])
+  id            String         @id @default(uuid())
+  name          String
+  projectId     String
+  project       Project        @relation(fields: [projectId], references: [id])
 }
 
 model ProjectUser {
-  id          Int     @id @default(autoincrement())
-  projectId   Int
-  userId      Int
-  offerId     Int
-  status      String
-  why         String
-  abilities   String
-  project     Project @relation(fields: [projectId], references: [id])
+  id            String         @id @default(uuid())
+  projectId     String
+  userId        String
+  offerId       String
+  status        String
+  why           String
+  abilities     String
+  roleId        String
+  project       Project        @relation(fields: [projectId], references: [id])
+  role          Role           @relation(fields: [roleId], references: [id])
 }
