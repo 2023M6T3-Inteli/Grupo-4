@@ -42,3 +42,6 @@ const projectRouter = require('./routes/projectRoutes');
 app.use('/v1/project', projectRouter);
 
 
+const contentRouter = require('./routes/contentRoutes');
+
+app.use('/v1/content', contentRouter);
