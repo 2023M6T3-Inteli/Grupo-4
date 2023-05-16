@@ -4,6 +4,8 @@ require('dotenv').config()
 var bodyParser = require('body-parser')
 const cors = require('cors')
 
+
+
 const app = express()
 app.use(cors())
 
@@ -33,3 +35,10 @@ const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta http://localhost:${PORT}`)
 })
+
+
+const projectRouter = require('./routes/projectRoutes');
+
+app.use('/v1/project', projectRouter);
+
+
