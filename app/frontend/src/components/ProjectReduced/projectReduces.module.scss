@@ -3,6 +3,7 @@
     background-color: var(--background);
     height: 140px;
     border-top-left-radius: 40px;
+    max-height: 12rem;
     .divBodyProjRed {
         display: flex;
         flex-direction: row;
@@ -27,6 +28,7 @@
         border: 6px solid var(--primary-600);
     }
     p {
+        margin-top: -2px;
         font-size: 11px;
         margin-left: 10px;
         text-overflow: ellipsis;
@@ -50,18 +52,12 @@
         display: flex;
         flex-wrap: wrap;
         p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--neutral-50);
+            font-weight: 500;
+            color: var(--primary-50);
             background-color: var(--primary-600);
-            height: 3rem;
-            width: auto;
             padding: 0.5rem 1rem;
             border-radius: 0.8rem;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-weight: lighter;
-            font-size: 11pt;
             margin: 1rem 1rem 0 0;
         }
     }

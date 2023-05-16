@@ -126,12 +126,14 @@
             }
 
             li {
+                display: flex;
+                align-items: start;
                 opacity: 0;
                 position: absolute;
                 z-index: -10;
                 font-size: 2rem;
                 font-weight: 300;
-                padding: 0rem;
+                padding: 0;
                 border-left: 3px solid;
                 border-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 5%, #F0F7FF 50%, rgba(255, 255, 255, 0) 95%) 1;
                 gap: 2rem;
@@ -142,6 +144,7 @@
                     position: relative;
                     opacity: 1;
                     margin: 1.7rem;
+                    padding: 0 5rem;
 
                     transition: .2s ease-in;
 
