@@ -16,6 +16,8 @@ model User {
   tags      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contents Content[]
+  contentUser ContentUser[]
 }
 
 
@@ -65,4 +67,27 @@ model ProjectUser {
   roleId        String
   project       Project        @relation(fields: [projectId], references: [id])
   role          Role           @relation(fields: [roleId], references: [id])
+}
+
+model Content {
+  id          String       @id
+  title       String
+  description String
+  links       String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  ownerId     String
+  owner       User         @relation(fields: [ownerId], references: [id])
+  contentUser ContentUser[]
+}
+
+
+
+model ContentUser {
+  id         String   @id
+  userId     String
+  contentId  String
+  abilities  String
+  user       User     @relation(fields: [userId], references: [id])
+  content    Content  @relation(fields: [contentId], references: [id])
 }
