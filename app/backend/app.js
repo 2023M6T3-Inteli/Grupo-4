@@ -36,8 +36,11 @@ app.listen(PORT, () => {
     console.log(`Servidor rodando na porta http://localhost:${PORT}`)
 })
 
-// Import the project routes
+
 const projectRouter = require('./routes/projectRoutes');
 
-// Use the project routes
 app.use('/v1/project', projectRouter);
+
+app.use((req, res, next) => {
+    res.status(404).send({ error: 'Not found', status: 404, url: req.url })
+})
