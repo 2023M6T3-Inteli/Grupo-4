@@ -20,17 +20,22 @@ model User {
 
 
 model Project {
-  id            Int      @id @default(autoincrement())
+  id            Int            @id @default(autoincrement())
   title         String
-  leader        String
   description   String
-  subject       String
+  projectType   String
+  coleaderId    Int
+  offers        Int
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
   startDate     DateTime
   endDate       DateTime
   deadline      DateTime
   deliveryTime  DateTime
   roles         Role[]
   tags          Tag[]
+  ownerId       Int
+  projectUsers  ProjectUser[]
 }
 
 model Role {
@@ -46,4 +51,15 @@ model Tag {
   name      String
   projectId Int
   project   Project @relation(fields: [projectId], references: [id])
+}
+
+model ProjectUser {
+  id          Int     @id @default(autoincrement())
+  projectId   Int
+  userId      Int
+  offerId     Int
+  status      String
+  why         String
+  abilities   String
+  project     Project @relation(fields: [projectId], references: [id])
 }
