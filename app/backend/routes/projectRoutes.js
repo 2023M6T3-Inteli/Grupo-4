@@ -7,6 +7,14 @@ router.post('/projects', createProjectMiddleware, (req, res) => {
   res.json(res.locals.project);
 });
 
+
+router.get(
+  "/getProjectByID/:id",
+  [param("id", "ID é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  projectController.GetProject
+);
+
 module.exports = router;
 
 
