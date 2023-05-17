@@ -1,10 +1,14 @@
+
 const express = require('express')
 require('express-async-errors')
 require('dotenv').config()
 var bodyParser = require('body-parser')
 const cors = require('cors')
 
-
+Object.keys(require.cache).forEach(function(key) {
+    delete require.cache[key];
+  });
+  
 
 const app = express()
 app.use(cors())
@@ -23,8 +27,13 @@ app.get('/', (req, res) => {
 
 // Rotas
 const userRouter = require('./routes/user')
-
 app.use('/v1/user', userRouter)
+
+const projectRouter = require('./routes/projectRoutes')
+app.use('/v1/project', projectRouter)
+
+const contentRouter = require('./routes/contentRoutes')
+app.use('/v1/content', contentRouter)
 
 app.use((req, res, next) => {
     res.status(404).send({ error: 'Not found', status: 404, url: req.url })
@@ -37,11 +46,50 @@ app.listen(PORT, () => {
 })
 
 
-const projectRouter = require('./routes/projectRoutes');
+// const express = require('express')
+// require('express-async-errors')
+// require('dotenv').config()
+// var bodyParser = require('body-parser')
+// const cors = require('cors')
 
-app.use('/v1/project', projectRouter);
 
 
-const contentRouter = require('./routes/contentRoutes');
+// const app = express()
+// app.use(cors())
 
-app.use('/v1/content', contentRouter);
+// app.use(express.json()) //Irá suportar JSON
+// app.use(
+//     bodyParser.urlencoded({
+//         // Irá suportar urlenconded
+//         extended: true,
+//     })
+// )
+
+// app.get('/', (req, res) => {
+//     res.send('Pong!')
+// })
+
+// // Rotas
+// const userRouter = require('./routes/user')
+
+// app.use('/v1/user', userRouter)
+
+// app.use((req, res, next) => {
+//     res.status(404).send({ error: 'Not found', status: 404, url: req.url })
+// })
+
+// const PORT = process.env.PORT || 3001
+
+// app.listen(PORT, () => {
+//     console.log(`Servidor rodando na porta http://localhost:${PORT}`)
+// })
+
+
+// const projectRouter = require('./routes/projectRoutes');
+
+// app.use('/v1/project', projectRouter);
+
+
+// const contentRouter = require('./routes/contentRoutes');
+
+// app.use('/v1/content', contentRouter);

@@ -1,9 +1,10 @@
 // projectMiddleware.js
-const projectService = require('../services/projectService');
+const { createProject } = require('../services/projectService');
+console.log('createProject');
 
 async function createProjectMiddleware(req, res, next) {
   try {
-    const project = await projectService.createProject(req.body);
+    const project = await createProject(req.body);
     res.locals.project = project;
     next();
   } catch (error) {
