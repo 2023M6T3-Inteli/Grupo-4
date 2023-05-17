@@ -50,32 +50,18 @@ return (
 
   <div>
 
+    <div className={styles.container}>
+    <div className={styles.ground}>
     <div>
-
-    <div className={styles.header}>
-
-     
-    </div> 
-
-    </div>
-    <div className={styles.generalContainer}>
-
-    <div>
+    <img src=""/>
     <h3>  Create New Content </h3>
 
       <div>
-      
-      <label>
-         Title:
-         <input value={title} onChange={(e) => setTitle(e.target.value)} />
-       </label>
+         <input value={title} placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
        </div>
       
       <div >
-       <label>
-         Description:
-         <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-       </label>
+         <textarea value={description} placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
        </div>
 
        <div>
@@ -132,6 +118,7 @@ return (
             </div>
             ))}
         <button onClick={handleAddTag}>+</button>
+    </div>
     </div>
 
     </div>
