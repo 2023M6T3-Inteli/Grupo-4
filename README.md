@@ -365,13 +365,13 @@ O Modelo Entidade-Relacionamento - MER
 entidades e tipos de entidades
 atributos e tipos de atributos
 relacionamentos e tipos de relacionamentos
-<img src="https://imgur.com/SRMAAUa.png"></img>
+<img src="https://imgur.com/cQE0bqc.png"></img>
 
 
 ## Modelo Lógico 
 
 O modelo lógico de banco de dados é uma representação abstrata e simplificada dos dados armazenados no sistema. É utilizado para entender como os dados são relacionados e para garantir a integridade e consistência dos dados armazenados. Incluir  uma descrição detalhada das tabelas, campos e relações presentes no modelo lógico de banco de dados. Também serão apresentadas as regras de negócio e as restrições aplicadas aos dados para garantir a integridade e a consistência dos dados armazenados.
-<img src="https://imgur.com/k5ff2E8.png"></img>
+<img src="https://imgur.com/iNalh0P.png"></img>
 
 
 # Testes de Software
