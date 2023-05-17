@@ -16,4 +16,78 @@ model User {
   tags      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contents Content[]
+  projects Project[]
+  applies Applies[]
+  ratings  Rating[]
+}
+
+
+model Project {
+  id            String         @id @unique
+  title         String
+  description   String
+  projectType   String
+  coleaderId    String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  startDate     DateTime
+  endDate       DateTime
+  deadline      DateTime
+  deliveryTime  DateTime
+  offers         Offers[]
+  tags          Tag[]
+  ownerId       String
+  owner         User           @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  projectUsers  Applies[]
+}
+
+model Offers {
+  id            String         @id @default(uuid())
+  name          String
+  count         Int
+  projectId     String
+  project       Project        @relation(fields: [projectId], references: [id])
+  projectUsers  Applies[]
+}
+
+model Tag {
+  id            String         @id @default(uuid())
+  name          String
+  projectId     String
+  project       Project        @relation(fields: [projectId], references: [id])
+}
+
+model Applies {
+  id            String         @id @unique
+  projectId     String         
+  project       Project        @relation(fields: [projectId], references: [id])
+  userId        String
+  user          User           @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  status        String
+  why           String
+  abilities     String
+  offerId        String
+  offer          Offers           @relation(fields: [offerId], references: [id])
+}
+
+model Content {
+  id          String       @id @default(uuid())
+  title       String
+  description String
+  links       String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  ownerId     String
+  ratings     Rating[] 
+  owner       User         @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+}
+
+model Rating {
+  id         String       @id @unique
+  rating     Int
+  contentId  String
+  content    Content      @relation(fields: [contentId], references: [id])
+  userId     String
+  user       User         @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
