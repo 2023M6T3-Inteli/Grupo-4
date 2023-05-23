@@ -5,3 +5,7 @@
 [2023-05-22T17:27:21.878] [INFO] user - User f2a48dce-7ced-4d01-827a-11657ae0c18f created successfully
 [2023-05-22T17:27:21.907] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 updated successfully
 [2023-05-22T17:27:21.930] [INFO] user - User f2a48dce-7ced-4d01-827a-11657ae0c18f deleted successfully
+[2023-05-22T17:59:15.511] [WARN] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 already exists, and tried to create another one
+[2023-05-22T17:59:15.608] [INFO] user - User fa506bb9-0347-4fca-92d4-a277a05659b2 created successfully
+[2023-05-22T17:59:15.634] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 updated successfully
+[2023-05-22T17:59:15.652] [INFO] user - User fa506bb9-0347-4fca-92d4-a277a05659b2 deleted successfully
