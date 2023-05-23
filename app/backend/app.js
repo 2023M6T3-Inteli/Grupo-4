@@ -23,7 +23,9 @@ app.get('/', (req, res) => {
 
 // Rotas
 const userRouter = require('./routes/user')
+const ContentRouter = require('./routes/content');
 
+app.use('/v1/content', ContentRouter);
 app.use('/v1/user', userRouter)
 
 app.use((req, res, next) => {
@@ -35,10 +37,5 @@ const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta http://localhost:${PORT}`)
 })
-
-
-const projectRouter = require('./routes/projectRoutes');
-
-app.use('/v1/project', projectRouter);
 
 
