@@ -15,6 +15,11 @@ router.get(
   projectController.GetProject
 );
 
+router.get(
+  "/getAllProjects",
+  projectController.GetAllProjects
+);
+
 module.exports = router;
 
 

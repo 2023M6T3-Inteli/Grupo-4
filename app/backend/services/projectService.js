@@ -97,6 +97,19 @@ class Project {
 
         return project
     }
+
+    async getAllProjects() {
+        //Verify if project exists
+        const projects = await prisma.project.findAll(
+
+        )
+
+        if (!projects) {
+            throw new Error('Projects not found')
+        }
+
+        return projects
+    }
 }
 
 module.exports = {

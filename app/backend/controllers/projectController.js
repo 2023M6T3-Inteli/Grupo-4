@@ -10,6 +10,18 @@ const GetProjectbyID = async (req, res) => {
   //Valida se algum paremetro é inválido
   const errors = validationResult(req)
 
+const GetAllProjects = async (req, res) => {
+  try {
+    const projects = await prisma.project.findAll() // Consulta todos os projetos
+
+    res.status(200).json(projects)
+    
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error:'Error to get projects' })
+  }
+}
+
   if (!errors.isEmpty()) {
       return res.status(400).json({
           error: errors.errors[0].msg,
