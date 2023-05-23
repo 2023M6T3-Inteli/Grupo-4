@@ -37,8 +37,3 @@ app.listen(PORT, () => {
 })
 
 
-const projectRouter = require('./routes/projectRoutes');
-
-app.use('/v1/project', projectRouter);
-
-

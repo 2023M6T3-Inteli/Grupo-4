@@ -1,9 +1,8 @@
 const { validationResult } = require('express-validator')
-//const preSub = require('../services/preSub')
 require('express-async-errors')
 const jwt = require('jsonwebtoken')
 
-const service = require('../services/projectService')
+const service = require('../services/user')
 
 const User = new service.User()
 
@@ -25,10 +24,6 @@ const Create = async (req, res) => {
         const result = await User.Create(email, password, name, area, tags)
         res.send(result)
     } catch (err) {
-        // const date = new Date()
-        // if (err.message) {
-        //     console.log(`[${date.getDate()}-${date.getUTCMonth()+1}-${date.getFullYear()} | ${date.getHours()-3}:${date.getMinutes()}]`,err.message)
-        // }
         res.status(500).send(err.message)
     }
 }
