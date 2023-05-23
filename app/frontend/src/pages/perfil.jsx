@@ -35,6 +35,27 @@ const Perfil = (props) => {
     fetchData();
   }, []);
 
+  var lv = 1
+  var lvmult = 1.5
+  var xpnext = 100
+  var xp = 1470
+
+  while (xp >= xpnext) {
+
+    if (xp >= xpnext) {
+        lv += 1
+        xp -= xpnext
+        xpnext = xpnext * lvmult
+    }
+
+    if (lv === 5) {
+      lvmult = 1.7
+    }
+
+  }
+
+  var percent = 660 - (660 * (xp / xpnext * 100)) / 100
+
   return (
     <>
       <div className={styles.body}>
@@ -56,8 +77,12 @@ const Perfil = (props) => {
         <div className={styles.profileImage}>
             <img src="https://avatars.githubusercontent.com/u/68920578?v=4" alt="user_profile" />
             <div>
-              <h1>Lv 12</h1>
+              <h1>{`Lv ${lv}`}</h1>
             </div>
+            
+            <svg width="220px" height="220px" style={{strokeDashoffset:percent}}>
+              <circle cx="110" cy="110" r="106" stroke-linecap="round" />
+            </svg>
         </div>
 
         <div className={styles.profileInfos}>

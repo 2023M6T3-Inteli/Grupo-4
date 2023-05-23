@@ -2,7 +2,7 @@
     width: 400px;
     background-color: var(--background);
     height: 140px;
-    border-top-left-radius: 40px;
+    border-top-left-radius: 45px;
     max-height: 12rem;
     .divBodyProjRed {
         display: flex;
@@ -28,7 +28,7 @@
         border: 6px solid var(--primary-600);
     }
     p {
-        margin-top: -2px;
+        margin-top: -3px;
         font-size: 11px;
         margin-left: 10px;
         text-overflow: ellipsis;
@@ -41,7 +41,7 @@
 .projRed2 {
     height: 100%;
     h1 {
-        font-size: 22px;
+        font-size: 2rem;
         text-justify: auto;
         margin-top: 5px;
         color: var(--neutral-50);
