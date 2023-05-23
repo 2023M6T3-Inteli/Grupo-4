@@ -12,6 +12,38 @@ const NewProject = () => {
   const [deliveryTime, setDeliveryTime] = useState('');
   const [roles, setRoles] = useState([{ name: '', count: 0 }]);
   const [tags, setTags] = useState(['']);
+ 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    const projectData = {
+      title,
+      leader,
+      description,
+      subject,
+      startDate,
+      endDate,
+      deadline,
+      deliveryTime,
+      roles,
+      tags,
+    };
+  
+    const response = await fetch('/projects', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(projectData),
+    });
+  
+    if (response.ok) {
+      console.log('Project created successfully');
+    } else {
+      console.log('Failed to create project');
+    }
+  };
+  
 
   const handleAddRole = () => {
     setRoles([...roles, { name: '', count: 0 }]);
@@ -61,16 +93,21 @@ return (
 
       <div>
       
+      
       <label>
          Title:
+         <form onSubmit={handleSubmit}>
          <input value={title} onChange={(e) => setTitle(e.target.value)} />
+         </form>
        </label>
        </div>
       
       <div>
        <label>
          Leader:
+         <form onSubmit={handleSubmit}>
          <input value={leader} onChange={(e) => setLeader(e.target.value)} />
+         </form>
        </label>
       </div>
       
@@ -78,41 +115,56 @@ return (
       
       <div >
        <label>
+       <form onSubmit={handleSubmit}>
          Description:
          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+        </form>
        </label>
        </div>
 
        <div>
        <label>
          Subject:
+         <form onSubmit={handleSubmit}>
          <select value={subject} onChange={(e) => setSubject(e.target.value)}>
            {/* Add your project subjects as options here */}
            <option value="">Choose subject</option>
            <option value="subject1">Subject 1</option>
            <option value="subject2">Subject 2</option>
          </select>
+         </form>
        </label>
         </div>
 
       <div className={styles.date} >
+       
        <label>
          Start Date:
+         <form onSubmit={handleSubmit}>
          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+         </form>
        </label>
+       
        <label>
          End Date:
+         <form onSubmit={handleSubmit}>
          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+         </form>
        </label>
         </div>
+     
       <div >
       <label>
          Deadline:
+        <form onSubmit={handleSubmit}>
         <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+        </form>
        </label>
        <label>
          Delivery Time:
+         <form onSubmit={handleSubmit}>
        <input type="time" value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} />
+        </form>
      </label>
      </div>
     
@@ -122,14 +174,16 @@ return (
       
       {roles.map((role, index) => (
         <div key={index} className="roleItem">
-          
+          <form onSubmit={handleSubmit}>
             <input
               value={role.name}
               onChange={(e) => handleRoleChange(index, 'name', e.target.value)} placeholder='role'
             />
+            </form>
           
           <label>
             Count:
+            <form onSubmit={handleSubmit}>
             <input
               type="number"
               value={role.count}
@@ -137,6 +191,7 @@ return (
                 handleRoleChange(index, 'count', e.target.value)
               }
             />
+            </form>
           </label>
         </div>
         

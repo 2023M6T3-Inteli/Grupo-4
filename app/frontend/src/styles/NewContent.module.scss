@@ -1,123 +1,17 @@
-// NewProject.module.scss
+.container{
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  padding: 20px;
+}
 
-//   color: white;
-//   border: none;
-//   border-bottom: 1px solid white;
-//   margin-bottom: 10px;
-//   padding: 5px;
-// }
+.ground{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-
-.generalContainer{
-    background-color: rgba(0, 0, 0, 1); // Black background
-    color: white; // White text
-    padding: 20px; // Add some padding
-    border-radius: 5px; // Optional, to give the box rounded corners
-    width: 80%; // Or any size you want
-    min-height: 80%; // Minimum height
-    position: absolute; // Position the box
-    top: 10%; // Position from the top
-    left: 10%; // Position from the left
-  }
-  
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      height: 100%; // Adjust as needed
-    
-      div {
-        width: 100%; // Adjust as needed
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px; // Space between items
-      }
-    }
-  
-    .linksContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    
-      .linksItem {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    
-        label {
-          display: flex;
-          flex-direction: column;
-          margin-right: 20px; // Adjust as needed
-        }
-      }
-    }
-    
-  
-  
-  .titleContainer{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 5px;
-  }
-  
-  
-  .date{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 5px;
-      .date input{
-        width: 5px;
-        height: 30px;
-        background-color: black;
-        color: white;
-        border: none;
-        border-bottom: 1px solid white;
-        margin-bottom: 10px;
-        padding: 5px;
-      }
-  } 
-  
-  
-  input, textarea, select {
-    background-color: black;
-    color: white;
-    border: none;
-    border-bottom: 1px solid white;
-    width: 200px;  // You can adjust this to suit your needs
-    height: 40px;  // You can adjust this to suit your needs
-    padding: 10px;
-    margin-top: 5px;
-    font-size: 0.9rem; // Smaller font size
-        }
-  
-  
-   
-   .tagsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 30px;
-    flex-direction: row;
-    
-    .tagsContainer input {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--neutral-50);
-        background-color: var(--primary-600);
-        height: 3rem;
-        width: auto;
-        padding: 0.5rem 1rem;
-        border-radius: 0.8rem;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border: none;
-        font-weight: lighter;
-        font-size: 11pt;
-        margin: 1rem 1rem 0 0;
-    }
-  }
-  
+}
