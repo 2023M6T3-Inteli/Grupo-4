@@ -105,8 +105,11 @@ class Project {
         })
 
         if (!project) {
+            logger.error(`Someone tried to find project ${id}, but it doesn't exists`)
             throw new Error('Project not found')
         }
+
+        logger.info(`Someone searched for project ${id}`)
 
         return project
     }
