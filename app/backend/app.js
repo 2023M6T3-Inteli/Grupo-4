@@ -23,7 +23,9 @@ app.get('/', (req, res) => {
 
 // Rotas
 const userRouter = require('./routes/user')
+const ContentRouter = require('./routes/content');
 
+app.use('/v1/content', ContentRouter);
 app.use('/v1/user', userRouter)
 
 app.use((req, res, next) => {
