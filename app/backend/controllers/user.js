@@ -3,7 +3,7 @@ const { validationResult } = require('express-validator')
 require('express-async-errors')
 const jwt = require('jsonwebtoken')
 
-const service = require('../services/projectService')
+const service = require('../services/user')
 
 const User = new service.User()
 

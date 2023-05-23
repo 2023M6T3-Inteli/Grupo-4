@@ -1,9 +1,14 @@
-const projectService = require('../services/projectService')
+const projectService = require('../services/project')
 
 async function createProject(req, res) {
   const project = await projectService.createProject(req.body)
   res.json(project)
 }
+
+const Create = async (req, res) => {
+  res.send("Create")
+}
+
 const GetProjectbyID = async (req, res) => {
   const { id } = req.params
 
@@ -32,4 +37,5 @@ const GetProjectbyID = async (req, res) => {
 module.exports = {
   createProject,
   GetProjectbyID,
+  Create
 }
