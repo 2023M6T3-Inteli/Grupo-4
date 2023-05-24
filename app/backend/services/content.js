@@ -14,9 +14,10 @@ const prisma = new PrismaClient();
 // const logger = log4js.getLogger("application");
 
 class Content {
-  async Create(title, description, tags, media, ownerId) {
+  async Create(title, description, tags, links, ownerId) {
 
     console.log(ownerId)
+    console.log(links)
 
     try {
       const content = await prisma.content.create({
@@ -25,7 +26,7 @@ class Content {
           title: title,
           description: description,
           tags: tags,
-          media: media,
+          links: links,
           ownerId: ownerId,
         },
       });
@@ -35,7 +36,8 @@ class Content {
       return content;
     } catch (error) {
     //   logger.error(`Problems on server: ${error}`);
-      throw new Error("Error when creating content");
+      // throw new Error("Error when creating content");
+      throw new Error(error);
     }
   }
 
@@ -101,6 +103,17 @@ class Content {
         id: id,
       },
     });
+
+    if (!content) {
+      throw new Error("Content not found");
+    }
+
+    return content;
+  }
+
+  async getAllContent() {
+    //Verify if content exists
+    const content = await prisma.content.findMany();
 
     if (!content) {
       throw new Error("Content not found");
