@@ -1,4 +1,4 @@
-// projectMiddleware.js
+
 const { createProject } = require('../services/projectService');
 console.log('createProject');
 
@@ -15,3 +15,4 @@ async function createProjectMiddleware(req, res, next) {
 module.exports = {
   createProjectMiddleware,
 };
+console.log('createProjectMiddleware')
