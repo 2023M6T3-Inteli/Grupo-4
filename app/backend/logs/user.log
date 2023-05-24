@@ -9,3 +9,14 @@
 [2023-05-22T17:59:15.608] [INFO] user - User fa506bb9-0347-4fca-92d4-a277a05659b2 created successfully
 [2023-05-22T17:59:15.634] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 updated successfully
 [2023-05-22T17:59:15.652] [INFO] user - User fa506bb9-0347-4fca-92d4-a277a05659b2 deleted successfully
+[2023-05-23T16:49:54.479] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:05:40.899] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:06:05.166] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:07:46.240] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:08:51.414] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:13:04.500] [WARN] user - Login with email dsadsad tried to authnticate
+[2023-05-23T17:13:57.261] [WARN] user - Login with email dsadsad tried to authnticate
+[2023-05-23T17:14:08.992] [WARN] user - Account a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 had problems to authenticate with wrong password
+[2023-05-23T17:14:12.394] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:17:32.707] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully
+[2023-05-23T17:52:12.830] [INFO] user - User a7f53818-fe6e-4fa7-a9e6-df88d7432ab0 authenticated successfully

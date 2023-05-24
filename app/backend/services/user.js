@@ -66,8 +66,10 @@ class User {
             }
         })
 
+        console.log(user)
+
         if (!user) {
-            logger.warn(`User ${user.id} not found on auth route, and need to be checked`)
+            logger.warn(`Login with email ${email} tried to authnticate`)
             throw new Error('Invalid Email or/and Password')
         }
 
