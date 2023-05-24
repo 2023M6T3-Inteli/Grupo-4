@@ -46,7 +46,7 @@ router.get(
 );
 
 router.get(
-    "/get",
+    "/",
     unsureAuthenticated.unsureAuthenticated,
     userController.GetUserCalling
 );

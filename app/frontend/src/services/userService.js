@@ -1,5 +1,8 @@
 import axios from 'axios';
 //require('dotenv').config();
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 const API_URL = "http://localhost:3001";
 
@@ -15,6 +18,18 @@ const userService = {
         })
 
         return auth
+    },
+    getUser: async () => {
+
+        const token = cookies.get('token')
+
+        const user = await axios.get(`${API_URL}/v1/user`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        return user
     }
 }
 

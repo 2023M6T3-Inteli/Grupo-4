@@ -191,6 +191,10 @@ class User {
         const user = await prisma.user.findUnique({
             where: {
                 id: id
+            },
+            include: {
+                projects: true,
+                contents: true,
             }
         })
 
