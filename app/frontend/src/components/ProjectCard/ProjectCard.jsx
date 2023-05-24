@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../CardModal/Modal";
 import ProjectCardView from "../ProjectCardView/ProjectCardView";
-
+import axios from 'axios';
 import styles from "./ProjectCard.module.scss";
 import { useLocation } from "react-router-dom";
 
@@ -17,6 +17,28 @@ const ProjectCard = ({ project, user }) => {
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
 
+  const [projects, setProjects] = useState([])
+
+  const getAllProjects = async() => {
+
+    try {
+      const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
+      
+      const data = response.data;
+
+      setProjects(data);
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  useEffect(() => {
+
+    getAllProjects();
+
+  }, [])
+
   return (
     <>
       <button
@@ -28,6 +50,14 @@ const ProjectCard = ({ project, user }) => {
             <div className={styles.intro}>
               <div className={styles.title}>
                 <p>{title}</p>
+                {projects.length === 0 ? (<p>Carregando...</p>) :(
+                  projects.map((project) => (
+                    <div className="project" key={project.id}>
+                      <h1>{project.title}</h1>
+                      <p>{project.body}</p>
+                    </div>
+                  ))
+                )}
               </div>
               <div className={styles.status}>
                 <p>{status}</p>
