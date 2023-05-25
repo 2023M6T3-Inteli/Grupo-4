@@ -7,6 +7,7 @@ import ContentCard from "../components/ContentCard/ContentCard";
 import CardProject from "../components/ProjectCard/ProjectCard";
 import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
+import contentService from "../services/contentService";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -21,20 +22,14 @@ const Feed = (props) => {
     const fetchData = async () => {
       setisLoading(true);
       
-      const responseContent = await fetch(
-        "http://localhost:3001/v1/content/getContent"
-      );
-      const ContentData = await responseContent.json();
-
-      setContents(ContentData);
-
-
+      const responseContent = await contentService.getContent();
       const responseUser = await userService.getUser();
-
+      
       if (responseUser.status !== 200) {
         navigate("/login");
       }
       
+      setContents(responseContent.data);
       setUser(responseUser.data);
 
 
