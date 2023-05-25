@@ -11,14 +11,10 @@ const prisma = new PrismaClient();
 //     categories: { default: { appenders: ["application"], level: "info" } },
 // });
 
-// const logger = log4js.getLogger("application");
+const loggerContent = log4js.getLogger("content");
 
 class Content {
   async Create(title, description, tags, links, ownerId) {
-
-    console.log(ownerId)
-    console.log(links)
-
     try {
       const content = await prisma.content.create({
         data: {
@@ -31,7 +27,7 @@ class Content {
         },
       });
 
-    //   logger.info(`Content ${content.id} created successfully`);
+      loggerContent
 
       return content;
     } catch (error) {

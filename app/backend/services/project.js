@@ -6,7 +6,7 @@ const log4js = require('log4js');
 
 const prisma = new PrismaClient()
 
-const logger = log4js.getLogger('project');
+const loggerProject = log4js.getLogger('project');
 
 
 class Project {
@@ -26,11 +26,11 @@ class Project {
                 }
             })
 
-            logger.info(`Project ${project.id} created successfully`)
+            loggerProject.info(`Project ${project.id} created successfully`)
 
             return project
         } catch (error) {
-            logger.error(`Problems on server: ${error}`)
+            loggerProject.error(`Problems on server: ${error}`)
             throw new Error('Error when creating project')
         }
     }
@@ -45,10 +45,12 @@ class Project {
         })
 
         if (!project) {
+            loggerProject.error("Someone tried to update a project that doesn't exists | ID (project) passed: " + id)
             throw new Error('Project not found')
         }
 
         if(!data) {
+            loggerProject.error("Someone tried to update a project passign nothing | ID (project) passed: " + id)
             throw new Error('No data to update')
         }
 
@@ -60,8 +62,11 @@ class Project {
                 data,
             })
 
+            loggerProject.info(`Project ${project.id} updated successfully with data: ${JSON.stringify(data)}`)
+
             return project
         } catch (error) {
+            loggerProject.error(`Problems on server updating project: ${error}`)
             throw new Error('Error updating project')
         }
     }
@@ -75,6 +80,7 @@ class Project {
         })
 
         if (!project) {
+            loggerProject.error("Someone tried to delete a project that doesn't exists | ID (project) passed: " + id)
             throw new Error('Project not found')
         }
 
@@ -85,41 +91,24 @@ class Project {
                 }
             })
 
+            loggerProject.info(`Project ${project.id} deleted successfully`)
             return "Project deleted with success"
         } catch (error) {
+            loggerProject.error(`Problems on server deleting project: ${error}`)
             throw new Error('Error deleting project')
         }
     }
 
-    async getProject(id) {
-        //Verify if project exists
-        const project = await prisma.project.findUnique({
-            where: {
-                id: id
-            }
-        })
-
-        if (!project) {
-            logger.error(`Someone tried to find project ${id}, but it doesn't exists`)
-            throw new Error('Project not found')
-        }
-
-        logger.info(`Someone searched for project ${id}`)
-
-        return project
-    }
-
     async getAllProjects() {
-        //Verify if project exists
-        const projects = await prisma.project.findAll(
+        try {
+            //Getting all projects
+            const projects = await prisma.project.findMany({});
 
-        )
-
-        if (!projects) {
-            throw new Error('Projects not found')
+            return projects
+        } catch (error) {
+            loggerProject.error(`Problems on server getting all projects: ${error}`)
+            throw new Error('Error getting all projects')
         }
-
-        return projects
     }
 }
 

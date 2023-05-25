@@ -55,10 +55,12 @@ router.post
  *       200:
  *         description: Success
  */
-router.get
-    ("/getContent/:id", 
-    [param("id", "Id do conteudo é necessário").exists({ checkFalsy: true })],
-     contentController.GetContentByID);
+router.get(
+  "/getContent/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.GetContentByID
+);
 
 /**
  * @swagger
@@ -69,6 +71,25 @@ router.get
  *       200:
  *         description: Success
  */
-router.get("/getContent", contentController.GetAllContent);
+router.get(
+  "/getContent",
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.GetAllContent
+);
+
+router.put(
+  "/update/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.Update
+);
+
+router.delete(
+  "/delete/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.Delete
+);
+
 
 module.exports = router;

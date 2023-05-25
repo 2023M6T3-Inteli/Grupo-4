@@ -5,6 +5,9 @@ const { body, param } = require('express-validator');
 
 const projectController = require('../controllers/project');
 
+//Middlewares
+const unsureAuthenticated = require('../middlewares/unsureAuthenticated');
+
 /**
  * @swagger
  * /v1/project/create:
@@ -55,17 +58,18 @@ const projectController = require('../controllers/project');
  *       200:
  *         description: Success
  */
-router.post
-    ("/create", 
-    [body("title", "Titulo é necessária").exists({ checkFalsy: true })], 
-    [body("description", "Descrição é necessária").exists({ checkFalsy: true })],
-    [body("projectType", "Tipo do projeto é necessária").exists({ checkFalsy: true })], 
-    [body("startDate", "Area é necessária").exists({ checkFalsy: true })], 
-    [body("endDate", "Area é necessária").exists({ checkFalsy: true })], 
-    [body("deadline", "Area é necessária").exists({ checkFalsy: true })], 
-    [body("deliveryTime", "Area é necessária").exists({ checkFalsy: true })], 
-    [body("ownerId", "Id do Owner é necessária=o").exists({ checkFalsy: true })], 
-      projectController.Create);
+router.post(
+  "/create", 
+  [body("title", "Titulo é necessária").exists({ checkFalsy: true })], 
+  [body("description", "Descrição é necessária").exists({ checkFalsy: true })],
+  [body("projectType", "Tipo do projeto é necessária").exists({ checkFalsy: true })], 
+  [body("startDate", "Area é necessária").exists({ checkFalsy: true })], 
+  [body("endDate", "Area é necessária").exists({ checkFalsy: true })], 
+  [body("deadline", "Area é necessária").exists({ checkFalsy: true })], 
+  [body("deliveryTime", "Area é necessária").exists({ checkFalsy: true })], 
+  [body("ownerId", "Id do Owner é necessária=o").exists({ checkFalsy: true })], 
+  projectController.Create
+);
 
 /**
  * @swagger
@@ -82,9 +86,30 @@ router.post
  *       200:
  *         description: Success
  */
-router.get
-    ("/getProject/:id", 
-    [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })], 
-    projectController.GetProjectByID);
+router.get(
+  "/getProject/:id", 
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })], 
+  projectController.GetProjectByID
+);
+
+router.put(
+  "/update/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  projectController.Update
+);
+
+router.delete(
+  "/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  projectController.Delete
+);
+
+router.get(
+  "/getAll",
+  // unsureAuthenticated.unsureAuthenticated,
+  projectController.GetAll
+);
 
 module.exports = router;
