@@ -25,6 +25,8 @@
     "log4js": "^6.9.1",
     "prisma": "^4.14.0",
     "supertest": "^6.3.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
