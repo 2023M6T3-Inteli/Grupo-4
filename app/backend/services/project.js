@@ -1,14 +1,21 @@
 const { PrismaClient } = require('@prisma/client')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
 const { v4: uuid } = require('uuid')
 require('dotenv').config()
-
+const log4js = require('log4js');
 
 const prisma = new PrismaClient()
-class Project {
-    async Create(title, description, projectType, coleaderId, ownerId) {
 
+//Configurando Log de Usuários
+log4js.configure({
+    appenders: { user: { type: "file", filename: "logs/application.log" } },
+    categories: { default: { appenders: ["application"], level: "info" } },
+});
+
+const logger = log4js.getLogger('application');
+
+
+class Project {
+    async Create(title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId) {
         try {
             const project = await prisma.project.create({
                 data: {
@@ -16,14 +23,20 @@ class Project {
                     title: title,
                     description: description,
                     projectType: projectType,
-                    coleaderId: coleaderId,
-                    ownerId: ownerId
+                    ownerId: ownerId,
+                    deliveryTime: deliveryTime,
+                    startDate: startDate,
+                    endDate: endDate,
+                    deadline: deadline,
                 }
             })
 
+            logger.info(`Project ${project.id} created successfully`)
+
             return project
         } catch (error) {
-            throw new Error('Error creating project')
+            logger.error(`Problems on server: ${error}`)
+            throw new Error('Error when creating project')
         }
     }
 
@@ -92,49 +105,29 @@ class Project {
         })
 
         if (!project) {
+            logger.error(`Someone tried to find project ${id}, but it doesn't exists`)
             throw new Error('Project not found')
         }
 
+        logger.info(`Someone searched for project ${id}`)
+
         return project
+    }
+
+    async getAllProjects() {
+        //Verify if project exists
+        const projects = await prisma.project.findAll(
+
+        )
+
+        if (!projects) {
+            throw new Error('Projects not found')
+        }
+
+        return projects
     }
 }
 
 module.exports = {
     Project,
 }
-// const { PrismaClient } = require('@prisma/client')
-// const prisma = new PrismaClient()
-
-// console.log('prisma')
-
-// class Project {
-//   async create(data) {
-//     const project = await prisma.project.create({
-//       data: {
-//         title: data.title,
-//         leader: data.leader,
-//         description: data.description,
-//         subject: data.subject,
-//         startDate: data.startDate,
-//         endDate: data.endDate,
-//         deadline: data.deadline,
-//         deliveryTime: data.deliveryTime,
-//         roles: {
-//           create: data.roles,
-//         },
-//         tags: {
-//           create: data.tags.map(tag => ({ name: tag })),
-//         },
-//       },
-//     })
-//     return project
-//   }
-
-//   // Add methods for updating, deleting, and getting a project
-// }
-
-// module.exports = {
-//   Project,
-// }
-
-// console.log('ProjectService.js')

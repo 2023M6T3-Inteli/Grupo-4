@@ -3,6 +3,16 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { v4: uuid } = require('uuid')
 require('dotenv').config()
+const log4js = require('log4js');
+
+
+//Configurando Log de Usuários
+log4js.configure({
+    appenders: { user: { type: "file", filename: "logs/user.log" } },
+    categories: { default: { appenders: ["user"], level: "info" } },
+});
+
+const logger = log4js.getLogger('user');
 
 
 const prisma = new PrismaClient()
@@ -16,7 +26,8 @@ class User {
         })
 
         if (user) {
-            throw new Error('User already exists')
+            logger.warn(`User ${user.id} already exists, and tried to create another one`)
+            throw new Error('User already exists') 
         }
 
         //Verificação de senha != "", e HASH da mesma
@@ -38,8 +49,11 @@ class User {
                 }
             })
 
+            logger.info(`User ${user.id} created successfully`)
+
             return user
         } catch (error) {
+            logger.error(`Problems on server: ${error}`)
             throw new Error('Error creating user')
         }
     }
@@ -52,7 +66,10 @@ class User {
             }
         })
 
+        console.log(user)
+
         if (!user) {
+            logger.warn(`Login with email ${email} tried to authnticate`)
             throw new Error('Invalid Email or/and Password')
         }
 
@@ -60,6 +77,7 @@ class User {
         const passMatch = await bcrypt.compare(pass, user.password)
 
         if (!passMatch) {
+            logger.warn(`Account ${user.id} had problems to authenticate with wrong password`)
             throw new Error('Invalid Email or/and Password')
         }
 
@@ -71,6 +89,11 @@ class User {
         const refresh_token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_REFRESH, {
             expiresIn: '10m'
         })
+
+
+        const test = logger.info(`User ${user.id} authenticated successfully`)
+
+        console.log(test)
 
         return {
             message: "User authenticated",
@@ -89,14 +112,17 @@ class User {
         })
 
         if (!user) {
+            logger.warn(`User ${user.id} not found on update route, and need to be checked`)
             throw new Error('User not found')
         }
 
         if(!data) {
+            logger.error(`User ${user.id} tried to update without data`)
             throw new Error('No data to update')
         }
 
         if(data.password) {
+            logger.error(`User ${user.id} tried to update password without old password`)
             if (!data.oldPassword) {
                 throw new Error('You need to send your old password to update')
             } 
@@ -104,6 +130,7 @@ class User {
             const passwordMatch = await bcrypt.compare(data.oldPassword, user.password)
 
             if(!passwordMatch) {
+                logger.error(`User ${user.id} tried to update password with wrong old password`)
                 throw new Error('Invalid password, so we cant update')
             }
 
@@ -122,8 +149,10 @@ class User {
                 data,
             })
 
+            logger.info(`User ${user.id} updated successfully`)
             return user
         } catch (error) {
+            logger.error(`Problems on server: ${error}`)
             throw new Error('Error updating user')
         }
 
@@ -138,6 +167,7 @@ class User {
         })
 
         if (!user) {
+            logger.warn(`User ${user.id} not found on delete route, and need to be checked`)
             throw new Error('User not found')
         }
 
@@ -148,8 +178,10 @@ class User {
                 }
             })
 
+            logger.info(`User ${user.id} deleted successfully`)
             return "User deleted with success"
         } catch (error) {
+            logger.error(`Problems on server: ${error}`)
             throw new Error('Error deleting user')
         }
     }
@@ -159,15 +191,22 @@ class User {
         const user = await prisma.user.findUnique({
             where: {
                 id: id
+            },
+            include: {
+                projects: true,
+                contents: true,
             }
         })
 
         if (!user) {
+            logger.warn(`User ${user.id} not found on getUser route, and need to be checked`)
             throw new Error('User not found')
         }
 
         return user
     }
+
+    
 }
 
 module.exports = {

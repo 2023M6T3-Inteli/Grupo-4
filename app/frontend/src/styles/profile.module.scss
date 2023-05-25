@@ -41,7 +41,9 @@
         width: 22rem;
         height: 22rem;
         border-radius: 50%;
-        border: 8px solid green;
+        border: 8px solid whitesmoke;
+
+
     }
     div{
         border-radius: 6px;
@@ -50,10 +52,29 @@
         align-items: center;
         width: 70px;
         height: 30px;
+        margin-top: -25px;
         font-size: 12pt;
         color: var(--neutral-50);
         background-color: var(--background);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: 10;
     }
+
+    svg {
+        transform: rotate(90deg);
+        margin-top: -10px;
+        position: absolute;
+
+        circle {
+            position: relative;
+            fill: none;
+            stroke:green;
+            stroke-width: 6px;
+            stroke-dasharray: 660;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+    }
+
 }
 
 .profileInfos {
@@ -122,6 +143,7 @@
         flex-direction: row;
         gap: 2rem;
         margin-top: 2rem;
+        height: 15rem;
     }
     .scrollView::-webkit-scrollbar {
         width: 5px;

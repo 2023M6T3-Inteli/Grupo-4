@@ -17,36 +17,38 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   contents Content[]
-  contentUser ContentUser[]
+  projects Project[]
+  applies Applies[]
+  ratings  Rating[]
 }
 
 
 model Project {
-  id            String         @id @default(uuid())
+  id            String         @id @unique
   title         String
   description   String
   projectType   String
   coleaderId    String
-  offers        Int
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
   startDate     DateTime
   endDate       DateTime
   deadline      DateTime
   deliveryTime  DateTime
-  roles         Role[]
+  offers         Offers[]
   tags          Tag[]
   ownerId       String
-  projectUsers  ProjectUser[]
+  owner         User           @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  projectUsers  Applies[]
 }
 
-model Role {
+model Offers {
   id            String         @id @default(uuid())
   name          String
   count         Int
   projectId     String
   project       Project        @relation(fields: [projectId], references: [id])
-  projectUsers  ProjectUser[]
+  projectUsers  Applies[]
 }
 
 model Tag {
@@ -56,38 +58,37 @@ model Tag {
   project       Project        @relation(fields: [projectId], references: [id])
 }
 
-model ProjectUser {
-  id            String         @id @default(uuid())
-  projectId     String
+model Applies {
+  id            String         @id @unique
+  projectId     String         
+  project       Project        @relation(fields: [projectId], references: [id])
   userId        String
-  offerId       String
+  user          User           @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   status        String
   why           String
   abilities     String
-  roleId        String
-  project       Project        @relation(fields: [projectId], references: [id])
-  role          Role           @relation(fields: [roleId], references: [id])
+  offerId        String
+  offer          Offers           @relation(fields: [offerId], references: [id])
 }
 
 model Content {
   id          String       @id @default(uuid())
   title       String
   description String
-  links       String
+  links       String?
+  tags        String
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   ownerId     String
-  owner       User         @relation(fields: [ownerId], references: [id])
-  contentUser ContentUser[]
+  ratings     Rating[] 
+  owner       User         @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
 
-
-
-model ContentUser {
-  id         String   @id @default(uuid())
-  userId     String
+model Rating {
+  id         String       @id @unique
+  rating     Int
   contentId  String
-  abilities  String
-  user       User     @relation(fields: [userId], references: [id])
-  content    Content  @relation(fields: [contentId], references: [id])
+  content    Content      @relation(fields: [contentId], references: [id])
+  userId     String
+  user       User         @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }

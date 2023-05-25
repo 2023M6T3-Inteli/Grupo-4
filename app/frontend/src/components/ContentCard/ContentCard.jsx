@@ -8,7 +8,11 @@ import { useLocation } from "react-router-dom";
 
 const ContentCard = ({ user, content }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const { title, description, tags, media } = content;
+  const { title, description, tags, links } = content;
+
+  let tagsArray = JSON.parse(tags.replace(/'/g, "\""))
+
+  const linksArray = JSON.parse(links.replace(/'/g, "\""));
 
   const path = useLocation();
 
@@ -27,7 +31,11 @@ const ContentCard = ({ user, content }) => {
           <h1>{title}</h1>
           <div className={styles.userBx}>
             <div className={styles.imgBx}>
-              <img src={user.picture} alt="user_profile" />
+              {/* <img src={user.picture} alt="user_profile" /> */}
+              <img
+                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                alt="user_profile"
+              />
             </div>
             <div className={styles.userInfos}>
               <h4>{user.name}</h4>
@@ -37,15 +45,15 @@ const ContentCard = ({ user, content }) => {
         </div>
         <main>
           <p className={styles.description}>{description}</p>
-          {media && (
+          {links && (
             <iframe
-              src={media[0]}
+              src={linksArray[0]}
               title="YouTube video player"
               frameborder="0"
             ></iframe>
           )}
           <div className={styles.tags}>
-            {tags.map((tag) => (
+            {tagsArray.map((tag) => (
               <p>{tag}</p>
             ))}
           </div>
