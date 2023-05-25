@@ -12,7 +12,7 @@ router.post(
   [body("title", "Titulo é necessário").exists({ checkFalsy: true })],
   [body("description", "Descrição é necessária").exists({ checkFalsy: true })],
   [body("tags", "Tags são necessárias").exists({ checkFalsy: true })],
-  [body("ownerId", "Id do Owner é necessário").exists({ checkFalsy: true })],
+  // [body("ownerId", "Id do Owner é necessário").exists({ checkFalsy: true })],
   unsureAuthenticated.unsureAuthenticated,
   contentController.Create
 );
@@ -22,6 +22,11 @@ router.get(
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
   // unsureAuthenticated.unsureAuthenticated,
   contentController.GetContentByID
+);
+router.get(
+  "/getContent",
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.GetAllContent
 );
 
 
