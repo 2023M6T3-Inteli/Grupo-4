@@ -6,12 +6,18 @@ import ProjectReduces from "../components/ProjectReduced/projectReduces";
 import ContentReduced from "../components/ContentReduced/contentReduced";
 import FeedNav from "../components/FeedNav/FeedNav";
 import CardProject from "../components/ProjectCard/ProjectCard";
+import userService from "../services/userService";
+import { useNavigate } from "react-router-dom";
 
 const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
   const [projectPage, setProjectPage] = useState(false);
+  const [user, setUser] = useState({}); // [{}
   const [contents, setContents] = useState([]);
   const [projects, setProjects] = useState([]);
+  //const [xp, setXp] = useState(1400);
+
+  const navigate = useNavigate();
 
   const changeToProjectHandler = () => {
     setContentPage(false);
@@ -25,6 +31,16 @@ const Perfil = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const responseUser = await userService.getUser();
+
+      console.log(responseUser.data)
+
+      if(responseUser.status !== 200) {
+        navigate("/login")
+      }
+
+      setUser(responseUser.data);
+      
       const response = await fetch("/content.json");
       const data = await response.json();
 
@@ -34,6 +50,27 @@ const Perfil = (props) => {
 
     fetchData();
   }, []);
+
+  var lv = 1
+  var lvmult = 1.5
+  var xpnext = 100
+  var xp = 1400
+
+  while (xp >= xpnext) {
+
+    if (xp >= xpnext) {
+        lv += 1
+        xp -= xpnext
+        xpnext = xpnext * lvmult
+    }
+
+    if (lv === 5) {
+      lvmult = 1.7
+    }
+
+  }
+
+  var percent = 660 - (660 * (xp / xpnext * 100)) / 100
 
   return (
     <>
@@ -56,15 +93,28 @@ const Perfil = (props) => {
         <div className={styles.profileImage}>
             <img src="https://avatars.githubusercontent.com/u/68920578?v=4" alt="user_profile" />
             <div>
-              <h1>Lv 12</h1>
+              <h1>{`Lv ${lv}`}</h1>
             </div>
+            
+            <svg width="220px" height="220px" style={{strokeDashoffset:percent}}>
+              <circle cx="110" cy="110" r="106" stroke-linecap="round" />
+            </svg>
         </div>
 
-        <div className={styles.profileInfos}>
+        {
+          user && (
+            <div className={styles.profileInfos}>
+              <h1>{user.name}</h1>
+              <p>{user.area}</p>
+              <p>{user.email}</p>
+            </div>
+          )
+        }
+        {/* <div className={styles.profileInfos}>
             <h1>Luiz Kama</h1>
             <p>Front-End Dev</p>
             <p>luiz.kama@dell.com</p>
-        </div>
+        </div> */}
 
         <div className={styles.interests}>
           <h1>INTERESTS</h1>
@@ -96,15 +146,32 @@ const Perfil = (props) => {
 
         <div className={styles.personal}>
           <div className={styles.personalDiv}>
-            {contentPage &&
-              contents.map((content) => {
-                return <ContentCard user={content.user} content={content} />;
-              })}
-            {projectPage && 
+            {/* {(contentPage && user) ?
+              (user.contents.length != 0) && (
+                (
+                  user.contents.map((content) => {
+                    return <ContentCard user={content.user} content={content} />;
+                  })
+                )
+              )
+              : <div style={{"fontSize": "14pt", "color": "white"}}></div>
+            }
+            {(projectPage && user) ?
+              (
+                (user.projects.length != 0) && (
+                  user.projects.map((content) => {
+                    return <ContentCard user={content.user} content={content} />;
+                  })
+                )
+              )
+              : <div style={{"fontSize": "14pt", "color": "white"}}></div>
+            } */}
+              
+            {/* {projectPage && 
               projects.map((project) => {
                 return <CardProject project={project} />;
               })
-            }
+            } */}
           </div>
         </div>
         

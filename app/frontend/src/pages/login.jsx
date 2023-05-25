@@ -2,8 +2,14 @@ import { useState } from "react";
 import styles from "../styles/login.module.scss";
 import logoDell from "../Assets/Dell.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'universal-cookie';
+import userService from "../services/userService";
 
 const Login = (props) => {
+    const cookies = new Cookies();
 
     const [ typePass, setTypePass ] = useState("password");
     const [ email, setEmail ] = useState("");
@@ -22,11 +28,33 @@ const Login = (props) => {
 
     const submit = () => {
         console.log(email, password)
-        if(email === "admin" && password === "admin"){
-            navigate("/feed/contents")
-        } else {
-            window.alert("Email ou senha incorretos")
-        }
+        userService.auth(email, password).then((response) => {
+            console.log(response)
+            if(response.status === 200){
+                cookies.set('token', response.data.access_token, { path: '/' })
+                navigate("/feed/contents")
+            } else {
+                toast.error("Email ou senha incorretos")
+            }
+        }).catch((error) => {
+            console.log(error)
+            toast.error("Email ou senha incorretos")
+        })
+        // axios.post("http://localhost:3001/v1/user/auth", {
+        //     email: email,
+        //     password: password
+        // }).then((response) => {
+        //     console.log(response)
+        //     if(response.status === 200){
+        //         cookies.set('token', response.data.access_token, { path: '/' })
+        //         navigate("/feed/contents")
+        //     } else {
+        //         toast.error("Email ou senha incorretos")
+        //     }
+        // }).catch((error) => {
+        //     console.log(error)
+        //     toast.error("Email ou senha incorretos")
+        // })
     }
 
 
@@ -64,7 +92,7 @@ const Login = (props) => {
                 </div>
             </>
         }
-        
+        <ToastContainer style={{ fontSize: "14pt" }}/>
       </div>
     </>
   )

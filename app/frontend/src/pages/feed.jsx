@@ -5,6 +5,8 @@ import Search from "../components/Search/Search";
 import styles from "../styles/feed.module.scss";
 import ContentCard from "../components/ContentCard/ContentCard";
 import CardProject from "../components/ProjectCard/ProjectCard";
+import userService from "../services/userService";
+import { useNavigate } from "react-router-dom";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -12,15 +14,34 @@ const Feed = (props) => {
   const [isLoading, setisLoading] = useState(false);
   const [contents, setContents] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       setisLoading(true);
+      
+      const responseContent = await fetch(
+        "http://localhost:3001/v1/content/getContent"
+      );
+      const ContentData = await responseContent.json();
+
+      setContents(ContentData);
+
+
+      const responseUser = await userService.getUser();
+
+      if (responseUser.status !== 200) {
+        navigate("/login");
+      }
+      
+      setUser(responseUser.data);
+
+
       const response = await fetch("/content.json");
       const data = await response.json();
 
-      setContents(data.contents);
-      setProjects(data.projects)
+      setProjects(data.projects);
       setisLoading(false);
     };
 
@@ -57,15 +78,16 @@ const Feed = (props) => {
         </div>
         <div className={styles.behind}></div>
         <main className={styles.feed}>
-          {contentPage &&
-            contents.map((content) => {
-              return <ContentCard user={content.user} content={content} />;
-            })}
-          {projectPage && (
+          {
+            contentPage &&
+              contents.map((content) => {
+                return <ContentCard user={user} content={content} />;
+              })
+          }
+          {projectPage &&
             projects.map((project) => {
-              return <CardProject project={project} user={project.user}/>;
-            })
-          )}
+              return <CardProject project={project} user={project.user} />;
+            })}
         </main>
       </>
     );
