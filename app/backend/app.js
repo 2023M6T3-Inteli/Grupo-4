@@ -40,9 +40,11 @@ app.get('/', (req, res) => {
 // Rotas
 const userRouter = require('./routes/user')
 const ContentRouter = require('./routes/content');
+const projectRouter = require('./routes/project');
 
 app.use('/v1/content', ContentRouter);
 app.use('/v1/user', userRouter)
+app.use('/v1/project', projectRouter)
 
 app.use((req, res, next) => {
     res.status(404).send({ error: 'Not found', status: 404, url: req.url })
