@@ -8,6 +8,7 @@ import CardProject from "../components/ProjectCard/ProjectCard";
 import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import contentService from "../services/contentService";
+import projectService from "../services/projectService";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -23,6 +24,8 @@ const Feed = (props) => {
       setisLoading(true);
       
       const responseContent = await contentService.getContent();
+      const responseProject = await projectService.getProject();
+      
       const responseUser = await userService.getUser();
       
       if (responseUser.status !== 200) {
@@ -30,6 +33,7 @@ const Feed = (props) => {
       }
       
       setContents(responseContent.data);
+      setProjects(responseProject.data);
       setUser(responseUser.data);
 
 
