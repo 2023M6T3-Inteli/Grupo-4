@@ -77,19 +77,19 @@ router.get(
   contentController.GetAllContent
 );
 
-router.put(
-  "/update/:id",
-  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
-  // unsureAuthenticated.unsureAuthenticated,
-  contentController.Update
-);
+// router.put(
+//   "/update/:id",
+//   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+//   // unsureAuthenticated.unsureAuthenticated,
+//   contentController.Update
+// );
 
-router.delete(
-  "/delete/:id",
-  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
-  // unsureAuthenticated.unsureAuthenticated,
-  contentController.Delete
-);
+// router.delete(
+//   "/delete/:id",
+//   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+//   // unsureAuthenticated.unsureAuthenticated,
+//   contentController.Delete
+// );
 
 
 module.exports = router;
