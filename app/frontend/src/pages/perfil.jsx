@@ -12,7 +12,18 @@ import { useNavigate } from "react-router-dom";
 const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
   const [projectPage, setProjectPage] = useState(false);
-  const [user, setUser] = useState({}); // [{}
+  const [user, setUser] = useState({
+    area: "",
+    contents: [],
+    email: "",
+    createdAt: "",
+    id: "",
+    name: "",
+    projects: [],
+    updatedAt: "",
+    tags: "",
+    password: "",
+  }); // [{}
   const [contents, setContents] = useState([]);
   const [projects, setProjects] = useState([]);
   //const [xp, setXp] = useState(1400);
@@ -39,7 +50,7 @@ const Perfil = (props) => {
         navigate("/login")
       }
 
-      setUser(responseUser.data);
+      setUser({...user, ...responseUser.data});
       
       const response = await fetch("/content.json");
       const data = await response.json();
@@ -146,6 +157,51 @@ const Perfil = (props) => {
 
         <div className={styles.personal}>
           <div className={styles.personalDiv}>
+            {
+              contentPage && (
+                user.contents.map((content) => {
+                  return <ContentCard user={user} content={content} />;
+                })
+              )
+            }
+            {
+              projectPage && (
+                user.projects.map((project) => {
+                  return <CardProject user={user} project={project} />;
+                }
+              ))
+              (!user) && (
+                <div style={{"fontSize": "14pt", "color": "white"}}>Carregando...</div>
+              )
+            }
+            {/* {
+              user ?
+              
+              (contentPage && user.contents.length) ?
+                (
+                  user.contents.map((content) => {
+                    return <ContentCard user={user} content={content} />;
+                  }
+                ))
+                :
+                (
+                <div style={{"fontSize": "14pt", "color": "white"}}>Não há Conteúdos</div>
+                )
+              (projectPage && user.contents.length) ?
+                (
+                  user.projects.map((project) => {
+                    return <ContentCard user={user} content={project} />;
+                  }
+                ))
+                :
+                (
+                <div style={{"fontSize": "14pt", "color": "white"}}>Não há Projetos</div>
+                )
+              :
+              (
+                <div style={{"fontSize": "14pt", "color": "white"}}>Carregando...</div>
+              )
+            } */}
             {/* {(contentPage && user) ?
               (user.contents.length != 0) && (
                 (

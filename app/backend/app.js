@@ -3,8 +3,24 @@ require('express-async-errors')
 require('dotenv').config()
 var bodyParser = require('body-parser')
 const cors = require('cors')
+const log4js = require('log4js');
 
 
+//Configurando Log de Usuários
+log4js.configure({
+    appenders: {
+      multi: {
+        type: "multiFile",
+        base: "logs/",
+        property: "categoryName",
+        extension: ".log",
+      },
+    },
+    categories: {
+      default: { appenders: ["multi"], level: "debug" },
+    },
+});
+  
 
 const app = express()
 app.use(cors())
