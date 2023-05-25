@@ -91,7 +91,29 @@ const Update = async (req, res) => {
   //Chamada para o service
   try {
     //Tratamento das respostas do método da classe
-    const result = await Content.Update(id, data);
+    const result = await Content.update(id, data);
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const Delete = async (req, res) => {
+  const { id } = req.params;
+
+  //Valida se algum paremetro é inválido
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      error: errors.errors[0].msg,
+    });
+  }
+
+  //Chamada para o service
+  try {
+    //Tratamento das respostas do método da classe
+    const result = await Content.delete(id);
     res.send(result);
   } catch (err) {
     res.status(500).send(err.message);
@@ -103,4 +125,6 @@ module.exports = {
   Create,
   GetContentByID,
   GetAllContent,
+  Update,
+  Delete
 };

@@ -7,8 +7,8 @@ const log4js = require('log4js');
 
 const loggerUser = log4js.getLogger('user');
 
-
 const prisma = new PrismaClient()
+
 class User {
     async Create(email, pass, name, area, tags) {
         //Verify if user already exists

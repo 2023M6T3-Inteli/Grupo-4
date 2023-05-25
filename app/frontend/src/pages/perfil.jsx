@@ -23,9 +23,8 @@ const Perfil = (props) => {
     updatedAt: "",
     tags: "",
     password: "",
-  }); // [{}
-  const [contents, setContents] = useState([]);
-  const [projects, setProjects] = useState([]);
+  });
+
   //const [xp, setXp] = useState(1400);
 
   const navigate = useNavigate();
@@ -54,9 +53,6 @@ const Perfil = (props) => {
       
       const response = await fetch("/content.json");
       const data = await response.json();
-
-      setContents(data.contents);
-      setProjects(data.projects);
     };
 
     fetchData();
@@ -134,6 +130,7 @@ const Perfil = (props) => {
               <p>{tag}</p>
             ))}
           </div>
+          <div>{JSON.stringify(user)}</div>
         </div>
 
         <div className={styles.history}>

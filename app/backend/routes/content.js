@@ -33,12 +33,13 @@ const unsureAuthenticated = require('../middlewares/unsureAuthenticated');
  *         description: Success
  */
 router.post
-    ("/create", 
-    [body("title", "Titulo é necessário").exists({ checkFalsy: true })], 
-    [body("description", "Descrição é necessária").exists({ checkFalsy: true })], 
-    [body("tags", "Tags são necessárias").exists({ checkFalsy: true })], 
-    unsureAuthenticated.unsureAuthenticated, 
-    contentController.Create);
+  ("/create", 
+  [body("title", "Titulo é necessário").exists({ checkFalsy: true })], 
+  [body("description", "Descrição é necessária").exists({ checkFalsy: true })], 
+  [body("tags", "Tags são necessárias").exists({ checkFalsy: true })], 
+  unsureAuthenticated.unsureAuthenticated, 
+  contentController.Create
+);
 
 /**
  * @swagger
@@ -77,19 +78,19 @@ router.get(
   contentController.GetAllContent
 );
 
-// router.put(
-//   "/update/:id",
-//   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
-//   // unsureAuthenticated.unsureAuthenticated,
-//   contentController.Update
-// );
+router.put(
+  "/update/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.Update
+);
 
-// router.delete(
-//   "/delete/:id",
-//   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
-//   // unsureAuthenticated.unsureAuthenticated,
-//   contentController.Delete
-// );
+router.delete(
+  "/delete/:id",
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.Delete
+);
 
 
 module.exports = router;
