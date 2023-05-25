@@ -3,15 +3,10 @@ const { v4: uuid } = require('uuid')
 require('dotenv').config()
 const log4js = require('log4js');
 
+
 const prisma = new PrismaClient()
 
-//Configurando Log de Usuários
-log4js.configure({
-    appenders: { user: { type: "file", filename: "logs/application.log" } },
-    categories: { default: { appenders: ["application"], level: "info" } },
-});
-
-const logger = log4js.getLogger('application');
+const logger = log4js.getLogger('project');
 
 
 class Project {

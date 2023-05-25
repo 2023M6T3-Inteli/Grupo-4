@@ -1,10 +1,26 @@
-
 const express = require('express')
 require('express-async-errors')
 require('dotenv').config()
 var bodyParser = require('body-parser')
 const cors = require('cors')
+const log4js = require('log4js');
 
+
+//Configurando Log de Usuários
+log4js.configure({
+    appenders: {
+      multi: {
+        type: "multiFile",
+        base: "logs/",
+        property: "categoryName",
+        extension: ".log",
+      },
+    },
+    categories: {
+      default: { appenders: ["multi"], level: "debug" },
+    },
+});
+  
 
 const app = express()
 app.use(cors())
@@ -24,9 +40,7 @@ app.get('/', (req, res) => {
 // Rotas
 const userRouter = require('./routes/user')
 const ContentRouter = require('./routes/content');
-const projectRouter = require('./routes/project');
 
-app.use('/v1/project', projectRouter);
 app.use('/v1/content', ContentRouter);
 app.use('/v1/user', userRouter)
 

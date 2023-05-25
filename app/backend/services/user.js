@@ -5,14 +5,7 @@ const { v4: uuid } = require('uuid')
 require('dotenv').config()
 const log4js = require('log4js');
 
-
-//Configurando Log de Usuários
-log4js.configure({
-    appenders: { user: { type: "file", filename: "logs/user.log" } },
-    categories: { default: { appenders: ["user"], level: "info" } },
-});
-
-const logger = log4js.getLogger('user');
+const loggerUser = log4js.getLogger('user');
 
 
 const prisma = new PrismaClient()
@@ -26,7 +19,7 @@ class User {
         })
 
         if (user) {
-            logger.warn(`User ${user.id} already exists, and tried to create another one`)
+            loggerUser.warn(`User ${user.id} already exists, and tried to create another one`)
             throw new Error('User already exists') 
         }
 
@@ -49,11 +42,11 @@ class User {
                 }
             })
 
-            logger.info(`User ${user.id} created successfully`)
+            loggerUser.info(`User ${user.id} created successfully`)
 
             return user
         } catch (error) {
-            logger.error(`Problems on server: ${error}`)
+            loggerUser.error(`Problems on server: ${error}`)
             throw new Error('Error creating user')
         }
     }
@@ -69,7 +62,7 @@ class User {
         console.log(user)
 
         if (!user) {
-            logger.warn(`Login with email ${email} tried to authnticate`)
+            loggerUser.warn(`Login with email ${email} tried to authnticate`)
             throw new Error('Invalid Email or/and Password')
         }
 
@@ -77,7 +70,7 @@ class User {
         const passMatch = await bcrypt.compare(pass, user.password)
 
         if (!passMatch) {
-            logger.warn(`Account ${user.id} had problems to authenticate with wrong password`)
+            loggerUser.warn(`Account ${user.id} had problems to authenticate with wrong password`)
             throw new Error('Invalid Email or/and Password')
         }
 
@@ -91,7 +84,7 @@ class User {
         })
 
 
-        const test = logger.info(`User ${user.id} authenticated successfully`)
+        const test = loggerUser.info(`User ${user.id} authenticated successfully`)
 
         console.log(test)
 
@@ -112,17 +105,17 @@ class User {
         })
 
         if (!user) {
-            logger.warn(`User ${user.id} not found on update route, and need to be checked`)
+            loggerUser.warn(`User ${user.id} not found on update route, and need to be checked`)
             throw new Error('User not found')
         }
 
         if(!data) {
-            logger.error(`User ${user.id} tried to update without data`)
+            loggerUser.error(`User ${user.id} tried to update without data`)
             throw new Error('No data to update')
         }
 
         if(data.password) {
-            logger.error(`User ${user.id} tried to update password without old password`)
+            loggerUser.error(`User ${user.id} tried to update password without old password`)
             if (!data.oldPassword) {
                 throw new Error('You need to send your old password to update')
             } 
@@ -149,7 +142,7 @@ class User {
                 data,
             })
 
-            logger.info(`User ${user.id} updated successfully`)
+            loggerUser.info(`User ${user.id} updated successfully`)
             return user
         } catch (error) {
             logger.error(`Problems on server: ${error}`)
@@ -167,7 +160,7 @@ class User {
         })
 
         if (!user) {
-            logger.warn(`User ${user.id} not found on delete route, and need to be checked`)
+            loggerUser.warn(`User ${user.id} not found on delete route, and need to be checked`)
             throw new Error('User not found')
         }
 
@@ -178,10 +171,10 @@ class User {
                 }
             })
 
-            logger.info(`User ${user.id} deleted successfully`)
+            loggerUser.info(`User ${user.id} deleted successfully`)
             return "User deleted with success"
         } catch (error) {
-            logger.error(`Problems on server: ${error}`)
+            loggerUser.error(`Problems on server: ${error}`)
             throw new Error('Error deleting user')
         }
     }
@@ -199,7 +192,7 @@ class User {
         })
 
         if (!user) {
-            logger.warn(`User ${user.id} not found on getUser route, and need to be checked`)
+            loggerUser.warn(`User ${user.id} not found on getUser route, and need to be checked`)
             throw new Error('User not found')
         }
 
