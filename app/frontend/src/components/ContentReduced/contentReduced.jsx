@@ -16,7 +16,7 @@ const ContentReduced = (props) => {
                     </div>
                 </div>
                 <div className={styles.tags}>
-                    {["HTML", "JavaScript", "Python", "AWS", "React"].map(tag => (
+                    {["HTML", "JavaScript", "Python", "AWS", "React"].slice(0, 3).map(tag => (
                         <p>{tag}</p>
                     ))}
                 </div>

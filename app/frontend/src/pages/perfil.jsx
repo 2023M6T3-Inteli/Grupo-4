@@ -21,7 +21,7 @@ const Perfil = (props) => {
     name: "",
     projects: [],
     updatedAt: "",
-    tags: "",
+    tags: [],
     password: "",
   });
 
@@ -48,6 +48,8 @@ const Perfil = (props) => {
       if(responseUser.status !== 200) {
         navigate("/login")
       }
+
+      responseUser.data.tags = JSON.parse(responseUser.data.tags);
 
       setUser({...user, ...responseUser.data});
       
@@ -126,11 +128,14 @@ const Perfil = (props) => {
         <div className={styles.interests}>
           <h1>INTERESTS</h1>
           <div className={styles.tags}>
-            {["HTML", "JavaScript", "Python", "AWS", "React"].map(tag => (
-              <p>{tag}</p>
-            ))}
+            {
+            user && (
+              user.tags.map(tag => (
+                <p>{tag}</p>
+              ))
+            )
+          }
           </div>
-          <div>{JSON.stringify(user)}</div>
         </div>
 
         <div className={styles.history}>
@@ -167,64 +172,12 @@ const Perfil = (props) => {
                   return <CardProject user={user} project={project} />;
                 }
               ))
+            }
+            {
               (!user) && (
                 <div style={{"fontSize": "14pt", "color": "white"}}>Carregando...</div>
               )
             }
-            {/* {
-              user ?
-              
-              (contentPage && user.contents.length) ?
-                (
-                  user.contents.map((content) => {
-                    return <ContentCard user={user} content={content} />;
-                  }
-                ))
-                :
-                (
-                <div style={{"fontSize": "14pt", "color": "white"}}>Não há Conteúdos</div>
-                )
-              (projectPage && user.contents.length) ?
-                (
-                  user.projects.map((project) => {
-                    return <ContentCard user={user} content={project} />;
-                  }
-                ))
-                :
-                (
-                <div style={{"fontSize": "14pt", "color": "white"}}>Não há Projetos</div>
-                )
-              :
-              (
-                <div style={{"fontSize": "14pt", "color": "white"}}>Carregando...</div>
-              )
-            } */}
-            {/* {(contentPage && user) ?
-              (user.contents.length != 0) && (
-                (
-                  user.contents.map((content) => {
-                    return <ContentCard user={content.user} content={content} />;
-                  })
-                )
-              )
-              : <div style={{"fontSize": "14pt", "color": "white"}}></div>
-            }
-            {(projectPage && user) ?
-              (
-                (user.projects.length != 0) && (
-                  user.projects.map((content) => {
-                    return <ContentCard user={content.user} content={content} />;
-                  })
-                )
-              )
-              : <div style={{"fontSize": "14pt", "color": "white"}}></div>
-            } */}
-              
-            {/* {projectPage && 
-              projects.map((project) => {
-                return <CardProject project={project} />;
-              })
-            } */}
           </div>
         </div>
         
