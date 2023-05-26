@@ -11,6 +11,8 @@ const loggerProject = log4js.getLogger('project');
 
 class Project {
     async Create(title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId) {
+        const dateMock = new Date()
+
         try {
             const project = await prisma.project.create({
                 data: {
@@ -19,10 +21,10 @@ class Project {
                     description: description,
                     projectType: projectType,
                     ownerId: ownerId,
-                    deliveryTime: deliveryTime,
-                    startDate: startDate,
-                    endDate: endDate,
-                    deadline: deadline,
+                    deliveryTime: dateMock,
+                    startDate: dateMock,
+                    endDate: dateMock,
+                    deadline: dateMock,
                 }
             })
 
@@ -30,6 +32,7 @@ class Project {
 
             return project
         } catch (error) {
+            console.log(error)
             loggerProject.error(`Problems on server: ${error}`)
             throw new Error('Error when creating project')
         }
@@ -108,6 +111,27 @@ class Project {
         } catch (error) {
             loggerProject.error(`Problems on server getting all projects: ${error}`)
             throw new Error('Error getting all projects')
+        }
+    }
+
+    async getProject(id) {
+        try {
+            //Getting project by id
+            const project = await prisma.project.findUnique({
+                where: {
+                    id: id
+                }
+            })
+
+            if (!project) {
+                loggerProject.error("Someone tried to get a project that doesn't exists | ID (project) passed: " + id)
+                throw new Error('Project not found')
+            }
+
+            return project
+        } catch (error) {
+            loggerProject.error(`Problems on server getting project: ${error}`)
+            throw new Error('Error getting project')
         }
     }
 }

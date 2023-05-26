@@ -63,10 +63,10 @@ router.post(
   [body("title", "Titulo é necessária").exists({ checkFalsy: true })], 
   [body("description", "Descrição é necessária").exists({ checkFalsy: true })],
   [body("projectType", "Tipo do projeto é necessária").exists({ checkFalsy: true })], 
-  [body("startDate", "Area é necessária").exists({ checkFalsy: true })], 
-  [body("endDate", "Area é necessária").exists({ checkFalsy: true })], 
-  [body("deadline", "Area é necessária").exists({ checkFalsy: true })], 
-  [body("deliveryTime", "Area é necessária").exists({ checkFalsy: true })], 
+  [body("startDate", "Start é necessária").exists({ checkFalsy: true })], 
+  [body("endDate", "End é necessária").exists({ checkFalsy: true })], 
+  [body("deadline", "DeadLine é necessária").exists({ checkFalsy: true })], 
+  [body("deliveryTime", "Delivery é necessária").exists({ checkFalsy: true })], 
   [body("ownerId", "Id do Owner é necessária=o").exists({ checkFalsy: true })], 
   projectController.Create
 );
@@ -87,7 +87,7 @@ router.post(
  *         description: Success
  */
 router.get(
-  "/getProject/:id", 
+  "/get/:id", 
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })], 
   projectController.GetProjectByID
 );

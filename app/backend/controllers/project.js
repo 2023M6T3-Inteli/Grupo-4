@@ -42,7 +42,7 @@ const GetProjectByID = async (req, res) => {
   //Chamada para o service
   try {
     //Tratamento das respostas do método da classe
-    const result = await Project.GetProject(id)
+    const result = await Project.getProject(id)
     res.send(result)
   } catch (err) {
     res.status(500).send(err.message)

@@ -1,0 +1,30 @@
+[2023-05-25T23:19:33.765] [ERROR] project - Problems on server: Error: 
+Invalid `prisma.project.create()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\project.js:18:50
+
+  15 const dateMock = new Date()
+  16 
+  17 try {
+→ 18     const project = await prisma.project.create(
+Null constraint violation on the fields: (`coleaderId`)
+[2023-05-25T23:20:58.758] [ERROR] project - Problems on server: Error: 
+Invalid `prisma.project.create()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\project.js:18:50
+
+  15 const dateMock = new Date()
+  16 
+  17 try {
+→ 18     const project = await prisma.project.create(
+Foreign key constraint failed on the field: `foreign key`
+[2023-05-25T23:22:37.217] [ERROR] project - Problems on server: Error: 
+Invalid `prisma.project.create()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\project.js:20:50
+
+  17 const dateMock = new Date()
+  18 
+  19 try {
+→ 20     const project = await prisma.project.create(
+Foreign key constraint failed on the field: `foreign key`
+[2023-05-25T23:23:33.450] [INFO] project - Project 73e61f88-6761-41f2-baed-303b91982f95 created successfully
+[2023-05-25T23:26:55.167] [ERROR] project - Someone tried to get a project that doesn't exists | ID (project) passed: getAll
+[2023-05-25T23:26:55.174] [ERROR] project - Problems on server getting project: Error: Project not found

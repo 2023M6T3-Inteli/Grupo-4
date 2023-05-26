@@ -28,14 +28,13 @@ model Project {
   title         String
   description   String
   projectType   String
-  coleaderId    String
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
   startDate     DateTime
   endDate       DateTime
   deadline      DateTime
   deliveryTime  DateTime
-  offers         Offers[]
+  offers        Offers[]
   tags          Tag[]
   ownerId       String
   owner         User           @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)

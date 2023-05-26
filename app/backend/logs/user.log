@@ -33,3 +33,5 @@
 [2023-05-25T17:58:14.905] [WARN] user - Login with email vGagshgg tried to authnticate
 [2023-05-25T17:58:16.670] [WARN] user - Login with email vGagshgg tried to authnticate
 [2023-05-25T17:58:28.796] [INFO] user - User 5fdcc0da-37fa-4bd4-ae8c-c2dcde36eefe authenticated successfully
+[2023-05-25T23:17:28.172] [INFO] user - User 2502bfeb-ca2b-4a54-aab7-13d567b1d31e created successfully
+[2023-05-25T23:18:10.684] [INFO] user - User 5fdcc0da-37fa-4bd4-ae8c-c2dcde36eefe authenticated successfully
