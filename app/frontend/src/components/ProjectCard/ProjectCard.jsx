@@ -10,6 +10,8 @@ const ProjectCard = ({ project, user }) => {
   const { title, status, description, leader, deadline, tags } = project;
   const [modalOpen, setModalOpen] = useState(false);
 
+  let tagsArray = JSON.parse(tags.replace(/'/g, "\""))
+  
   const path = useLocation();
 
   const pathName = path.pathname;
@@ -43,9 +45,9 @@ const ProjectCard = ({ project, user }) => {
               </div>
             </div>
             <div>
-              <div className={styles.tags}>
-                {tags.map((tag) => (
-                  <p>{tag}</p>
+            <div className={styles.tags}>
+            {tagsArray.map((tag) => (
+              <p>{tag}</p>
                 ))}
               </div>
             </div>

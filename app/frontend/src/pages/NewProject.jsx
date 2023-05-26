@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from "../styles/NewProject.module.scss";
+import { IoIosArrowBack } from "react-icons/io";
+
 
 const NewProject = () => {
   const [title, setTitle] = useState('');
@@ -76,96 +78,90 @@ const NewProject = () => {
 
 return (
 
-  <div>
+  <div className={styles.container}>
 
-    <div>
+    <div className={styles.ground}>
 
-    <div className={styles.header}>
+    <header className={styles.header}>
+      <button >
+        <IoIosArrowBack size={25} color="white" />
+      </button>
+      <h3> CREATE NEW PROJECT </h3>
+    </header>
 
-     
-    </div> 
-
-    </div>
-    <div className={styles.generalContainer}>
-
-    <div>
-    <h3>  Create New Project </h3>
-
-      <div>
-      
-      
-      <label>
-         Title:
+    <div className={styles.title}>
          <form onSubmit={handleSubmit}>
-         <input value={title} onChange={(e) => setTitle(e.target.value)} />
+         <input value={title} placeholder='TITLE' onChange={(e) => setTitle(e.target.value)} />
          </form>
-       </label>
        </div>
       
-      <div>
-       <label>
-         Leader:
+      <div className={styles.title}>
          <form onSubmit={handleSubmit}>
-         <input value={leader} onChange={(e) => setLeader(e.target.value)} />
+         <input value={leader} placeholder='CO-LEADER' onChange={(e) => setLeader(e.target.value)} />
          </form>
-       </label>
       </div>
       
       
-      
-      <div >
-       <label>
+      <div className={styles.description}>
        <form onSubmit={handleSubmit}>
-         Description:
-         <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+         <textarea value={description} placeholder='DESCRIPTION' onChange={(e) => setDescription(e.target.value)} />
         </form>
-       </label>
        </div>
 
-       <div>
-       <label>
-         Subject:
+       <div className={styles.selectArea}>
+       <div className={styles.Area}>
          <form onSubmit={handleSubmit}>
          <select value={subject} onChange={(e) => setSubject(e.target.value)}>
            {/* Add your project subjects as options here */}
-           <option value="">Choose subject</option>
+           <option value="">AREA</option>
            <option value="subject1">Subject 1</option>
            <option value="subject2">Subject 2</option>
          </select>
          </form>
-       </label>
+         </div>
         </div>
 
-      <div className={styles.date} >
+      <div className={styles.dates} >
        
-       <label>
-         Start Date:
-         <form onSubmit={handleSubmit}>
-         <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-         </form>
-       </label>
-       
-       <label>
-         End Date:
-         <form onSubmit={handleSubmit}>
-         <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-         </form>
-       </label>
+        <div className={styles.dateContainer}>
+          <div className={styles.date}>
+            <div className={styles.dateItem}>DURATION</div>
+            
+            <form onSubmit={handleSubmit} className={styles.dateItem}>
+              <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+              <i class="fa-solid fa-calendar-days fa"></i>
+            </form>
+          </div>
+          
+          <h3> UNTIL </h3>
+
+          <div className={styles.date}>
+            <div className={styles.dateItem}> END DATE </div>
+            <form onSubmit={handleSubmit} className={styles.dateItem}>
+              <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+              <i class="fa-solid fa-calendar-days fa"></i>
+            </form> 
+          </div>
         </div>
-     
-      <div >
-      <label>
-         Deadline:
-        <form onSubmit={handleSubmit}>
-        <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
-        </form>
-       </label>
-       <label>
-         Delivery Time:
-         <form onSubmit={handleSubmit}>
-       <input type="time" value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} />
-        </form>
-     </label>
+
+        <div className={styles.dateContainer}>
+          <div className={styles.date}>
+            <div className={styles.dateItem}> DEAD LINE </div>
+            
+            <form onSubmit={handleSubmit} className={styles.dateItem}>
+              <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+              <i class="fa-solid fa-calendar-days fa"></i>
+            </form>
+          </div>
+          
+          <div className={styles.date}>
+            <div className={styles.dateItem}> DELIVERY TIME </div>
+            <form onSubmit={handleSubmit} className={styles.dateItem}>
+              <input type="time" value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} />
+            </form> 
+          </div>
+        </div>
+
      </div>
     
 
@@ -200,35 +196,25 @@ return (
       <div>
       <button type="button" onClick={handleAddRole}>+</button>
       </div>
+      <div className={styles.tags}>
+      <div> <h3>TAGS</h3></div>
+      <div><button onClick={handleAddTag}>+</button></div>
       </div>
-      <div className={styles.tagsContainer}>
-  <h3>Tags</h3>
-  {tags.map((tag, index) => (
-    <div key={index}>
-      <input
-        value={tag}
-        onChange={(e) => handleTagChange(index, e.target.value)}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'var(--neutral-50)',
-          backgroundColor: 'var(--primary-600)',
-          height: '3rem',
-          width: 'auto',
-          padding: '0.5rem 1rem',
-          borderRadius: '0.8rem',
-          border: 'none',
-          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-          fontWeight: 'lighter',
-          fontSize: '11pt',
-          margin: '1rem 1rem 0 0'
-        }}
-      />
-    </div>
-  ))}
-  <button onClick={handleAddTag}>+</button>
+        <div className={styles.tagsContainer}>
+      {tags.map((tag, index) => (
+      <div key={index}>
+        <input
+          value={tag}
+          onChange={(e) => handleTagChange(index, e.target.value)}
+          className={styles.onetag}
+        />
+      </div>
+    ))}
+    
 </div>
+  <div className={styles.button}>
+        <button>CREATE</button>
+      </div>
 
     </div>
     </div>

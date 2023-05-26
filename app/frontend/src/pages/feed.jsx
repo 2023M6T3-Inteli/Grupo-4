@@ -36,9 +36,6 @@ const Feed = (props) => {
       const responseProject = await projectService.getProject();
 
       console.log(responseProject.data)
-
-      
-      
       
       setContents(responseContent.data);
       setProjects(responseProject.data);

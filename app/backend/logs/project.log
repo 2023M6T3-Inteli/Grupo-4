@@ -28,3 +28,30 @@ Foreign key constraint failed on the field: `foreign key`
 [2023-05-25T23:23:33.450] [INFO] project - Project 73e61f88-6761-41f2-baed-303b91982f95 created successfully
 [2023-05-25T23:26:55.167] [ERROR] project - Someone tried to get a project that doesn't exists | ID (project) passed: getAll
 [2023-05-25T23:26:55.174] [ERROR] project - Problems on server getting project: Error: Project not found
+[2023-05-26T04:53:50.967] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+C:\Users\Inteli\Documents\Projetos módulos\Grupo-4-T03-M06-2023\app\backend\services\project.js:125:51
+
+  122 async getAllProjects() {
+  123     try {
+  124         //Getting all projects
+→ 125         const projects = await prisma.project.findMany(
+The column `main.Project.coleaderId` does not exist in the current database.
+[2023-05-26T04:54:04.832] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+C:\Users\Inteli\Documents\Projetos módulos\Grupo-4-T03-M06-2023\app\backend\services\project.js:125:51
+
+  122 async getAllProjects() {
+  123     try {
+  124         //Getting all projects
+→ 125         const projects = await prisma.project.findMany(
+The column `main.Project.coleaderId` does not exist in the current database.
+[2023-05-26T04:54:19.286] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+C:\Users\Inteli\Documents\Projetos módulos\Grupo-4-T03-M06-2023\app\backend\services\project.js:125:51
+
+  122 async getAllProjects() {
+  123     try {
+  124         //Getting all projects
+→ 125         const projects = await prisma.project.findMany(
+The column `main.Project.coleaderId` does not exist in the current database.
