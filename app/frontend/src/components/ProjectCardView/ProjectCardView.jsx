@@ -16,7 +16,9 @@ import CentralModal from "../CentralModal/Modal";
 import styles from "./VisualizeProject.module.scss";
 
 const ProjectCardView = ({ project, user, handleClose }) => {
-  const { title, status, startDate, endDate, deadline, tags } = project;
+  const { title, status, description, startDate, endDate, deadline, tags, owner } = project;
+
+  console.log(project)
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -51,12 +53,12 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={userIcon} width={22} alt="user" />
         </div>
         <div>
-          <p> Leader: {user.name} </p>
+          <p> Leader: {owner.name} </p>
         </div>
       </div>
 
       <div className={styles.projectInfo}>
-        <div className={styles.icon}>
+        <div className={styles.iconDescription}>
           <img
             src={descriptionIcon}
             width={50}
@@ -66,9 +68,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
         </div>
         <div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam
+            {description}
           </p>
         </div>
       </div>
@@ -78,7 +78,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={calendar} width={22} alt="calendar_icon" />
         </div>
         <div>
-          <p>Start date: {startDate}</p>
+          <p>Start date: {new Date(startDate).toLocaleDateString('pt-br')}</p>
         </div>
       </div>
 
@@ -87,7 +87,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={calendar} width={22} alt="calendar_icon" />
         </div>
         <div>
-          <p>End date: {endDate}</p>
+          <p>End date: {new Date(endDate).toLocaleDateString('pt-br')}</p>
         </div>
       </div>
 
@@ -129,7 +129,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={calendar} width={22} alt="calendar_icon" />
         </div>
         <div>
-          <p>Dead line: {deadline}</p>
+          <p>Dead line: {new Date(deadline).toLocaleDateString('pt-br')}</p>
         </div>
       </div>
 

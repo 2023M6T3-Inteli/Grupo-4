@@ -35,8 +35,6 @@ const Feed = (props) => {
       const responseContent = await contentService.getContent();
       const responseProject = await projectService.getProject();
 
-      console.log(responseProject.data)
-      
       setContents(responseContent.data);
       setProjects(responseProject.data);
 
@@ -85,8 +83,8 @@ const Feed = (props) => {
           {
             projectPage &&
               projects.map((project) => {
-                // return <CardProject project={project} user={user} />;
-                return <div>{JSON.stringify(project)}</div>
+                return <CardProject project={project} user={user} />;
+                // return <div>{JSON.stringify(project)}</div>
               })
           }
         </main>

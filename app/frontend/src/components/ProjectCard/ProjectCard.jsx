@@ -7,11 +7,15 @@ import styles from "./ProjectCard.module.scss";
 import { useLocation } from "react-router-dom";
 
 const ProjectCard = ({ project, user }) => {
-  const { title, status, description, leader, deadline, tags } = project;
+  const { title, description, deadline, owner, tags } = project;
   const [modalOpen, setModalOpen] = useState(false);
 
-  let tagsArray = JSON.parse(tags.replace(/'/g, "\""))
-  
+  let tagsArray = [];
+
+  if (tags.lenth > 0) {
+    tagsArray = JSON.parse(tags.replace(/'/g, '"'));
+  }
+
   const path = useLocation();
 
   const pathName = path.pathname;
@@ -32,7 +36,7 @@ const ProjectCard = ({ project, user }) => {
                 <p>{title}</p>
               </div>
               <div className={styles.status}>
-                <p>{status}</p>
+                <p>Ativo</p>
               </div>
             </div>
             <div className={styles.description}>
@@ -40,14 +44,14 @@ const ProjectCard = ({ project, user }) => {
                 <p>{description}</p>
               </div>
               <div>
-                <p>Leader: {leader}</p>
-                <p>Dead line: {deadline}</p>
+                <p>Leader: {owner.name}</p>
+                <p>Dead line: {new Date(deadline).toLocaleDateString('pt-br')}</p>
               </div>
             </div>
             <div>
-            <div className={styles.tags}>
-            {tagsArray.map((tag) => (
-              <p>{tag}</p>
+              <div className={styles.tags}>
+                {tagsArray.map((tag) => (
+                  <p>{tag}</p>
                 ))}
               </div>
             </div>
