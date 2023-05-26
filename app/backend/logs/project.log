@@ -55,3 +55,21 @@ C:\Users\Inteli\Documents\Projetos módulos\Grupo-4-T03-M06-2023\app\backend\ser
   124         //Getting all projects
 → 125         const projects = await prisma.project.findMany(
 The column `main.Project.coleaderId` does not exist in the current database.
+[2023-05-26T13:03:47.418] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+C:\Users\pepeh\OneDrive\Documentos\GitHub\Grupo-4\app\backend\services\project.js:125:51
+
+  122 async getAllProjects() {
+  123     try {
+  124         //Getting all projects
+→ 125         const projects = await prisma.project.findMany(
+The column `main.Project.coleaderId` does not exist in the current database.
+[2023-05-26T13:03:47.431] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+C:\Users\pepeh\OneDrive\Documentos\GitHub\Grupo-4\app\backend\services\project.js:125:51
+
+  122 async getAllProjects() {
+  123     try {
+  124         //Getting all projects
+→ 125         const projects = await prisma.project.findMany(
+The column `main.Project.coleaderId` does not exist in the current database.

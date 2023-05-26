@@ -122,7 +122,18 @@ class Project {
     async getAllProjects() {
         try {
             //Getting all projects
-            const projects = await prisma.project.findMany({});
+            const projects = await prisma.project.findMany({
+                include: {
+                    owner: {
+                        select: {
+                            name: true,
+                            points: true,
+                            area: true,
+                        }
+                    },
+                    tags: true
+                }
+            });
 
             return projects
         } catch (error) {
@@ -137,6 +148,16 @@ class Project {
             const project = await prisma.project.findUnique({
                 where: {
                     id: id
+                },
+                include: {
+                    owner: {
+                        select: {
+                            name: true,
+                            points: true,
+                            area: true,
+                        }
+                    },
+                    tags: true
                 }
             })
 
