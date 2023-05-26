@@ -35,8 +35,8 @@ const Feed = (props) => {
       const responseContent = await contentService.getContent();
       const responseProject = await projectService.getProject();
 
-      setContents(responseContent.data);
-      setProjects(responseProject.data);
+      setContents(responseContent.data.reverse());
+      setProjects(responseProject.data.reverse());
 
       setisLoading(false);
     };
