@@ -41,20 +41,16 @@ const Perfil = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const responseUser = await userService.getUser();
 
-      console.log(responseUser.data)
+      try {
+        const responseUser = await userService.getUser();
 
-      if(responseUser.status !== 200) {
-        navigate("/login")
+        responseUser.data.tags = JSON.parse(responseUser.data.tags);
+
+        setUser({...user, ...responseUser.data});
+      } catch (error) {
+        navigate("/login");
       }
-
-      responseUser.data.tags = JSON.parse(responseUser.data.tags);
-
-      setUser({...user, ...responseUser.data});
-      
-      const response = await fetch("/content.json");
-      const data = await response.json();
     };
 
     fetchData();
