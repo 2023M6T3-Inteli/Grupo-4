@@ -100,7 +100,7 @@ const Perfil = (props) => {
         </div>
 
         <div className={styles.profileImage}>
-            <img src="https://avatars.githubusercontent.com/u/68920578?v=4" alt="user_profile" />
+            <img src={user.imgUrl} alt="user_profile" />
             <div>
               <h1>{`Lv ${lv}`}</h1>
             </div>
@@ -169,7 +169,8 @@ const Perfil = (props) => {
             {
               projectPage && (
                 user.projects.map((project) => {
-                  return <CardProject user={user} project={project} />;
+                  // return <CardProject user={user} project={project} />;
+                  return <div>{JSON.stringify(project)}</div>
                 }
               ))
             }

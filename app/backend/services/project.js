@@ -30,6 +30,23 @@ class Project {
 
             loggerProject.info(`Project ${project.id} created successfully`)
 
+            try {
+                await prisma.user.update({
+                    where: {
+                        id: ownerId
+                    },
+                    data: {
+                        points: {
+                            increment: +100
+                        }
+                    }
+                })
+
+                loggerProject.info(`Added points to user ${ownerId} for creating project`)
+            } catch(err) {
+                loggerProject.error(`Problems on server updating user points: ${err}`)
+            }
+
             return project
         } catch (error) {
             console.log(error)

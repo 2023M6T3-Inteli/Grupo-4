@@ -1,7 +1,7 @@
 import s from "./Navbar.module.scss";
 import { useRef } from "react";
 import { TbLayoutDashboard } from "react-icons/tb";
-// import { HiOutlineHome } from "react-icons/hi";
+import { HiOutlineHome } from "react-icons/hi";
 import { FiPlusSquare } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
 import { AiOutlineStar } from "react-icons/ai";
@@ -51,14 +51,14 @@ const Navbar = (props) => {
 
       <div ref={nav} className={s.navigation}>
         <ul>
-          {/* <li>
-            <a href="./home">
+          <li>
+            <a onClick={() => navigateHandler("/home")}>
               <label>
                 <HiOutlineHome />
                 <h1>HOME</h1>
               </label>
             </a>
-          </li> */}
+          </li>
           <li>
             <label onClick={toggleDropdownFeed}>
               <TbLayoutDashboard />

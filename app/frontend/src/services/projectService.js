@@ -8,11 +8,11 @@ const API_URL = "http://localhost:3001";
 
 
 const projectService = {
-    getContent: async () => {
+    getProject: async () => {
 
         const token = cookies.get('token')
 
-        const project = await axios.get(`${API_URL}/v1/project/getProject`, {
+        const project = await axios.get(`${API_URL}/v1/project/getAll`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

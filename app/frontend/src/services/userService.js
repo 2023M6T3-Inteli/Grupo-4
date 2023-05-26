@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
  
 const cookies = new Cookies();
 
-const API_URL = "http://10.128.68.22:3001";
+const API_URL = "http://localhost:3001";
 
 
 const userService = {
@@ -30,7 +30,19 @@ const userService = {
         })
 
         return user
-    }
+    },
+    getAll: async () => {
+
+        const token = cookies.get('token')
+
+        const users = await axios.get(`${API_URL}/v1/user/getAll`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        return users
+    },
 }
 
 export default userService;

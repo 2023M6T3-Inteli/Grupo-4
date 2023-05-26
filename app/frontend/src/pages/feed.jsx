@@ -9,6 +9,7 @@ import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import contentService from "../services/contentService";
 import projectService from "../services/projectService";
+import { BoxLoading } from 'react-loadingg';
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -23,24 +24,25 @@ const Feed = (props) => {
     const fetchData = async () => {
       setisLoading(true);
       
+      try {
+        const responseUser = await userService.getUser();
+        setUser(responseUser.data);
+      }
+      catch (err) {
+        navigate("/")
+      }
+
       const responseContent = await contentService.getContent();
       const responseProject = await projectService.getProject();
+
+      console.log(responseProject.data)
+
       
-      const responseUser = await userService.getUser();
       
-      if (responseUser.status !== 200) {
-        navigate("/login");
-      }
       
       setContents(responseContent.data);
       setProjects(responseProject.data);
-      setUser(responseUser.data);
 
-
-      const response = await fetch("/content.json");
-      const data = await response.json();
-
-      setProjects(data.projects);
       setisLoading(false);
     };
 
@@ -58,10 +60,10 @@ const Feed = (props) => {
   };
 
   if (isLoading) {
-    return <p>Loading</p>;
+    return <BoxLoading color="#0672cb" size="large"/>;
   }
 
-  if (!isLoading && contents) {
+  if (!isLoading && contents && projects) {
     return (
       <>
         <div className={styles.header}>
@@ -83,10 +85,13 @@ const Feed = (props) => {
                 return <ContentCard user={user} content={content} />;
               })
           }
-          {projectPage &&
-            projects.map((project) => {
-              return <CardProject project={project} user={project.user} />;
-            })}
+          {
+            projectPage &&
+              projects.map((project) => {
+                // return <CardProject project={project} user={user} />;
+                return <div>{JSON.stringify(project)}</div>
+              })
+          }
         </main>
       </>
     );

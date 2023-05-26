@@ -126,8 +126,8 @@ router.post
 router.put
         ("/update/:id", 
         [param("id", "ID é necessário").exists({ checkFalsy: true })],
-         unsureAuthenticated.unsureAuthenticated, 
-         userController.Update);
+        unsureAuthenticated.unsureAuthenticated, 
+        userController.Update);
 
 /**
  * @swagger
@@ -144,11 +144,11 @@ router.put
  *       200:
  *         description: Success
  */
-router.delete
-        ("/delete/:id", 
-        [param("id", "ID é necessário").exists({ checkFalsy: true })], 
+router.get(
+        "/getAll", 
         unsureAuthenticated.unsureAuthenticated, 
-        userController.Delete);
+        userController.getAll
+);
 
 //Exporta o ROUTER
 module.exports = router;

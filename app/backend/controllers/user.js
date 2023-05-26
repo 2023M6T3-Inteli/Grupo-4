@@ -147,6 +147,21 @@ const GetUserCalling = async (req, res) => {
     }
 }
 
+const getAll = async (req, res) => {
+    //Chamada para o service
+    try {
+        //Tratamento das respostas do método da classe
+        const result = await User.getAllUsers()
+        res.send(result)
+    } catch (err) {
+        const date = new Date()
+        if (err.message) {
+            console.log(`[${date.getDate()}-${date.getUTCMonth()+1}-${date.getFullYear()} | ${date.getHours()-3}:${date.getMinutes()}]`,err.message)
+        }
+        res.status(500).send(err.message)
+    }
+}
+
 //Exporta as funções do controller para o ROUTER
 module.exports = {
     Create,
@@ -154,5 +169,6 @@ module.exports = {
     Update,
     Delete,
     GetUser,
-    GetUserCalling
+    GetUserCalling,
+    getAll
 }

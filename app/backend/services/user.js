@@ -199,6 +199,16 @@ class User {
         return user
     }
 
+    async getAllUsers() {
+        const users = await prisma.user.findMany({
+            include: {
+                projects: true,
+                contents: true,
+            }
+        })
+
+        return users
+    }
     
 }
 
