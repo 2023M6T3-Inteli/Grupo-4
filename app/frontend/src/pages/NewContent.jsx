@@ -31,6 +31,8 @@ const NewContent = () => {
 
     const response = await contentService.createContent(contentData);
 
+    console.log(response);
+
     toast.success("Conteúdo criado com sucesso!");
 
     setTimeout(() => {
@@ -63,9 +65,12 @@ const NewContent = () => {
 
   const addLink = (event) => {
     event.preventDefault();
+    
+    const watchLink = linkInputRef.current.value.split("watch?v=");
+    const embedLink = watchLink[0] + "embed/" + watchLink[1];
 
     if (linkInputRef.current.value) {
-      setLinks([...links, linkInputRef.current.value]);
+      setLinks([...links, embedLink]);
       linkInputRef.current.value = "";
     }
   };
@@ -117,7 +122,7 @@ const NewContent = () => {
           </div>
 
           <div className={styles.tagsContainer}>
-            <h4 onClick={() => console.log(tags)}>TAGS</h4>
+            <h4>TAGS</h4>
             <div>
               <input type="text" ref={tagInputRef} />
               <button type="button" onClick={addTag}>
