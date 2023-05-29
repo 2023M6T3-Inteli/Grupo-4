@@ -100,6 +100,7 @@ class Content {
       },
       include: {
         owner: true,
+        tags: true,
       }
     });
 
@@ -114,7 +115,11 @@ class Content {
 
   async getAllContent() {
     //Verify if content exists
-    const content = await prisma.content.findMany();
+    const content = await prisma.content.findMany({
+      include: {
+        tags: true,
+      }
+    });
 
     if (!content) {
       throw new Error("Content not found");

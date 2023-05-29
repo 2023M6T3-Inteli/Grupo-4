@@ -11,15 +11,18 @@ const prisma = new PrismaClient()
 
 class User {
     async Create(email, pass, name, area, tags) {
+
+        tags = JSON.parse(tags)
+
         //Verify if user already exists
-        const user = await prisma.user.findUnique({
+        const userAlreadyExists = await prisma.user.findUnique({
             where: {
                 email: email
             }
         })
 
-        if (user) {
-            loggerUser.warn(`User ${user.id} already exists, and tried to create another one`)
+        if (userAlreadyExists) {
+            loggerUser.warn(`User ${userAlreadyExists.id} already exists, and tried to create another one`)
             throw new Error('User already exists') 
         }
 
@@ -30,6 +33,8 @@ class User {
             pass = hashedPassWord
         }
 
+        let userOut;
+
         try {
             const user = await prisma.user.create({
                 data: {
@@ -38,17 +43,39 @@ class User {
                     password: pass,
                     name: name,
                     area: area,
-                    tags: tags
                 }
             })
-
+            userOut = user
             loggerUser.info(`User ${user.id} created successfully`)
-
-            return user
         } catch (error) {
             loggerUser.error(`Problems on server: ${error}`)
             throw new Error('Error creating user')
         }
+
+        //Create Tags
+        try {
+            tags.map(async (tag) => {
+                await prisma.tag.create({
+                    data: {
+                        id: uuid(),
+                        name: tag,
+                        userId: userOut.id,
+                    }
+                })
+            })
+
+            loggerUser.info(`Tags created successfully for user ${userOut.id}`)
+        } catch(err) {
+            await prisma.user.delete({
+                where: {
+                    id: userOut.id
+                }
+            })
+            loggerUser.info(`User ${userOut.id} deleted successfully - CAUSE: Problems on creating tags`)
+            throw new Error('Error creating tags')
+        }
+
+        return userOut
     }
 
     async Authenticate(email, pass) {
@@ -188,6 +215,7 @@ class User {
             include: {
                 projects: true,
                 contents: true,
+                tags: true,
             }
         })
 
@@ -204,6 +232,7 @@ class User {
             include: {
                 projects: true,
                 contents: true,
+                tags: true,
             }
         })
 

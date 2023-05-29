@@ -13,11 +13,11 @@ model User {
   name      String
   area      String
   password  String
-  tags      String
   imgUrl    String   @default("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
   points    Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  tags      Tag[]
   contents Content[]
   projects Project[]
   applies Applies[]
@@ -35,10 +35,9 @@ model Project {
   startDate     DateTime
   endDate       DateTime
   deadline      DateTime
-  deliveryTime  DateTime
-  status    String   @default("HIRING")
+  status        String   @default("HIRING")
   offers        Offers[]
-  tags          Tag[]
+  tags          String   @default("[]")
   ownerId       String
   owner         User           @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   projectUsers  Applies[]
@@ -50,28 +49,30 @@ model Offers {
   qntVagas      Int
   area          String
   projectId     String
-  project       Project        @relation(fields: [projectId], references: [id])
+  project       Project        @relation(fields: [projectId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   projectUsers  Applies[]
 }
 
 model Tag {
   id            String         @id @default(uuid())
   name          String
-  projectId     String
-  project       Project        @relation(fields: [projectId], references: [id])
+  contentId     String?
+  content       Content?       @relation(fields: [contentId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  userId        String?
+  user          User?           @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
 
 model Applies {
   id            String         @id @unique
   projectId     String         
-  project       Project        @relation(fields: [projectId], references: [id])
+  project       Project        @relation(fields: [projectId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   userId        String
   user          User           @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   status        String
   why           String
   abilities     String
-  offerId        String
-  offer          Offers           @relation(fields: [offerId], references: [id])
+  offerId       String
+  offer         Offers        @relation(fields: [offerId], references: [id])
 }
 
 model Content {
@@ -79,10 +80,10 @@ model Content {
   title       String
   description String
   links       String?
-  tags        String
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   ownerId     String
+  tags        Tag[]
   ratings     Rating[] 
   owner       User         @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
