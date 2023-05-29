@@ -79,3 +79,7 @@ The column `main.Project.coleaderId` does not exist in the current database.
 [2023-05-29T14:48:04.295] [INFO] project - Roles created successfully for project 7c306e33-cf1d-4ee8-bb73-2b791438e96b
 [2023-05-29T14:48:53.442] [INFO] project - Roles created successfully for project c881c2c6-7882-4ba3-8f2e-168bffa5cadd
 [2023-05-29T14:48:54.539] [INFO] project - Project c881c2c6-7882-4ba3-8f2e-168bffa5cadd created successfully
+[2023-05-29T19:29:46.166] [INFO] project - Roles created successfully for project 70a1f724-fe2f-4bce-8271-164af4ae9d16
+[2023-05-29T19:29:48.458] [INFO] project - Project 70a1f724-fe2f-4bce-8271-164af4ae9d16 created successfully
+[2023-05-29T19:41:56.732] [INFO] project - Roles created successfully for project 00f98923-d69f-4f8a-b116-7083481ddebb
+[2023-05-29T19:41:59.394] [INFO] project - Project 00f98923-d69f-4f8a-b116-7083481ddebb created successfully

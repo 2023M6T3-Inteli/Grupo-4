@@ -53,3 +53,6 @@
 [2023-05-29T14:18:40.348] [INFO] user - User 63656647-fbde-4505-b6fb-2f0581c64ffb authenticated successfully
 [2023-05-29T14:21:18.588] [INFO] user - User 63656647-fbde-4505-b6fb-2f0581c64ffb authenticated successfully
 [2023-05-29T14:24:59.399] [INFO] user - User 63656647-fbde-4505-b6fb-2f0581c64ffb authenticated successfully
+[2023-05-29T17:10:28.708] [WARN] user - Login with email luiz.kama@sou.inteli.edu.br tried to authnticate
+[2023-05-29T17:10:36.780] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully
+[2023-05-29T19:21:25.123] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully

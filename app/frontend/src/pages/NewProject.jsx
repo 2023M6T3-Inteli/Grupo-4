@@ -1,378 +1,235 @@
-import React, { useState } from 'react';
-import styles from "../styles/NewProject.module.scss";
-import { IoIosArrowBack } from "react-icons/io";
+import { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 
+import contentService from "../services/contentService";
+import { useNavigate } from "react-router-dom";
+
+import styles from "../styles/newProject.module.scss";
+import projectService from "../services/projectService";
+import userService from "../services/userService";
 
 const NewProject = () => {
-  const [title, setTitle] = useState('');
-  const [leader, setLeader] = useState('');
-  const [description, setDescription] = useState('');
-  const [subject, setSubject] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [deadline, setDeadline] = useState('');
-  const [deliveryTime, setDeliveryTime] = useState('');
-  const [roles, setRoles] = useState([{ name: '', count: 0 }]);
-  const [tags, setTags] = useState(['']);
- 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
+  const navigate = useNavigate();
+
+  const [tags, setTags] = useState([]);
+  const [roles, setRoles] = useState([
+    {
+      nome: "",
+      qntVagas: "",
+      area: "",
+    },
+  ]);
+
+  const titleInputRef = useRef();
+  const descriptionInputRef = useRef();
+  const projectTypeInputRef = useRef();
+  const startDateInputRef = useRef();
+  const endDateInputRef = useRef();
+  const deadlineDateInputRef = useRef();
+  const tagInputRef = useRef(null);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    const userId = (await userService.getUser()).data.id;
+
     const projectData = {
-      title,
-      leader,
-      description,
-      subject,
-      startDate,
-      endDate,
-      deadline,
-      deliveryTime,
-      roles,
-      tags,
+      title: titleInputRef.current.value,
+      description: descriptionInputRef.current.value,
+      projectType: projectTypeInputRef.current.value,
+      ownerId: userId,
+      roles: JSON.stringify(roles),
+      deliveryTime: "teste",
+      startDate: startDateInputRef.current.value,
+      endDate: endDateInputRef.current.value,
+      deadline: deadlineDateInputRef.current.value,
     };
-  
-    const response = await fetch('/projects', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+
+    console.log(projectData);
+
+    const response = await projectService.createProject(projectData);
+
+    console.log(response);
+
+    toast.success("Projeto criado com sucesso!");
+
+    setTimeout(() => {
+      navigate("/feed/projects");
+    }, 2000);
+  };
+
+  const addTag = (event) => {
+    event.preventDefault();
+
+    if (tagInputRef.current.value) {
+      setTags([...tags, tagInputRef.current.value]);
+      tagInputRef.current.value = "";
+    }
+  };
+
+  const removeTag = (event) => {
+    event.preventDefault();
+
+    const tag = event.target.parentElement.firstChild.innerHTML;
+
+    setTags(tags.filter((item) => item !== tag));
+  };
+
+  const addRole = (event) => {
+    event.preventDefault();
+
+    setRoles([
+      ...roles,
+      {
+        nome: "",
+        qntVagas: "",
+        area: "",
       },
-      body: JSON.stringify(projectData),
-    });
-  
-    if (response.ok) {
-      console.log('Project created successfully');
-    } else {
-      console.log('Failed to create project');
-    }
-  };
-  
-
-  const handleAddRole = () => {
-    setRoles([...roles, { name: '', count: 0 }]);
+    ]);
   };
 
-  const handleRoleChange = (index, field, value) => {
-    const newRoles = [...roles];
-    if (field === 'name') {
-      newRoles[index][field] = value;
-    } else if (field === 'count') {
-      newRoles[index][field] = parseInt(value, 10);
-    }
-    setRoles(newRoles);
-  };
+  //pagina
 
-  const handleAddTag = () => {
-    setTags([...tags, '']);
-  };
+  return (
+    <div className={styles.container}>
+      <div className={styles.ground}>
+        <header className={styles.header}>
+          <h3> CREATE NEW PROJECT </h3>
+        </header>
 
-  const handleTagChange = (index, value) => {
-    const newTags = [...tags];
-    newTags[index] = value;
-    setTags(newTags);
-  };
+        <form onSubmit={submitHandler}>
+          <div className={styles.field}>
+            <input placeholder="TITLE" ref={titleInputRef} />
+          </div>
 
+          <div className={styles.field}>
+            <textarea placeholder="DESCRIPTION" ref={descriptionInputRef} />
+          </div>
 
+          <div className={styles.field}>
+            <input placeholder="AREA" ref={projectTypeInputRef} />
+          </div>
 
+          <div className={styles.dateField}>
+            <h4 className={styles.h4}>DURATION</h4>
+            <div className={styles.inputsContainer}>
+              <input
+                type="date"
+                name="startDate"
+                id="startDate"
+                ref={startDateInputRef}
+              />
+              <p>UNTIL</p>
+              <input
+                type="date"
+                name="endDate"
+                id="endDate"
+                ref={endDateInputRef}
+              />
+            </div>
+          </div>
 
-//pagina
+          <div className={styles.dateField}>
+            <h4 className={styles.h4}>DEADLINE</h4>
+            <div className={styles.inputsContainer}>
+              <input
+                type="date"
+                name="deadline"
+                id="deadline"
+                ref={deadlineDateInputRef}
+              />
+            </div>
+          </div>
 
-return (
+          <div className={styles.rolesContainer}>
+            <div className={styles.rolesHeader}>
+              <h4 className={styles.h4} onClick={() => console.log(roles)}>
+                ROLES
+              </h4>
+              <button type="button">
+                <AiOutlinePlus
+                  size={25}
+                  fill="var(--neutral-600)"
+                  onClick={addRole}
+                />
+              </button>
+            </div>
+            <div className={styles.rolesList}>
+              {roles.map((role, index) => (
+                <div key={index} className={styles.role}>
+                  <input
+                    type="text"
+                    name="roleName"
+                    id="roleName"
+                    placeholder="ROLE"
+                    onChange={(e) => {
+                      const newRoles = [...roles];
+                      newRoles[index].nome = e.target.value;
+                      setRoles(newRoles);
+                    }}
+                  />
+                  <input
+                    type="number"
+                    name="roleQnt"
+                    id="roleQnt"
+                    placeholder="QNT"
+                    onChange={(e) => {
+                      const newRoles = [...roles];
+                      newRoles[index].qntVagas = e.target.value;
+                      setRoles(newRoles);
+                    }}
+                  />
+                  <input
+                    type="text"
+                    name="roleArea"
+                    id="roleArea"
+                    placeholder="AREA"
+                    onChange={(e) => {
+                      const newRoles = [...roles];
+                      newRoles[index].area = e.target.value;
+                      setRoles(newRoles);
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
-  <div className={styles.container}>
+          <div className={styles.tagsContainer}>
+            <h4 className={styles.h4}>TAGS</h4>
+            <div>
+              <input type="text" ref={tagInputRef} />
+              <button type="button" onClick={addTag}>
+                <AiOutlinePlus size={25} fill="var(--neutral-600)" />
+              </button>
+            </div>
+          </div>
 
-    <div className={styles.ground}>
+          {tags.length > 0 && (
+            <div className={styles.tags}>
+              {tags.map((tag, index) => (
+                <div key={index}>
+                  <p>{tag}</p>
+                  <AiOutlineClose
+                    size={20}
+                    fill="var(--neutral-50)"
+                    onClick={removeTag}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
 
-    <header className={styles.header}>
-      <button >
-        <IoIosArrowBack size={25} color="white" />
-      </button>
-      <h3> CREATE NEW PROJECT </h3>
-    </header>
-
-    <div className={styles.title}>
-         <form onSubmit={handleSubmit}>
-         <input value={title} placeholder='TITLE' onChange={(e) => setTitle(e.target.value)} />
-         </form>
-       </div>
-      
-      <div className={styles.title}>
-         <form onSubmit={handleSubmit}>
-         <input value={leader} placeholder='CO-LEADER' onChange={(e) => setLeader(e.target.value)} />
-         </form>
-      </div>
-      
-      
-      <div className={styles.description}>
-       <form onSubmit={handleSubmit}>
-         <textarea value={description} placeholder='DESCRIPTION' onChange={(e) => setDescription(e.target.value)} />
+          <div className={styles.button}>
+            <button type="submit">CREATE</button>
+          </div>
         </form>
-       </div>
-
-       <div className={styles.selectArea}>
-       <div className={styles.Area}>
-         <form onSubmit={handleSubmit}>
-         <select value={subject} onChange={(e) => setSubject(e.target.value)}>
-           {/* Add your project subjects as options here */}
-           <option value="">AREA</option>
-           <option value="subject1">Subject 1</option>
-           <option value="subject2">Subject 2</option>
-         </select>
-         </form>
-         </div>
-        </div>
-
-      <div className={styles.dates} >
-       
-        <div className={styles.dateContainer}>
-          <div className={styles.date}>
-            <div className={styles.dateItem}>DURATION</div>
-            
-            <form onSubmit={handleSubmit} className={styles.dateItem}>
-              <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-              <i class="fa-solid fa-calendar-days fa"></i>
-            </form>
-          </div>
-          
-          <h3> UNTIL </h3>
-
-          <div className={styles.date}>
-            <div className={styles.dateItem}> END DATE </div>
-            <form onSubmit={handleSubmit} className={styles.dateItem}>
-              <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-              <i class="fa-solid fa-calendar-days fa"></i>
-            </form> 
-          </div>
-        </div>
-
-        <div className={styles.dateContainer}>
-          <div className={styles.date}>
-            <div className={styles.dateItem}> DEAD LINE </div>
-            
-            <form onSubmit={handleSubmit} className={styles.dateItem}>
-              <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
-              <i class="fa-solid fa-calendar-days fa"></i>
-            </form>
-          </div>
-          
-          <div className={styles.date}>
-            <div className={styles.dateItem}> DELIVERY TIME </div>
-            <form onSubmit={handleSubmit} className={styles.dateItem}>
-              <input type="time" value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} />
-            </form> 
-          </div>
-        </div>
-
-     </div>
-    
-
-     
-     <div className="rolesContainer">
-      
-      {roles.map((role, index) => (
-        <div key={index} className="roleItem">
-          <form onSubmit={handleSubmit}>
-            <input
-              value={role.name}
-              onChange={(e) => handleRoleChange(index, 'name', e.target.value)} placeholder='role'
-            />
-            </form>
-          
-          <label>
-            Count:
-            <form onSubmit={handleSubmit}>
-            <input
-              type="number"
-              value={role.count}
-              onChange={(e) =>
-                handleRoleChange(index, 'count', e.target.value)
-              }
-            />
-            </form>
-          </label>
-        </div>
-        
-      ))}
+      </div>
+      <ToastContainer style={{ fontSize: "14pt" }} />
     </div>
-      <div>
-      <button type="button" onClick={handleAddRole}>+</button>
-      </div>
-      <div className={styles.tags}>
-      <div> <h3>TAGS</h3></div>
-      <div><button onClick={handleAddTag}>+</button></div>
-      </div>
-        <div className={styles.tagsContainer}>
-      {tags.map((tag, index) => (
-      <div key={index}>
-        <input
-          value={tag}
-          onChange={(e) => handleTagChange(index, e.target.value)}
-          className={styles.onetag}
-        />
-      </div>
-    ))}
-    
-</div>
-  <div className={styles.button}>
-        <button>CREATE</button>
-      </div>
-
-    </div>
-    </div>
-);
-
+  );
 };
 
 export default NewProject;
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react';
-
-// interface roles {
-//   name: string;
-//   count: number;
-// }
-
-// const NewProject: React.FC = () => {
-//   const [title, setTitle] = useState('');
-//   const [leader, setLeader] = useState('');
-//   const [description, setDescription] = useState('');
-//   const [subject, setSubject] = useState('');
-//   const [startDate, setStartDate] = useState('');
-//   const [endDate, setEndDate] = useState('');
-//   const [deadline, setDeadline] = useState('');
-//   const [deliveryTime, setDeliveryTime] = useState('');
-//   const [roles, setroles] = useState<roles[]>([]);
-//   const [tags, setTags] = useState<string[]>([]);
-
-//   const handleAddRole = () => {
-//     setroles([...roles, { name: '', count: 0 }]);
-//   };
-
-//   const handleRoleChange = (index: number, field: keyof roles, value: string | number) => {
-//     const newroles = [...roles];
-//     if (field === 'name') {
-//       newroles[index][field] = value as string;
-//     } else if (field === 'count') {
-//       newroles[index][field] = value as number;
-//     }
-//     setroles(newroles);
-//   };
-  
-
-//   const handleAddTag = () => {
-//     setTags([...tags, '']);
-//   };
-
-//   const handleTagChange = (index: number, value: string) => {
-//     const newTags = [...tags];
-//     newTags[index] = value;
-//     setTags(newTags);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Create New Project</h1>
-//       <label>
-//          Title:
-//          <input value={title} onChange={(e) => setTitle(e.target.value)} />
-//        </label>
-//        <label>
-//          Leader:
-//          <input value={leader} onChange={(e) => setLeader(e.target.value)} />
-//        </label>
-//        <label>
-//          Description:
-//          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-//        </label>
-//        <label>
-//          Subject:
-//          <select value={subject} onChange={(e) => setSubject(e.target.value)}>
-//            {/* Add your project subjects as options here */}
-//            <option value="">Choose subject</option>
-//            <option value="subject1">Subject 1</option>
-//            <option value="subject2">Subject 2</option>
-//          </select>
-//        </label>
-//        <label>
-//          Start Date:
-//          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-//        </label>
-//        <label>
-//          End Date:
-//          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-//        </label>
-//       <label>
-//          Deadline:
-//         <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
-//        </label>
-//        <label>
-//          Delivery Time:
-//        <input type="time" value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} />
-//      </label>
-
-//       <h2>Roles</h2>
-//       {roles.map((role, index) => (
-//         <div key={index}>
-//           <label>
-//             Role Name:
-//             <input
-//               value={role.name}
-//               onChange={(e) => handleRoleChange(index, 'name', e.target.value)}
-//             />
-//           </label>
-//           <label>
-//             Count:
-//             <input
-//               type="number"
-//               value={role.count}
-//               onChange={(e) =>
-//                 handleRoleChange(index, 'count', parseInt(e.target.value, 10))
-//               }
-//             />
-//           </label>
-//         </div>
-//       ))}
-//       <button onClick={handleAddRole}>Add roles</button>
-  
-//       <h2>Tags</h2>
-//       {tags.map((tag, index) => (
-//         <div key={index}>
-//           <input
-//             value={tag}
-//             onChange={(e) => handleTagChange(index, e.target.value)}
-//           />
-//         </div>
-//       ))}
-//       <div>
-//         <button onClick={handleAddTag}>Add Tag</button>
-//       </div>
-//     </div>
-//   );
-  
-//   };
-  
-//   export default NewProject;
-

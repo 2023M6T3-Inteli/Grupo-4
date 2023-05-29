@@ -87,10 +87,10 @@ const Navbar = (props) => {
 
             <ul>
               <li ref={dropdownCreation}>
-                <button onClick={() => navigateHandler("/NewContent")}>
+                <button onClick={() => navigateHandler("/newContent")}>
                   <h2>CONTENTS</h2>
                 </button>
-                <button  onClick={() => navigateHandler("/home")}>
+                <button  onClick={() => navigateHandler("/newProject")}>
                   <h2>PROJECTS</h2>
                 </button>
               </li>

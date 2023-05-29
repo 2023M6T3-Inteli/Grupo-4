@@ -1,26 +1,39 @@
-import axios from 'axios';
+import axios from "axios";
 //require('dotenv').config();
-import Cookies from 'universal-cookie';
- 
+import Cookies from "universal-cookie";
+
 const cookies = new Cookies();
 
 const API_URL = "http://localhost:3001";
 
-
 const projectService = {
-    getProject: async () => {
+  getProject: async () => {
+    const token = cookies.get("token");
 
-        const token = cookies.get('token')
+    const project = await axios.get(`${API_URL}/v1/project/getAll`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-        const project = await axios.get(`${API_URL}/v1/project/getAll`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
+    return project;
+  },
 
-        return project
-    }
-}
+  createProject: async (project) => {
+    const token = cookies.get("token");
+
+    const newProject = await axios.post(
+      `${API_URL}/v1/project/create`,
+      project,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return newProject;
+  },
+};
 
 export default projectService;
-
