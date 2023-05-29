@@ -45,9 +45,10 @@ Módulo 6 - Engenharia de Software <br/>
     - [Proposta de Valor e Value Proposition Canvas](#proposta-de-valor-e-value-proposition-canvas)
     - [Matriz de Risco](#matriz-de-risco)
     - [Análise financeira do projeto](#análise-financeira-do-projeto)
-    - [Mapeamento do processo](#mapeamento-do-processo)
+  - [Mapeamento do processo](#mapeamento-do-processo)
   - [Descritivo da Solução](#descritivo-da-solução)
     - [Objetivos](#objetivos)
+      - [Objetivos do projeto](#objetivos-do-projeto)
       - [Objetivos gerais](#objetivos-gerais)
       - [Objetivos específicos](#objetivos-específicos)
     - [Justificativa](#justificativa)
@@ -58,12 +59,19 @@ Módulo 6 - Engenharia de Software <br/>
   - [Perfis de Usuários](#perfis-de-usuários)
   - [Casos de Uso](#casos-de-uso)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
+  - [Versão 1](#versão-1)
+  - [Versão 2](#versão-2)
+  - [Fluxo de Dados](#fluxo-de-dados)
+  - [Arquitetura de Mensageria](#arquitetura-de-mensageria)
+    - [Diagramas](#diagramas)
+    - [Vantagens e Desvantagens Arquitetura de Mensageria](#vantagens-e-desvantagens-arquitetura-de-mensageria)
 - [UX e UI Design](#ux-e-ui-design)
+  - [Benchmark e Revisão de Design Systems](#benchmark-e-revisão-de-design-systems)
   - [Wireframes](#wireframes)
-  - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
+  - [Design de Interface  - Seleção de Estilos](#design-de-interface----seleção-de-estilos)
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
   - [Modelo Conceitual](#modelo-conceitual)
-  - [Modelo Lógico](#modelo-conceitual)
+  - [Modelo Lógico](#modelo-lógico)
 - [Testes de Software](#testes-de-software)
   - [Teste Unitário](#teste-unitário)
   - [Teste de Integração](#teste-de-integração)
@@ -72,7 +80,7 @@ Módulo 6 - Engenharia de Software <br/>
   - [Teste de Funcionalidade](#teste-de-funcionalidade)
   - [Teste de API](#teste-de-api)
 - [Documentação da API](#documentação-da-api)
-- [Manual do Usuário](#Manual-do-usuário)
+- [Manual do Usuário](#manual-do-usuário)
 - [Referências](#referências)
 - [Apêndice](#apêndice)
 
@@ -410,7 +418,7 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 # Documentação da API
 
-Apresentar a documentação no formato Swagger ou aplicação equivalente com todas as requisições dos endpoints desenvolvidos e funcionando.
+![Print Swagger](C:\Users\stefa\OneDrive\Documentos\Faculdade\Modulo 3 - B\Repositorio Grupo\Grupo-4\docs\img\ftoSwagger.PNG)
 
 
 # Manual do Usuário
