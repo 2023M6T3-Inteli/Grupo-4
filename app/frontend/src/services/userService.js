@@ -43,6 +43,18 @@ const userService = {
 
         return users
     },
+    getUserById: async (id) => {
+            
+            const token = cookies.get('token')
+    
+            const user = await axios.get(`${API_URL}/v1/user/getUserByID/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+    
+            return user
+    }   
 }
 
 export default userService;

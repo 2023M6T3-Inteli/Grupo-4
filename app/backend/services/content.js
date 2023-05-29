@@ -98,11 +98,16 @@ class Content {
       where: {
         id: id,
       },
+      include: {
+        owner: true,
+      }
     });
 
     if (!content) {
       throw new Error("Content not found");
     }
+
+    console.log(content)
 
     return content;
   }

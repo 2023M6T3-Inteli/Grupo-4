@@ -1,15 +1,29 @@
+import { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineHeart, AiOutlineLink, AiFillTag } from "react-icons/ai";
 import { CiMenuKebab } from "react-icons/ci";
+import userService from "../../services/userService";
 
 import styles from "./ContentCardView.module.scss";
 
 const ContentCardView = ({ handleClose, content, user }) => {
   const { title, description, tags, links } = content;
 
+  const [owner, setOwner] = useState({});
+
   let tagsArray = JSON.parse(tags.replace(/'/g, '"'));
 
   const linksArray = JSON.parse(links.replace(/'/g, '"'));
+
+  async function getOwner() {
+    const response = await userService.getUserById(content.ownerId);
+    console.log(response.data);
+    setOwner(response.data);
+  }
+
+  useEffect(() => {
+    getOwner();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -31,13 +45,13 @@ const ContentCardView = ({ handleClose, content, user }) => {
           <div className={styles.imgBx}>
             {/* <img src={user.picture} alt="user_profile" /> */}
             <img
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+              src={owner.imgUrl ? owner.imgUrl : user.picture}
               alt="user_profile"
             />
           </div>
           <div className={styles.userInfos}>
-            <h4>{user.name}</h4>
-            <p>{user.area}</p>
+            <h4>{owner.name}</h4>
+            <p>{owner.area}</p>
           </div>
         </div>
       </div>

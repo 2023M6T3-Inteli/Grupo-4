@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./ContentCard.module.scss";
 import Modal from "../CardModal/Modal";
 import { AnimatePresence } from "framer-motion";
 import ContentCardView from "../ContentCardView/ContentCardView";
 import { useLocation } from "react-router-dom";
+import userService from "../../services/userService";
 
 const ContentCard = ({ user, content }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [owner, setOwner] = useState({});
   const { title, description, tags, links } = content;
 
   let tagsArray = JSON.parse(tags.replace(/'/g, "\""))
@@ -21,6 +23,16 @@ const ContentCard = ({ user, content }) => {
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
 
+  async function getOwner() {
+    const response = await userService.getUserById(content.ownerId);
+    console.log(response.data);
+    setOwner(response.data);
+  }
+
+  useEffect(() => {
+    getOwner();
+  }, []);
+
   return (
     <>
       <button
@@ -31,11 +43,11 @@ const ContentCard = ({ user, content }) => {
           <h1>{title}</h1>
           <div className={styles.userBx}>
             <div className={styles.imgBx}>
-              <img src={user.imgUrl} alt="user_profile" />
+              <img src={owner.imgUrl} alt="user_profile" />
             </div>
             <div className={styles.userInfos}>
-              <h4>{user.name}</h4>
-              <p>{user.area}</p>
+              <h4>{owner.name}</h4>
+              <p>{owner.area}</p>
             </div>
           </div>
         </div>
