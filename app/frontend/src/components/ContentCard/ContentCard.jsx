@@ -31,11 +31,7 @@ const ContentCard = ({ user, content }) => {
           <h1>{title}</h1>
           <div className={styles.userBx}>
             <div className={styles.imgBx}>
-              {/* <img src={user.picture} alt="user_profile" /> */}
-              <img
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                alt="user_profile"
-              />
+              <img src={user.imgUrl} alt="user_profile" />
             </div>
             <div className={styles.userInfos}>
               <h4>{user.name}</h4>
