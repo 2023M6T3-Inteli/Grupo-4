@@ -73,3 +73,9 @@ C:\Users\pepeh\OneDrive\Documentos\GitHub\Grupo-4\app\backend\services\project.j
   124         //Getting all projects
 → 125         const projects = await prisma.project.findMany(
 The column `main.Project.coleaderId` does not exist in the current database.
+[2023-05-29T14:29:01.311] [INFO] project - Project 3f7da10f-c816-4108-9bc7-e464a28e9e47 created successfully
+[2023-05-29T14:29:02.424] [INFO] project - Added points to user 63656647-fbde-4505-b6fb-2f0581c64ffb for creating project
+[2023-05-29T14:35:26.335] [ERROR] project - Problems on server: SyntaxError: Unexpected token ' in JSON at position 2
+[2023-05-29T14:48:04.295] [INFO] project - Roles created successfully for project 7c306e33-cf1d-4ee8-bb73-2b791438e96b
+[2023-05-29T14:48:53.442] [INFO] project - Roles created successfully for project c881c2c6-7882-4ba3-8f2e-168bffa5cadd
+[2023-05-29T14:48:54.539] [INFO] project - Project c881c2c6-7882-4ba3-8f2e-168bffa5cadd created successfully

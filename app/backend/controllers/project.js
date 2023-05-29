@@ -6,7 +6,7 @@ const service = require('../services/project')
 const Project = new service.Project()
 
 const Create = async (req, res) => {
-  const { title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId } = req.body
+  const { title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId, roles } = req.body
 
   //Valida se algum paremetro é inválido
   const errors = validationResult(req)
@@ -20,7 +20,7 @@ const Create = async (req, res) => {
   //Chamada para o service
   try {
     //Tratamento das respostas do método da classe
-    const result = await Project.Create(title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId)
+    const result = await Project.Create(title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId, roles)
     res.send(result)
   } catch (err) {
     res.status(500).send(err.message)

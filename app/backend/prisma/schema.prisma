@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -47,7 +47,8 @@ model Project {
 model Offers {
   id            String         @id @default(uuid())
   name          String
-  count         Int
+  qntVagas      Int
+  area          String
   projectId     String
   project       Project        @relation(fields: [projectId], references: [id])
   projectUsers  Applies[]

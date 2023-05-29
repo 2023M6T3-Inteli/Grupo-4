@@ -10,9 +10,14 @@ const loggerProject = log4js.getLogger('project');
 
 
 class Project {
-    async Create(title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId) {
+    async Create(title, description, projectType, deliveryTime, startDate, endDate, deadline, ownerId, roles) {
         const dateMock = new Date()
 
+        roles = JSON.parse(roles)
+
+        let projectOut;
+
+        //Create project
         try {
             const project = await prisma.project.create({
                 data: {
@@ -28,67 +33,56 @@ class Project {
                 }
             })
 
-            loggerProject.info(`Project ${project.id} created successfully`)
-
-            try {
-                await prisma.user.update({
-                    where: {
-                        id: ownerId
-                    },
-                    data: {
-                        points: {
-                            increment: +100
-                        }
-                    }
-                })
-
-                loggerProject.info(`Added points to user ${ownerId} for creating project`)
-            } catch(err) {
-                loggerProject.error(`Problems on server updating user points: ${err}`)
-            }
-
-            return project
-        } catch (error) {
-            console.log(error)
-            loggerProject.error(`Problems on server: ${error}`)
+            projectOut = project
+        } catch(err) {
+            loggerProject.error(`Problems on server creating project: ${err}`)
             throw new Error('Error when creating project')
         }
-    }
 
-
-    async update(id, data) {
-        //Verify if project exists
-        const project = await prisma.project.findUnique({
-            where: {
-                id: id
-            }
-        })
-
-        if (!project) {
-            loggerProject.error("Someone tried to update a project that doesn't exists | ID (project) passed: " + id)
-            throw new Error('Project not found')
-        }
-
-        if(!data) {
-            loggerProject.error("Someone tried to update a project passign nothing | ID (project) passed: " + id)
-            throw new Error('No data to update')
-        }
-
+        //Create roles
         try {
-            const project = await prisma.project.update({
-                where: {
-                    id: id
-                },
-                data,
+            roles.map(async (role) => {
+                await prisma.offers.create({
+                    data: {
+                        id: uuid(),
+                        name: role.nome,
+                        area: role.area,
+                        qntVagas: Number(role.qntVagas),
+                        projectId: projectOut.id,
+                    }
+                })
             })
 
-            loggerProject.info(`Project ${project.id} updated successfully with data: ${JSON.stringify(data)}`)
-
-            return project
-        } catch (error) {
-            loggerProject.error(`Problems on server updating project: ${error}`)
-            throw new Error('Error updating project')
+            loggerProject.info(`Roles created successfully for project ${projectOut.id}`)
+        } catch(err) {
+            loggerProject.error(`Problems on server creating roles: ${err}`)
+            await prisma.project.delete({
+                where: {
+                    id: projectOut.id
+                }
+            })
+            loggerProject.info(`Project ${projectId} deleted successfully - CAUSE: Error when creating roles`)
+            throw new Error('Error when creating roles')
         }
+
+        //Add points to user
+        try {
+            await prisma.user.update({
+                where: {
+                    id: ownerId
+                },
+                data: {
+                    points: {
+                        increment: +100
+                    }
+                }
+            })
+        } catch(err) {
+            loggerProject.error(`Problems on server updating user points: ${err}`)
+        }
+
+        loggerProject.info(`Project ${projectOut.id} created successfully`)
+        return projectOut
     }
 
     async delete(id) {
