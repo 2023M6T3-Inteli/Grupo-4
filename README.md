@@ -373,10 +373,10 @@ relacionamentos e tipos de relacionamentos
 O modelo lógico de banco de dados é uma representação abstrata e simplificada dos dados armazenados no sistema. É utilizado para entender como os dados são relacionados e para garantir a integridade e consistência dos dados armazenados. Incluir  uma descrição detalhada das tabelas, campos e relações presentes no modelo lógico de banco de dados. Também serão apresentadas as regras de negócio e as restrições aplicadas aos dados para garantir a integridade e a consistência dos dados armazenados.
 <img src="https://imgur.com/iNalh0P.png"></img>
 
+# Pipeline de dados 
+![Arq  Pipeline de dados](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/73edd380-c37d-45d4-b38e-c37d69337334)
 
 # Testes de Software
-
-
 
 ## Teste Unitário
 
