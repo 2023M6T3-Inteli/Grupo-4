@@ -6,7 +6,7 @@ import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 import contentService from "../services/contentService";
 import { useNavigate } from "react-router-dom";
 
-import styles from "../styles/newProject.module.scss";
+import styles from "../styles/NewProject.module.scss";
 import projectService from "../services/projectService";
 import userService from "../services/userService";
 

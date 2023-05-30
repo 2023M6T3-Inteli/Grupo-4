@@ -45,9 +45,9 @@ const Perfil = (props) => {
       try {
         const responseUser = await userService.getUser();
 
-        responseUser.data.tags = JSON.parse(responseUser.data.tags);
-
         setUser({...user, ...responseUser.data});
+
+        console.log(responseUser.data)
       } catch (error) {
         //navigate("/login");
         console.log(error)
@@ -126,11 +126,11 @@ const Perfil = (props) => {
           <h1>INTERESTS</h1>
           <div className={styles.tags}>
             {
-            user && (
-              user.tags.map(tag => (
-                <p>{tag}</p>
-              ))
-            )
+            // user && (
+            //   user.tags.map(tag => (
+            //     <p>{tag}</p>
+            //   ))
+            // )
           }
           </div>
         </div>
@@ -165,11 +165,12 @@ const Perfil = (props) => {
             }
             {
               projectPage && (
-                user.projects.map((project) => {
-                  // return <CardProject user={user} project={project} />;
-                  return <div>{JSON.stringify(project)}</div>
-                }
-              ))
+                <div>{JSON.stringify(user.projects)}</div>
+                // user.projects.map((project) => {
+                //   // return <CardProject user={user} project={project} />;
+                //   return <div>{JSON.stringify(project)}</div>
+                // }
+              )
             }
             {
               (!user) && (

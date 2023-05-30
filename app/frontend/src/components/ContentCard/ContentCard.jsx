@@ -12,7 +12,7 @@ const ContentCard = ({ user, content }) => {
   const [owner, setOwner] = useState({});
   const { title, description, tags, links } = content;
 
-  let tagsArray = JSON.parse(tags.replace(/'/g, "\""))
+  //let tagsArray = JSON.parse(tags.replace(/'/g, "\""))
 
   const linksArray = JSON.parse(links.replace(/'/g, "\""));
 
@@ -61,8 +61,8 @@ const ContentCard = ({ user, content }) => {
             ></iframe>
           )}
           <div className={styles.tags}>
-            {tagsArray.map((tag) => (
-              <p>{tag}</p>
+            {tags.map((tag) => (
+              <p>{tag.name}</p>
             ))}
           </div>
         </main>

@@ -15,26 +15,54 @@ const loggerContent = log4js.getLogger("content");
 
 class Content {
   async Create(title, description, tags, links, ownerId) {
+
+    let contentOut;
+
+    tags = JSON.parse(tags);
+
     try {
       const content = await prisma.content.create({
         data: {
           id: uuid(),
           title: title,
           description: description,
-          tags: tags,
           links: links,
           ownerId: ownerId,
         },
       });
 
-      loggerContent
-
-      return content;
+      contentOut = content;
+      loggerContent.info(`Content ${content.id} created successfully`);
     } catch (error) {
     //   logger.error(`Problems on server: ${error}`);
       // throw new Error("Error when creating content");
       throw new Error(error);
     }
+
+    //Create Tags
+    try {
+      tags.map(async (tag) => {
+        await prisma.tag.create({
+          data: {
+            id: uuid(),
+            name: tag,
+            contentId: contentOut.id,
+          },
+        });
+      });
+
+      loggerContent.info(`Tags created successfully for content ${contentOut.id}`);
+    } catch (error) {
+      await prisma.content.delete({
+        where: {
+          id: contentOut.id,
+        },
+      });
+      loggerContent.error(`Content ${contentOut.id} deleted successfully - CAUSE: error creating tags`);
+      throw new Error("Error when creating tags");
+    }
+
+    return contentOut;
   }
 
   async update(id, data) {

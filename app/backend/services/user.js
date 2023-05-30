@@ -214,7 +214,11 @@ class User {
             },
             include: {
                 projects: true,
-                contents: true,
+                contents: {
+                    include: {
+                        tags: true,
+                    }
+                },
                 tags: true,
             }
         })

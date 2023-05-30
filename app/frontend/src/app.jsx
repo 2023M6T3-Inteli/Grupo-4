@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import NewProject from "./pages/newProject";
-import NewContent from "./pages/newContent";
+import NewProject from "./pages/NewProject";
+import NewContent from "./pages/NewContent";
 import Perfil from "./pages/perfil";
 import Feed from "./pages/feed";
 import { useLocation} from 'react-router-dom';

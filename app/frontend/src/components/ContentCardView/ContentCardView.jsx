@@ -11,7 +11,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
 
   const [owner, setOwner] = useState({});
 
-  let tagsArray = JSON.parse(tags.replace(/'/g, '"'));
+  //let tagsArray = JSON.parse(tags.replace(/'/g, '"'));
 
   const linksArray = JSON.parse(links.replace(/'/g, '"'));
 
@@ -90,8 +90,8 @@ const ContentCardView = ({ handleClose, content, user }) => {
             <h4>Tags</h4>
           </div>
           <div>
-            {tagsArray.map((tag) => (
-              <p>{tag}</p>
+            {tags.map((tag) => (
+              <p>{tag.name}</p>
             ))}
           </div>
         </div>

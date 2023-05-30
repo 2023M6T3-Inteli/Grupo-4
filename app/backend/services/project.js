@@ -125,7 +125,6 @@ class Project {
                             area: true,
                         }
                     },
-                    tags: true
                 }
             });
 
