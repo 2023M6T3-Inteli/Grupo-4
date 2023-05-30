@@ -132,7 +132,7 @@ class User {
         })
 
         if (!user) {
-            loggerUser.warn(`User ${user.id} not found on update route, and need to be checked`)
+            loggerUser.warn(`User ${id} not found on update route, and need to be checked`)
             throw new Error('User not found')
         }
 
@@ -187,7 +187,7 @@ class User {
         })
 
         if (!user) {
-            loggerUser.warn(`User ${user.id} not found on delete route, and need to be checked`)
+            loggerUser.warn(`User ${id} not found on delete route, and need to be checked`)
             throw new Error('User not found')
         }
 
@@ -224,7 +224,7 @@ class User {
         })
 
         if (!user) {
-            loggerUser.warn(`User ${user.id} not found on getUser route, and need to be checked`)
+            loggerUser.warn(`User ${id} not found on getUser route, and need to be checked`)
             throw new Error('User not found')
         }
 
