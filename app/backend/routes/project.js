@@ -66,8 +66,9 @@ router.post(
   [body("startDate", "Start é necessária").exists({ checkFalsy: true })], 
   [body("endDate", "End é necessária").exists({ checkFalsy: true })], 
   [body("deadline", "DeadLine é necessária").exists({ checkFalsy: true })], 
-  [body("deliveryTime", "Delivery é necessária").exists({ checkFalsy: true })], 
-  [body("ownerId", "Id do Owner é necessária=o").exists({ checkFalsy: true })], 
+  [body("ownerId", "Id do Owner é necessário").exists({ checkFalsy: true })],
+  [body("tags", "Tags é necessário").exists({ checkFalsy: true })],
+  [body("roles", "Vagas é necessário").exists({ checkFalsy: true })],
   projectController.Create
 );
 
