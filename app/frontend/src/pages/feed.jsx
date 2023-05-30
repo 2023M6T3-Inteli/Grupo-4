@@ -9,7 +9,7 @@ import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import contentService from "../services/contentService";
 import projectService from "../services/projectService";
-import { BoxLoading } from 'react-loadingg';
+import { BoxLoading } from "react-loadingg";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -23,13 +23,12 @@ const Feed = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       setisLoading(true);
-      
+
       try {
         const responseUser = await userService.getUser();
         setUser(responseUser.data);
-      }
-      catch (err) {
-        navigate("/")
+      } catch (err) {
+        navigate("/");
       }
 
       const responseContent = await contentService.getContent();
@@ -54,11 +53,7 @@ const Feed = (props) => {
     setProjectPage(false);
   };
 
-  if (isLoading) {
-    return <BoxLoading color="#0672cb" size="large"/>;
-  }
-
-  if (!isLoading && contents && projects) {
+  if (contents && projects) {
     return (
       <>
         <div className={styles.header}>
@@ -74,19 +69,18 @@ const Feed = (props) => {
         </div>
         <div className={styles.behind}></div>
         <main className={styles.feed}>
-          {
+          {isLoading && <BoxLoading color="#0672cb" size="large" />}
+          {!isLoading &&
             contentPage &&
-              contents.map((content) => {
-                return <ContentCard user={user} content={content} />;
-              })
-          }
-          {
+            contents.map((content) => {
+              return <ContentCard user={user} content={content} />;
+            })}
+          {!isLoading &&
             projectPage &&
-              projects.map((project) => {
-                return <CardProject project={project} user={user} />;
-                // return <div>{JSON.stringify(project)}</div>
-              })
-          }
+            projects.map((project) => {
+              return <CardProject project={project} user={user} />;
+              // return <div>{JSON.stringify(project)}</div>
+            })}
         </main>
       </>
     );

@@ -16,9 +16,20 @@ import CentralModal from "../CentralModal/Modal";
 import styles from "./VisualizeProject.module.scss";
 
 const ProjectCardView = ({ project, user, handleClose }) => {
-  const { title, status, description, startDate, endDate, deadline, tags, owner } = project;
+  const {
+    title,
+    status,
+    description,
+    startDate,
+    endDate,
+    deadline,
+    tags,
+    owner,
+  } = project;
 
-  console.log(project)
+  let tagsArray = [];
+
+  tagsArray = JSON.parse(tags.replace(/'/g, '"'));
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -67,9 +78,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           />
         </div>
         <div>
-          <p>
-            {description}
-          </p>
+          <p>{description}</p>
         </div>
       </div>
 
@@ -78,7 +87,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={calendar} width={22} alt="calendar_icon" />
         </div>
         <div>
-          <p>Start date: {new Date(startDate).toLocaleDateString('pt-br')}</p>
+          <p>Start date: {new Date(startDate).toLocaleDateString("pt-br")}</p>
         </div>
       </div>
 
@@ -87,7 +96,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={calendar} width={22} alt="calendar_icon" />
         </div>
         <div>
-          <p>End date: {new Date(endDate).toLocaleDateString('pt-br')}</p>
+          <p>End date: {new Date(endDate).toLocaleDateString("pt-br")}</p>
         </div>
       </div>
 
@@ -97,7 +106,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <h4>Tags</h4>
         </div>
         <div>
-          {tags.map((tag) => (
+          {tagsArray.map((tag) => (
             <p>{tag}</p>
           ))}
         </div>
@@ -105,7 +114,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
 
       <div className={styles.vector}>
         <div className={styles.icon}>
-          <img src={vector} width={22} height={22} alt="vector_icon"/>
+          <img src={vector} width={22} height={22} alt="vector_icon" />
         </div>
         <div>
           <div className={styles.roles}>
@@ -129,7 +138,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <img src={calendar} width={22} alt="calendar_icon" />
         </div>
         <div>
-          <p>Dead line: {new Date(deadline).toLocaleDateString('pt-br')}</p>
+          <p>Dead line: {new Date(deadline).toLocaleDateString("pt-br")}</p>
         </div>
       </div>
 
@@ -142,11 +151,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
         {modalOpen && (
           <CentralModal modalOpen={modalOpen} handleClose={close}>
-            <ApplyModal
-              handleClose={close}
-              project={project}
-              user={user}
-            />
+            <ApplyModal handleClose={close} project={project} user={user} />
           </CentralModal>
         )}
       </AnimatePresence>

@@ -10,11 +10,11 @@ const ProjectCard = ({ project, user }) => {
   const { title, description, deadline, owner, tags } = project;
   const [modalOpen, setModalOpen] = useState(false);
 
+  console.log(project);
+
   let tagsArray = [];
 
-  if (tags.lenth > 0) {
-    tagsArray = JSON.parse(tags.replace(/'/g, '"'));
-  }
+  tagsArray = JSON.parse(tags.replace(/'/g, '"'));
 
   const path = useLocation();
 
@@ -45,7 +45,9 @@ const ProjectCard = ({ project, user }) => {
               </div>
               <div>
                 <p>Leader: {owner.name}</p>
-                <p>Dead line: {new Date(deadline).toLocaleDateString('pt-br')}</p>
+                <p>
+                  Dead line: {new Date(deadline).toLocaleDateString("pt-br")}
+                </p>
               </div>
             </div>
             <div>

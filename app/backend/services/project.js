@@ -10,7 +10,7 @@ const loggerProject = log4js.getLogger('project');
 
 
 class Project {
-    async Create(title, description, projectType, startDate, endDate, deadline, ownerId, roles) {
+    async Create(title, description, projectType, startDate, endDate, deadline, ownerId, roles, tags) {
         const dateMock = new Date()
 
         roles = JSON.parse(roles)
@@ -29,6 +29,7 @@ class Project {
                     startDate: dateMock,
                     endDate: dateMock,
                     deadline: dateMock,
+                    tags: tags
                 }
             })
 
