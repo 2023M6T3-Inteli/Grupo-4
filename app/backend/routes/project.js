@@ -93,6 +93,21 @@ router.get(
   projectController.GetProjectByID
 );
 
+/**
+ * @swagger
+ * /v1/project/update/{id}:
+ *   put:
+ *     description: Update a project by ID
+ *     parameters:
+ *       - name: id
+ *         description: Project ID
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.put(
   "/update/:id",
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
@@ -100,6 +115,21 @@ router.put(
   projectController.Update
 );
 
+/**
+ * @swagger
+ * /v1/project/{id}:
+ *   delete:
+ *     description: Delete a project by ID
+ *     parameters:
+ *       - name: id
+ *         description: Project ID
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.delete(
   "/:id",
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
@@ -107,6 +137,15 @@ router.delete(
   projectController.Delete
 );
 
+/**
+ * @swagger
+ * /v1/project/getAll:
+ *   get:
+ *     description: Get all projects
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.get(
   "/getAll",
   // unsureAuthenticated.unsureAuthenticated,

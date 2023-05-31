@@ -77,7 +77,21 @@ router.get(
   // unsureAuthenticated.unsureAuthenticated,
   contentController.GetAllContent
 );
-
+/**
+ * @swagger
+ * /v1/project/update/{id}:
+ *   put:
+ *     description: Update a content by ID
+ *     parameters:
+ *       - name: id
+ *         description: Content ID
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.put(
   "/update/:id",
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
@@ -85,12 +99,26 @@ router.put(
   contentController.Update
 );
 
+/**
+ * @swagger
+ * /v1/project/delete/{id}:
+ *   delete:
+ *     description: Delete a content by ID
+ *     parameters:
+ *       - name: id
+ *         description: Content ID
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.delete(
   "/delete/:id",
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
   // unsureAuthenticated.unsureAuthenticated,
   contentController.Delete
 );
-
 
 module.exports = router;
