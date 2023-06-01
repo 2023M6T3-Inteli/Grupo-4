@@ -394,7 +394,8 @@ O modelo lógico de banco de dados é uma representação abstrata e simplificad
 ## Teste de Integração
 
 Link ou imagem da tabela com dados organizados dos testes realizados.
-
+![image](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/d44d3baa-b544-4b11-8437-d827fa40aa2e)
+Os testes que falaharam passarão por correção de erro. 
 
 ## Teste de Regressão
 
