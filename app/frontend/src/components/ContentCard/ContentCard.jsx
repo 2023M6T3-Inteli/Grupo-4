@@ -25,7 +25,6 @@ const ContentCard = ({ user, content }) => {
 
   async function getOwner() {
     const response = await userService.getUserById(content.ownerId);
-    console.log(response.data);
     setOwner(response.data);
   }
 

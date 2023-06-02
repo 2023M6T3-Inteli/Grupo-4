@@ -95,7 +95,7 @@ router.get(
 router.put(
   "/update/:id",
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
-  // unsureAuthenticated.unsureAuthenticated,
+  unsureAuthenticated.unsureAuthenticated,
   contentController.Update
 );
 
@@ -117,8 +117,15 @@ router.put(
 router.delete(
   "/delete/:id",
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
-  // unsureAuthenticated.unsureAuthenticated,
+  unsureAuthenticated.unsureAuthenticated,
   contentController.Delete
 );
+
+router.get(
+  "/report/:id", 
+  [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  unsureAuthenticated.unsureAuthenticated,
+  contentController.Report
+)
 
 module.exports = router;

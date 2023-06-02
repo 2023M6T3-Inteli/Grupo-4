@@ -27,7 +27,6 @@ const Login = (props) => {
     }
 
     const submit = () => {
-        console.log(email, password)
         userService.auth(email, password).then((response) => {
             console.log(response)
             if(response.status === 200){

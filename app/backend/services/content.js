@@ -144,6 +144,9 @@ class Content {
   async getAllContent() {
     //Verify if content exists
     const content = await prisma.content.findMany({
+      where: {
+        visible: true,
+      },
       include: {
         tags: true,
       }
@@ -154,6 +157,51 @@ class Content {
     }
 
     return content;
+  }
+
+  async reportContent(id, userId, reason) {
+    //Verify if content exists
+    const content = await prisma.content.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!content) {
+      throw new Error("Content not found");
+    }
+
+    try {
+      await prisma.content.update({
+        where: {
+          id: id,
+        },
+        data: {
+          visible: false,
+        }
+      });
+      loggerContent.info(`Content ${id} updated successfully - UPDATING CONTENT TO INVISIBLE - REPORT`);
+    } catch (error) {
+      loggerContent.error(`Error updating content ${id} - UPDATING CONTENT TO INVISIBLE - REPORT`);
+      throw new Error("Error updating content");
+    }
+
+    try {
+      const report = await prisma.reports.create({
+        data: {
+          id: uuid(),
+          userId: userId,
+          contentId: id,
+          description: "Motivo Exemplo",
+        },
+      });
+
+      loggerContent.info(`Content ${id} reported successfully`);
+      return report;
+    } catch (error) {
+      loggerContent.error(`Error reporting content ${id}`);
+      throw new Error("Error creating report");
+    }
   }
 }
 

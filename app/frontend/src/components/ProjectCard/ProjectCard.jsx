@@ -10,8 +10,6 @@ const ProjectCard = ({ project, user }) => {
   const { title, description, deadline, owner, tags } = project;
   const [modalOpen, setModalOpen] = useState(false);
 
-  console.log(project);
-
   let tagsArray = [];
 
   tagsArray = JSON.parse(tags.replace(/'/g, '"'));
