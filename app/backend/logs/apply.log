@@ -1,1 +1,47 @@
 [2023-06-05T17:48:58.964] [ERROR] apply - Error creating apply: TypeError: Cannot read properties of undefined (reading 'create')
+[2023-06-05T17:50:44.860] [ERROR] apply - Error creating apply: Error: 
+Invalid `prisma.applies.create()` invocation in
+C:\Users\pepeh\OneDrive\Documentos\GitHub\Grupo-4\app\backend\services\apply.js:20:48
+
+  17 async Create(contentId, offerId, userId, why) {
+  18     //Create Apply
+  19     try {
+→ 20         const apply = await prisma.applies.create({
+               data: {
+                 id: 'ddbbd85d-fc5c-47e3-bba1-22cff5489dbc',
+                 why: 'Teste',
+                 contentId: undefined,
+                 offerId: 'cf5340e8-403d-4f65-9152-9314731cb471',
+                 userId: '9edcb9fa-5773-4d60-ba8b-01a5e1e3f478',
+             +   projectId: String,
+             ?   status?: String
+               }
+             })
+
+Argument projectId for data.projectId is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2023-06-05T17:52:00.686] [ERROR] apply - Error creating apply: Error: 
+Invalid `prisma.applies.create()` invocation in
+C:\Users\pepeh\OneDrive\Documentos\GitHub\Grupo-4\app\backend\services\apply.js:33:48
+
+  30 
+  31 //Create Apply
+  32 try {
+→ 33     const apply = await prisma.applies.create({
+           data: {
+             id: '22224822-61a9-4bf3-9af1-d5b3e004b569',
+             why: 'Teste',
+         +   projectId: String,
+             offerId: 'cf5340e8-403d-4f65-9152-9314731cb471',
+             userId: '9edcb9fa-5773-4d60-ba8b-01a5e1e3f478',
+         ?   status?: String
+           }
+         })
+
+Argument projectId for data.projectId is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2023-06-05T17:53:07.206] [INFO] apply - Apply e1f097ba-d1ea-4e8a-a365-c280f5d2aaa4 created successfully

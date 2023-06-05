@@ -6,7 +6,7 @@ const service = require("../services/apply");
 const Apply = new service.Apply();
 
 const Create = async (req, res) => {
-  const { contentId, offerId, why } = req.body;
+  const { projectId, offerId, why } = req.body;
 
   //Valida se algum paremetro é inválido
   const errors = validationResult(req);
@@ -20,7 +20,7 @@ const Create = async (req, res) => {
   //Chamada para o service
   try {
     //Tratamento das respostas do método da classe
-    const result = await Apply.Create(contentId, offerId, req.id, why);
+    const result = await Apply.Create(projectId, offerId, req.id, why);
     res.send(result);
   } catch (err) {
     res.status(500).send(err.message);

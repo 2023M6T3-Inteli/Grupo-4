@@ -15,13 +15,26 @@ const loggerApply = log4js.getLogger("apply");
 
 class Apply {
     async Create(contentId, offerId, userId, why) {
+        //Verify if already exists
+        const applyExists = await prisma.applies.findMany({
+            where: {
+                projectId: contentId,
+                userId: userId,
+            },
+        });
+
+        if (applyExists.length > 0) {
+            loggerApply.error(`Apply already exists for content ${contentId} and user ${userId}`);
+            throw new Error("Apply already exists");
+        }
+        
         //Create Apply
         try {
             const apply = await prisma.applies.create({
                 data: {
                     id: uuid(),
                     why: why,
-                    contentId: contentId,
+                    projectId: contentId,
                     offerId: offerId,
                     userId: userId,
                 },
