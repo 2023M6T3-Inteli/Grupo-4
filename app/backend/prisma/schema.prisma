@@ -22,6 +22,7 @@ model User {
   projects Project[]
   applies Applies[]
   ratings  Rating[]
+  reports  Reports[]
 }
 
 
@@ -80,11 +81,13 @@ model Content {
   title       String
   description String
   links       String?
+  visible     Boolean      @default(true)
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   ownerId     String
   tags        Tag[]
   ratings     Rating[] 
+  reports     Reports[]
   owner       User         @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
 
@@ -93,6 +96,15 @@ model Rating {
   rating     Int
   contentId  String
   content    Content      @relation(fields: [contentId], references: [id])
+  userId     String
+  user       User         @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+}
+
+model Reports {
+  id         String       @id @unique
+  description String
+  contentId  String
+  content    Content      @relation(fields: [contentId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   userId     String
   user       User         @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }

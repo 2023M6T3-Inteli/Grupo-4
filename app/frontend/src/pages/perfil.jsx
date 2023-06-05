@@ -8,10 +8,12 @@ import FeedNav from "../components/FeedNav/FeedNav";
 import CardProject from "../components/ProjectCard/ProjectCard";
 import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
+import ModalUpdatePerfil from "../components/ModalUpdatePerfil/modalUpdatePerfil";
 
 const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
   const [projectPage, setProjectPage] = useState(false);
+  const [modal, setModal] = useState(false);
   const [user, setUser] = useState({
     area: "",
     contents: [],
@@ -96,6 +98,12 @@ const Perfil = (props) => {
           </div>
         </div>
 
+        {
+          modal && (
+            <ModalUpdatePerfil user={user} />
+          )
+        }
+
         <div className={styles.profileImage}>
             <img src={user.imgUrl} alt="user_profile" />
             <div>
@@ -126,12 +134,12 @@ const Perfil = (props) => {
           <h1>INTERESTS</h1>
           <div className={styles.tags}>
             {
-            // user && (
-            //   user.tags.map(tag => (
-            //     <p>{tag}</p>
-            //   ))
-            // )
-          }
+              user && (
+                user.tags.map(tag => (
+                  <p>{tag.name}</p>
+                ))
+              )
+            }
           </div>
         </div>
 
