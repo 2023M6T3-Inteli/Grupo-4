@@ -17,7 +17,7 @@ class Apply {
     async Create(contentId, offerId, userId, why) {
         //Create Apply
         try {
-            const apply = await prisma.apply.create({
+            const apply = await prisma.applies.create({
                 data: {
                     id: uuid(),
                     why: why,
@@ -37,7 +37,7 @@ class Apply {
 
     async GetByProjectId(projectId) {
         try {
-            const apply = await prisma.apply.findMany({
+            const apply = await prisma.applies.findMany({
                 where: {
                     projectId: projectId
                 }
@@ -52,7 +52,7 @@ class Apply {
 
     async GetByUserId(userId) {
         try {
-            const apply = await prisma.apply.findMany({
+            const apply = await prisma.applies.findMany({
                 where: {
                     userId: userId
                 }
@@ -67,7 +67,7 @@ class Apply {
 
     async GetByOfferId(offerId) {
         try {
-            const apply = await prisma.apply.findMany({
+            const apply = await prisma.applies.findMany({
                 where: {
                     offerId: offerId
                 }
@@ -82,7 +82,7 @@ class Apply {
 
     async updateStatus(applyId, status) {
         try {
-            const apply = await prisma.apply.update({
+            const apply = await prisma.applies.update({
                 where: {
                     id: applyId
                 },
@@ -100,7 +100,7 @@ class Apply {
 
     async delete(applyId) {
         try {
-            const apply = await prisma.apply.delete({
+            const apply = await prisma.applies.delete({
                 where: {
                     id: applyId
                 }
