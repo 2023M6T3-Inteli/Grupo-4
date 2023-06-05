@@ -214,11 +214,11 @@ class Content {
       },
     });
 
-    if (rating) {
+    if (rating.length > 0) {
       try {
         await prisma.rating.update({
           where: {
-            id: rating.id,
+            id: rating[0].id,
           },
           data: {
             rating: rate,
