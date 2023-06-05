@@ -6,8 +6,6 @@ const cors = require('cors')
 const log4js = require('log4js');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const produce = require("./producer")
-const consume = require("./consumer")
 
 // Swagger options
 const swaggerOptions = {
@@ -72,17 +70,6 @@ app.use((req, res, next) => {
 })
 
 
-// chame a função `produce` e registre um erro se ocorrer
-produce().catch((err) => {
-    console.error("erro no produtor: ", err)
-})
-
-// inicie o consumidor e registre quaisquer erros
-consume().catch((err) => {
-    console.error("erro no consumidor: ", err)
-})
-
-// O resto do seu código segue aqui
 
 
 const PORT = process.env.PORT || 3001

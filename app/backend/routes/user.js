@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { body, param, validationResult } = require("express-validator");
-const produce = require('../producer');
 
 
 const userController = require("../controllers/user");
@@ -75,31 +74,23 @@ router.get
  *       200:
  *         description: Success
  */
-router.post
-        ("/register", 
-        [body("email", "Email é necessário").exists({ checkFalsy: true })], 
-        [body("password", "Senha é necessária").exists({ checkFalsy: true })], 
-        [body("name", "Nome é necessária").exists({ checkFalsy: true })], 
-        [body("area", "Area é necessária").exists({ checkFalsy: true })], 
-        [body("tags", "Tags é necessária").exists({ checkFalsy: true })],
-        async (req, res, next) => {
-            try {
-                const result = await userController.Create(req, res);
-                // Send a message to Kafka
-                await produce({
-                    topic: 'users',
-                    messages: [
-                        {
-                            value: `User created: ${req.body.name}`,
-                        },
-                    ],
-                });
-                res.json(result);
-            } catch (error) {
-                next(error);
-            }
+router.post(
+    "/register", 
+    [body("email", "Email é necessário").exists({ checkFalsy: true })], 
+    [body("password", "Senha é necessária").exists({ checkFalsy: true })], 
+    [body("name", "Nome é necessária").exists({ checkFalsy: true })], 
+    [body("area", "Area é necessária").exists({ checkFalsy: true })], 
+    [body("tags", "Tags é necessária").exists({ checkFalsy: true })],
+    async (req, res, next) => {
+        try {
+            const result = await userController.Create(req, res);
+            res.json(result);
+        } catch (error) {
+            next(error);
         }
+    }
 );
+
          
 
 /**
