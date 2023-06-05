@@ -207,7 +207,7 @@ class Content {
   async rateContent(userId, contentId, rate) {
 
     //Verify if already rated
-    const rating = await prisma.rating.findUnique({
+    const rating = await prisma.rating.findMany({
       where: {
         contentId: contentId,
         userId: userId,
@@ -252,22 +252,11 @@ class Content {
   }
 
   async getRating(contentId, userId) {
-    console.log(contentId, userId)
     try {
       const rating = await prisma.rating.findMany({
         where: {
-          AND: [
-            {
-              contentId: {
-                equals: contentId,
-              }
-            },
-            {
-              userId: {
-                equals: userId,
-              }
-            },
-          ],
+          contentId: contentId,
+          userId: userId,
         },
       });
 
