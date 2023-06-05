@@ -42,14 +42,14 @@ router.put(
     [param("id", "Id da oferta é necessário").exists({ checkFalsy: true })],
     [body("status", "Status é necessário").exists({ checkFalsy: true })],
     unsureAuthenticated.unsureAuthenticated,
-    applyController.UpdateApply
+    applyController.UpdateStatus
 );
 
 router.delete(
     "/delete/:id",
     [param("id", "Id da oferta é necessário").exists({ checkFalsy: true })],
     unsureAuthenticated.unsureAuthenticated,
-    applyController.Delete
+    applyController.deleteApply
 );
 
 module.exports = router;

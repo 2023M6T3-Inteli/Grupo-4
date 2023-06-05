@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
 
 const loggerApply = log4js.getLogger("apply");
 
-class Content {
+class Apply {
     async Create(contentId, offerId, userId, why) {
         //Create Apply
         try {
@@ -115,5 +115,5 @@ class Content {
 }
 
 module.exports = {
-  Content,
+  Apply,
 };

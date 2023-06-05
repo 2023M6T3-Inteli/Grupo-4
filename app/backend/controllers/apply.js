@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
 require("express-async-errors");
 
-const service = require("../services/content");
+const service = require("../services/apply");
 
 const Apply = new service.Apply();
 
