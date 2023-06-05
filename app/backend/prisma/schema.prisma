@@ -69,11 +69,10 @@ model Applies {
   project       Project        @relation(fields: [projectId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   userId        String
   user          User           @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  status        String
+  status        String         @default("PENDING")
   why           String
-  abilities     String
   offerId       String
-  offer         Offers        @relation(fields: [offerId], references: [id])
+  offer         Offers        @relation(fields: [offerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
 
 model Content {

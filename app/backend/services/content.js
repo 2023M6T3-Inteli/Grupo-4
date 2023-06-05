@@ -203,6 +203,22 @@ class Content {
       throw new Error("Error creating report");
     }
   }
+
+  async rateProject(userId, contentId, rate) {
+    try {
+      await prisma.rating.create({
+        data: {
+          id: uuid(),
+          userId: userId,
+          contentId: contentId,
+          rate: rate,
+        },
+      });
+      return "Projeto avaliado com sucesso"
+    } catch (error) {
+      throw new Error("Error rating project");
+    }
+  }
 }
 
 module.exports = {

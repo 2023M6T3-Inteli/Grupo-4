@@ -128,4 +128,12 @@ router.get(
   contentController.Report
 )
 
+router.post(
+  "/rate",
+  [body("contentId", "Id do projeto é necessário").exists({ checkFalsy: true })],
+  [body("rate", "Nota é necessária").exists({ checkFalsy: true })],
+  unsureAuthenticated.unsureAuthenticated,
+  contentController.rateContent
+)
+
 module.exports = router;
