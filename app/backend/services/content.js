@@ -252,11 +252,22 @@ class Content {
   }
 
   async getRating(contentId, userId) {
+    console.log(contentId, userId)
     try {
-      const rating = await prisma.rating.findUnique({
+      const rating = await prisma.rating.findMany({
         where: {
-          contentId: contentId,
-          userId: userId,
+          AND: [
+            {
+              contentId: {
+                equals: contentId,
+              }
+            },
+            {
+              userId: {
+                equals: userId,
+              }
+            },
+          ],
         },
       });
 
