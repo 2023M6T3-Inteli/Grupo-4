@@ -64,6 +64,42 @@ const contentService = {
 
     return reportContent;
   },
+
+  rate: async (contentId, rate) => {
+    const token = cookies.get("token");
+
+    const rateData = {
+      contentId: contentId,
+      rate: rate,
+    };
+
+    const reportContent = await axios.post(
+      `${API_URL}/v1/content/rate`,
+      rateData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return reportContent;
+  },
+
+  getRating: async (contentId) => {
+    const token = cookies.get("token");
+
+    const reportContent = await axios.get(
+      `${API_URL}/v1/content/getRating/${contentId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return reportContent;
+  },
 };
 
 export default contentService;
