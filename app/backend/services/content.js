@@ -205,21 +205,50 @@ class Content {
   }
 
   async rateContent(userId, contentId, rate) {
-    try {
-      await prisma.rating.create({
-        data: {
-          id: uuid(),
-          userId: userId,
-          contentId: contentId,
-          rate: rate,
-        },
-      });
-      loggerContent.info(`Content ${contentId} rated successfully`);
-      return "Projeto avaliado com sucesso"
-    } catch (error) {
-      loggerContent.error(`Error rating content ${contentId}`);
-      throw new Error("Error rating project");
+
+    //Verify if already rated
+    const rating = await prisma.rating.findUnique({
+      where: {
+        contentId: contentId,
+        userId: userId,
+      },
+    });
+
+    if (rating) {
+      try {
+        await prisma.rating.update({
+          where: {
+            id: rating.id,
+          },
+          data: {
+            rating: rate,
+          },
+        });
+        loggerContent.info(`Content ${contentId} rated successfully - UPDATING RATING`);
+        return "Projeto avaliado com sucesso"
+      } catch (error) {
+        loggerContent.error(`Error rating content ${contentId} - UPDATING RATING`);
+        throw new Error("Error rating project");
+      }
+    } else {
+      try {
+        await prisma.rating.create({
+          data: {
+            id: uuid(),
+            userId: userId,
+            contentId: contentId,
+            rating: rate,
+          },
+        });
+        loggerContent.info(`Content ${contentId} rated successfully`);
+        return "Projeto avaliado com sucesso"
+      } catch (error) {
+        loggerContent.error(`Error rating content ${contentId}`);
+        throw new Error("Error rating project");
+      }
     }
+
+   
   }
 
   async getRating(contentId, userId) {
