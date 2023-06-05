@@ -204,7 +204,7 @@ class Content {
     }
   }
 
-  async rateProject(userId, contentId, rate) {
+  async rateContent(userId, contentId, rate) {
     try {
       await prisma.rating.create({
         data: {
