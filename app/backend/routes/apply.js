@@ -16,4 +16,40 @@ router.post(
     applyController.Create
 );
 
+router.get(
+    "/getApplyByProjectId/:id",
+    [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    applyController.GetApplyByProjectId
+);
+
+router.get(
+    "/getApplyByUserId/:id",
+    [param("id", "Id do usuário é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    applyController.GetApplyByUserId
+);
+
+router.get(
+    "/getApplyByOfferId/:id",
+    [param("id", "Id da oferta é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    applyController.GetApplyByOfferId
+);
+
+router.put(
+    "/updateStatus/:id",
+    [param("id", "Id da oferta é necessário").exists({ checkFalsy: true })],
+    [body("status", "Status é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    applyController.UpdateApply
+);
+
+router.delete(
+    "/delete/:id",
+    [param("id", "Id da oferta é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    applyController.Delete
+);
+
 module.exports = router;

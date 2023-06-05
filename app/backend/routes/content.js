@@ -136,4 +136,11 @@ router.post(
   contentController.rateContent
 )
 
+router.get(
+  "/getRating/:id",
+  [param("id", "Id do Conteúdo é necessário").exists({ checkFalsy: true })],
+  unsureAuthenticated.unsureAuthenticated,
+  contentController.getRating
+)
+
 module.exports = router;

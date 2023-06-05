@@ -35,8 +35,82 @@ class Content {
         }
     }
 
-    async GetByContentId(contentId) {
-        
+    async GetByProjectId(projectId) {
+        try {
+            const apply = await prisma.apply.findMany({
+                where: {
+                    projectId: projectId
+                }
+            });
+            loggerApply.info(`Applies founded for project: ${projectId} successfully`);
+            return apply;
+        } catch (error) {
+            loggerApply.error(`Error getting apply: ${error}`)
+            throw new Error(error);
+        }
+    }
+
+    async GetByUserId(userId) {
+        try {
+            const apply = await prisma.apply.findMany({
+                where: {
+                    userId: userId
+                }
+            });
+            loggerApply.info(`Applies founded for user: ${userId} successfully`);
+            return apply;
+        } catch (error) {
+            loggerApply.error(`Error getting apply: ${error}`)
+            throw new Error(error);
+        }
+    }
+
+    async GetByOfferId(offerId) {
+        try {
+            const apply = await prisma.apply.findMany({
+                where: {
+                    offerId: offerId
+                }
+            });
+            loggerApply.info(`Applies founded for offer: ${offerId} successfully`);
+            return apply;
+        } catch (error) {
+            loggerApply.error(`Error getting apply: ${error}`)
+            throw new Error(error);
+        }
+    }
+
+    async updateStatus(applyId, status) {
+        try {
+            const apply = await prisma.apply.update({
+                where: {
+                    id: applyId
+                },
+                data: {
+                    status: status
+                }
+            });
+            loggerApply.info(`Apply ${applyId} updated successfully`);
+            return apply;
+        } catch (error) {
+            loggerApply.error(`Error updating apply: ${error}`)
+            throw new Error(error);
+        }
+    }
+
+    async delete(applyId) {
+        try {
+            const apply = await prisma.apply.delete({
+                where: {
+                    id: applyId
+                }
+            });
+            loggerApply.info(`Apply ${applyId} deleted successfully`);
+            return apply;
+        } catch (error) {
+            loggerApply.error(`Error deleting apply: ${error}`)
+            throw new Error(error);
+        }
     }
 }
 
