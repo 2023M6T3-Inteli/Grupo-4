@@ -34,6 +34,28 @@ const projectService = {
 
     return newProject;
   },
+
+  applyProject: async (why, projectId, offerId) => {
+    const token = cookies.get("token");
+
+    const applyData = {
+      why: why,
+      projectId: projectId,
+      offerId: offerId,
+    };
+
+    const apply = await axios.post(
+      `${API_URL}/v1/apply/create`,
+      applyData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return apply;
+  },
 };
 
 export default projectService;

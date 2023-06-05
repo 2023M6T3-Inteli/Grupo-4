@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -6,14 +6,37 @@ import { CiMenuKebab } from "react-icons/ci";
 
 import styles from "./applyModal.module.scss";
 import { useNavigate } from "react-router-dom";
+import projectService from "../../services/projectService";
 
 const ApplyModal = ({ project, user, handleClose }) => {
-  const { title, status, deadline } = project;
-  const navigate = useNavigate()
+  const { title, status, deadline, offers, id } = project;
 
-  const subscribeHandler = () => {
-    navigate('/profile')
-  }
+  const [roleError, setRoleError] = useState(false);
+  const [role, setRole] = useState("role");
+  const [why, setWhy] = useState("role");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (role !== "role") {
+      setRoleError(false);
+    }
+  }, [role]);
+
+  const subscribeHandler = async () => {
+    if (role === "role") {
+      setRoleError(true);
+      return;
+    }
+
+    const response = await projectService.applyProject(why, id, role);
+
+    console.log(response);
+
+    navigate("/profile");
+  };
+
+  console.log(project);
 
   return (
     <>
@@ -60,26 +83,43 @@ const ApplyModal = ({ project, user, handleClose }) => {
             <h1>ROLES</h1>
           </div>
           <div className={styles.roleOptions}>
-            <p>Development | available: 6 roles</p>
-            <p>Dev Ops | available: 8 roles</p>
-            <p>Marketing | available: 5 roles</p>
+            {offers.map((offer) => (
+              <p>
+                <span className={styles.cap}>{offer.name}</span> | available:{" "}
+                {offer.qntVagas} roles
+              </p>
+            ))}
           </div>
         </div>
 
         <div className={styles.selectRole}>
           <div className={styles.inputRole}>
-            <select name="role" id="role">
+            <select
+              // ref={roleSelectRef}
+              onChange={(e) => setRole(e.target.value)}
+              name="role"
+              id="role"
+              className={roleError && styles.roleError}
+            >
               <option value="role">Select a role</option>
-              <option value="role">Development</option>
-              <option value="role">Dev Ops</option>
-              <option value="role">Marketing</option>
+              {offers.map((offer) => (
+                <option className={styles.cap} key={offer.id} value={offer.id}>
+                  {offer.name}
+                </option>
+              ))}
             </select>
+            {roleError && (
+              <p className={styles.pError}>You must select a role!</p>
+            )}
           </div>
         </div>
 
         <div className={styles.why}>
           <h1>Why do you want this role?</h1>
-          <textarea placeholder="Talk about you..."></textarea>
+          <textarea
+            onChange={(e) => setWhy(e.target.value)}
+            placeholder="Talk about you..."
+          ></textarea>
         </div>
       </div>
       <div className={styles.btnSumbit}>

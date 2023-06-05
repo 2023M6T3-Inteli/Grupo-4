@@ -72,11 +72,11 @@ const ProjectCardView = ({ project, user, handleClose }) => {
       </div>
 
       <div className={styles.projectInfo}>
-        <div className={styles.iconDescription}>
+        <div>
           <img
             src={descriptionIcon}
-            width={50}
-            height={50}
+            width={25}
+            height={25}
             alt="description_icon"
           />
         </div>
