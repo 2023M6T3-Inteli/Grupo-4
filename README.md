@@ -81,6 +81,7 @@ Módulo 6 - Engenharia de Software <br/>
   - [Teste de Usabilidade](#teste-de-usabilidade)
   - [Teste de Funcionalidade](#teste-de-funcionalidade)
   - [Teste de API](#teste-de-api)
+    - [Teste Mensageria de Recomendação](#teste-mensageria-de-recomendação)
 - [Documentação da API](#documentação-da-api)
 - [Manual do Usuário](#manual-do-usuário)
 - [Referências](#referências)
@@ -292,8 +293,8 @@ O Load Balancer é o principal atuante nessa parte, pois com as configurações 
 
 ### Mensageria de Recomendação
 
-![Sistema de Recomendação e mensageria instantanea](docs\img\printresultadocolab.png)
-![Sistema de Recomendação e mensageria instantanea](docs\img\resultadosocket.png)
+Serviço de Recomendação Por Mensageria
+https://colab.research.google.com/drive/1xVku2jFYw0W5UWsWsSARY36lfVhGFta9?usp=sharing
 
 
 	
@@ -424,6 +425,11 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 ## Teste de API 
 
 Link ou imagem da tabela com dados organizados dos testes realizados.
+
+### Teste Mensageria de Recomendação
+
+![Sistema de Recomendação e mensageria instantanea](docs\img\printresultadocolab.png)
+![Sistema de Recomendação e mensageria instantanea](docs\img\resultadosocket.png)
 
 
 # Documentação da API
