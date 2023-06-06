@@ -64,6 +64,7 @@ Módulo 6 - Engenharia de Software <br/>
   - [Fluxo de Dados](#fluxo-de-dados)
   - [Arquitetura de Mensageria](#arquitetura-de-mensageria)
     - [Diagramas](#diagramas)
+    - [Mensageria de Recomendação](#mensageria-de-recomendação)
     - [Vantagens e Desvantagens Arquitetura de Mensageria](#vantagens-e-desvantagens-arquitetura-de-mensageria)
 - [UX e UI Design](#ux-e-ui-design)
   - [Benchmark e Revisão de Design Systems](#benchmark-e-revisão-de-design-systems)
@@ -72,6 +73,7 @@ Módulo 6 - Engenharia de Software <br/>
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
   - [Modelo Conceitual](#modelo-conceitual)
   - [Modelo Lógico](#modelo-lógico)
+- [Pipeline de dados](#pipeline-de-dados)
 - [Testes de Software](#testes-de-software)
   - [Teste Unitário](#teste-unitário)
   - [Teste de Integração](#teste-de-integração)
@@ -79,6 +81,7 @@ Módulo 6 - Engenharia de Software <br/>
   - [Teste de Usabilidade](#teste-de-usabilidade)
   - [Teste de Funcionalidade](#teste-de-funcionalidade)
   - [Teste de API](#teste-de-api)
+    - [Teste Mensageria de Recomendação](#teste-mensageria-de-recomendação)
 - [Documentação da API](#documentação-da-api)
 - [Manual do Usuário](#manual-do-usuário)
 - [Referências](#referências)
@@ -287,6 +290,13 @@ O Load Balancer é o principal atuante nessa parte, pois com as configurações 
 1- Filtragem de tráfego: Configurar com a finalidade de bloquear IPs e solicitações suspeitas.
 2- Distribuir o tráfego: Como o Load Balancer tem a capacidade de aumentar a quantidade de servidores, é possível distribuir essa grande quantidade de tráfego em diversos servidores.
 3- Serviços externos: Caso o Load Balancer não consiga lidar com ataques DDoS utilizando todas as técnicas já citadas, é possível dialogar com serviços externos para que o DDoS seja neutralizado.
+
+### Mensageria de Recomendação
+
+Serviço de Recomendação Por Mensageria
+https://colab.research.google.com/drive/1xVku2jFYw0W5UWsWsSARY36lfVhGFta9?usp=sharing
+
+
 	
 ### Vantagens e Desvantagens Arquitetura de Mensageria 
 
@@ -415,6 +425,11 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 ## Teste de API 
 
 Link ou imagem da tabela com dados organizados dos testes realizados.
+
+### Teste Mensageria de Recomendação
+
+![Sistema de Recomendação e mensageria instantanea](docs\img\printresultadocolab.png)
+![Sistema de Recomendação e mensageria instantanea](docs\img\resultadosocket.png)
 
 
 # Documentação da API

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body, param, validationResult } = require("express-validator");
 
+
 const userController = require("../controllers/user");
 
 //Middlewares
@@ -73,14 +74,24 @@ router.get
  *       200:
  *         description: Success
  */
-router.post
-        ("/register", 
-        [body("email", "Email é necessário").exists({ checkFalsy: true })], 
-        [body("password", "Senha é necessária").exists({ checkFalsy: true })], 
-        [body("name", "Nome é necessária").exists({ checkFalsy: true })], 
-        [body("area", "Area é necessária").exists({ checkFalsy: true })], 
-        [body("tags", "Tags é necessária").exists({ checkFalsy: true })],
-         userController.Create);
+router.post(
+    "/register", 
+    [body("email", "Email é necessário").exists({ checkFalsy: true })], 
+    [body("password", "Senha é necessária").exists({ checkFalsy: true })], 
+    [body("name", "Nome é necessária").exists({ checkFalsy: true })], 
+    [body("area", "Area é necessária").exists({ checkFalsy: true })], 
+    [body("tags", "Tags é necessária").exists({ checkFalsy: true })],
+    async (req, res, next) => {
+        try {
+            const result = await userController.Create(req, res);
+            res.json(result);
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+
+         
 
 /**
  * @swagger
