@@ -12,9 +12,10 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ContentCardView.module.scss";
 import contentService from "../../services/contentService";
 import { BoxLoading } from "react-loadingg";
+import StarRating from "../StarRating/StarRating";
 
 const ContentCardView = ({ handleClose, content, user }) => {
-  const { title, description, tags, links } = content;
+  const { title, description, tags, links, id } = content;
 
   const [owner, setOwner] = useState({});
   const [isOptions, setIsOptions] = useState(false);
@@ -65,7 +66,9 @@ const ContentCardView = ({ handleClose, content, user }) => {
             <button onClick={handleClose}>
               <IoIosArrowBack size={25} />
             </button>
-            <img src="/temporary/stars.svg" alt="stars_icon" />
+            <div className={styles.starsContainer}>
+            <StarRating contentId={id}/>
+          </div>
           </div>
           <div>
             <AiOutlineHeart size={25} />
@@ -142,6 +145,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
             <img src="/temporary/blue-stars.svg" alt="stars_icon" />
           </div>
         </main>
+        
       </div>
     );
   } 

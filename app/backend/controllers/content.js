@@ -165,7 +165,7 @@ const rateContent = async (req, res) => {
 };
 
 const getRating = async (req, res) => {
-  const { contentId, rate } = req.body;
+  const { id } = req.params;
 
   //Valida se algum paremetro é inválido
   const errors = validationResult(req);
@@ -179,7 +179,7 @@ const getRating = async (req, res) => {
   //Chamada para o service
   try {
     //Tratamento das respostas do método da classe
-    const result = await Content.getRating(contentId, req.id);
+    const result = await Content.getRating(id, req.id);
     res.send(result);
   } catch (err) {
     res.status(500).send(err.message);

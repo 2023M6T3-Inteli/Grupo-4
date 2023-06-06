@@ -12,7 +12,6 @@ import vector from "../../Assets/Vector.png";
 
 import ApplyModal from "../ApplyModal/applyModal";
 import CentralModal from "../CentralModal/Modal";
-import StarRating from "../StarRating/StarRating";
 
 import styles from "./VisualizeProject.module.scss";
 
@@ -44,9 +43,6 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           <button onClick={handleClose}>
             <IoIosArrowBack size={25} />
           </button>
-          <div className={styles.starsContainer}>
-            <StarRating />
-          </div>
         </div>
 
         <div>
@@ -76,11 +72,11 @@ const ProjectCardView = ({ project, user, handleClose }) => {
       </div>
 
       <div className={styles.projectInfo}>
-        <div className={styles.iconDescription}>
+        <div>
           <img
             src={descriptionIcon}
-            width={50}
-            height={50}
+            width={25}
+            height={25}
             alt="description_icon"
           />
         </div>

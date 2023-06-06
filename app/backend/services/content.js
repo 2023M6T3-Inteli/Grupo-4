@@ -207,18 +207,18 @@ class Content {
   async rateContent(userId, contentId, rate) {
 
     //Verify if already rated
-    const rating = await prisma.rating.findUnique({
+    const rating = await prisma.rating.findMany({
       where: {
         contentId: contentId,
         userId: userId,
       },
     });
 
-    if (rating) {
+    if (rating.length > 0) {
       try {
         await prisma.rating.update({
           where: {
-            id: rating.id,
+            id: rating[0].id,
           },
           data: {
             rating: rate,
@@ -253,7 +253,7 @@ class Content {
 
   async getRating(contentId, userId) {
     try {
-      const rating = await prisma.rating.findUnique({
+      const rating = await prisma.rating.findMany({
         where: {
           contentId: contentId,
           userId: userId,

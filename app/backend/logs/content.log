@@ -1,0 +1,21 @@
+[2023-06-05T16:39:52.401] [INFO] content - Rating for content undefined and user 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 founded successfully
+[2023-06-05T16:45:33.680] [INFO] content - Rating for content undefined and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:46:29.360] [INFO] content - Rating for content undefined and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:47:24.752] [ERROR] content - Error getting rating for content undefined and user 1187adb8-2e7b-430a-9cee-25cd4d897fae
+[2023-06-05T16:49:28.774] [INFO] content - Rating for content undefined and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:50:04.925] [INFO] content - Rating for content undefined and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:50:48.553] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:52:36.463] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:53:12.983] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:53:13.125] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:53:14.649] [ERROR] content - Error rating content d63a478c-d889-474e-9c66-ebec10829bbb - UPDATING RATING
+[2023-06-05T16:54:55.295] [INFO] content - Rating for content ebb773a7-acdd-4d23-878c-7d662cc647cd and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:54:55.441] [INFO] content - Rating for content ebb773a7-acdd-4d23-878c-7d662cc647cd and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:54:58.130] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:54:58.285] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:55:01.060] [INFO] content - Content d63a478c-d889-474e-9c66-ebec10829bbb rated successfully - UPDATING RATING
+[2023-06-05T16:55:05.073] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:55:05.213] [INFO] content - Rating for content d63a478c-d889-474e-9c66-ebec10829bbb and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:55:08.632] [INFO] content - Rating for content ebb773a7-acdd-4d23-878c-7d662cc647cd and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:55:08.768] [INFO] content - Rating for content ebb773a7-acdd-4d23-878c-7d662cc647cd and user 1187adb8-2e7b-430a-9cee-25cd4d897fae founded successfully
+[2023-06-05T16:55:10.242] [INFO] content - Content ebb773a7-acdd-4d23-878c-7d662cc647cd rated successfully - UPDATING RATING

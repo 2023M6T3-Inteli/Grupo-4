@@ -13,15 +13,28 @@ const prisma = new PrismaClient();
 
 const loggerApply = log4js.getLogger("apply");
 
-class Content {
+class Apply {
     async Create(contentId, offerId, userId, why) {
+        //Verify if already exists
+        const applyExists = await prisma.applies.findMany({
+            where: {
+                projectId: contentId,
+                userId: userId,
+            },
+        });
+
+        if (applyExists.length > 0) {
+            loggerApply.error(`Apply already exists for content ${contentId} and user ${userId}`);
+            throw new Error("Apply already exists");
+        }
+        
         //Create Apply
         try {
-            const apply = await prisma.apply.create({
+            const apply = await prisma.applies.create({
                 data: {
                     id: uuid(),
                     why: why,
-                    contentId: contentId,
+                    projectId: contentId,
                     offerId: offerId,
                     userId: userId,
                 },
@@ -37,7 +50,7 @@ class Content {
 
     async GetByProjectId(projectId) {
         try {
-            const apply = await prisma.apply.findMany({
+            const apply = await prisma.applies.findMany({
                 where: {
                     projectId: projectId
                 }
@@ -52,7 +65,7 @@ class Content {
 
     async GetByUserId(userId) {
         try {
-            const apply = await prisma.apply.findMany({
+            const apply = await prisma.applies.findMany({
                 where: {
                     userId: userId
                 }
@@ -67,7 +80,7 @@ class Content {
 
     async GetByOfferId(offerId) {
         try {
-            const apply = await prisma.apply.findMany({
+            const apply = await prisma.applies.findMany({
                 where: {
                     offerId: offerId
                 }
@@ -82,7 +95,7 @@ class Content {
 
     async updateStatus(applyId, status) {
         try {
-            const apply = await prisma.apply.update({
+            const apply = await prisma.applies.update({
                 where: {
                     id: applyId
                 },
@@ -100,7 +113,7 @@ class Content {
 
     async delete(applyId) {
         try {
-            const apply = await prisma.apply.delete({
+            const apply = await prisma.applies.delete({
                 where: {
                     id: applyId
                 }
@@ -115,5 +128,5 @@ class Content {
 }
 
 module.exports = {
-  Content,
+  Apply,
 };

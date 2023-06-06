@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import contentService from "../services/contentService";
 import projectService from "../services/projectService";
 import { BoxLoading } from "react-loadingg";
+import { ToastContainer } from "react-toastify";
 
 const Feed = (props) => {
   const [contentPage, setContentPage] = useState(props.showContent);
@@ -82,6 +83,7 @@ const Feed = (props) => {
               // return <div>{JSON.stringify(project)}</div>
             })}
         </main>
+        <ToastContainer style={{ fontSize: "14pt" }} />
       </>
     );
   }
