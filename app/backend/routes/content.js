@@ -121,26 +121,77 @@ router.delete(
   contentController.Delete
 );
 
+/**
+ * @swagger
+ * /v1/content/report/{id}:
+ *   get:
+ *     description: Report content
+ *     parameters:
+ *       - name: id
+ *         description: Content ID
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.get(
   "/report/:id", 
   [param("id", "Id do projeto é necessário").exists({ checkFalsy: true })],
   unsureAuthenticated.unsureAuthenticated,
   contentController.Report
-)
+);
 
+/**
+ * @swagger
+ * /v1/content/rate:
+ *   post:
+ *     description: Rate content
+ *     parameters:
+ *       - name: contentId
+ *         description: Content ID
+ *         in: body
+ *         required: true
+ *         type: string
+ *       - name: rate
+ *         description: Rating
+ *         in: body
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.post(
   "/rate",
   [body("contentId", "Id do projeto é necessário").exists({ checkFalsy: true })],
   [body("rate", "Nota é necessária").exists({ checkFalsy: true })],
   unsureAuthenticated.unsureAuthenticated,
   contentController.rateContent
-)
+);
 
+/**
+ * @swagger
+ * /v1/content/getRating/{id}:
+ *   get:
+ *     description: Get content rating
+ *     parameters:
+ *       - name: id
+ *         description: Content ID
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.get(
   "/getRating/:id",
   [param("id", "Id do Conteúdo é necessário").exists({ checkFalsy: true })],
   unsureAuthenticated.unsureAuthenticated,
   contentController.getRating
-)
+);
+
 
 module.exports = router;
