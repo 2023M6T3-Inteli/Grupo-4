@@ -1,13 +1,15 @@
 import s from "./Navbar.module.scss";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { HiOutlineHome } from "react-icons/hi";
 import { FiPlusSquare } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
+import { MdAdminPanelSettings } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import userService from "../../services/userService";
 
 const cookies = new Cookies();
 
@@ -16,6 +18,8 @@ const Navbar = (props) => {
   const dropdownFeed = useRef();
   const dropdownCreation = useRef();
   const navigate = useNavigate();
+
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const toggleNav = (e) => {
     e?.preventDefault();
@@ -39,7 +43,22 @@ const Navbar = (props) => {
   const navigateHandler = (route) => {
     toggleNav()
     navigate(route)
-  } 
+  }
+
+  const verifyAdmin = async () => {
+    try {
+      const response = await userService.verifyAdmin()
+      setIsAdmin(true)
+    } catch (error) {
+      console.log(error)
+      setIsAdmin(false)
+    }
+  }
+
+
+  useEffect(() => {
+    verifyAdmin()
+  }, []);
 
   return (
     <>
@@ -123,6 +142,18 @@ const Navbar = (props) => {
               </button>
             </label>
           </li>
+
+          {
+            isAdmin &&
+            <li>
+              <label>
+                <button className={s.profile} onClick={() => {navigateHandler("/admin")}}>
+                  <MdAdminPanelSettings />
+                  <h1>ADMIN</h1>
+                </button>
+              </label>
+            </li>
+          }
         </ul>
       </div>
     </>

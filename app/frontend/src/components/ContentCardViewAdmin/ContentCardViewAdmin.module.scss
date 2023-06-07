@@ -140,3 +140,34 @@
     gap: 1rem;
   }
 }
+
+.blueStars {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  flex-direction: column;
+  margin-top: 4rem;
+  gap: 10px;
+
+  .deleteBtn {
+    background-color: red;
+    width: 40%;
+    height: 30px;
+    color: var(--neutral-50);
+    border-radius: 8px;
+  }
+
+  .closeBtn {
+    background-color: green;
+    width: 40%;
+    height: 30px;
+    color: var(--neutral-50);
+    border-radius: 8px;
+  }
+
+  p {
+    font-size: 1.4rem;
+    font-weight: lighter;
+    margin: 0.5rem 0;
+  }
+}

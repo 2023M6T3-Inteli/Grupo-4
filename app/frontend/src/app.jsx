@@ -11,6 +11,7 @@ import Ranking from "./pages/ranking";
 import Home from "./pages/home";
 import RouteWithNavBar from "./route";
 import NavLayout from "./route";
+import Admin from "./pages/admin";
 // import Home from './pages/home';
 // Import other necessary components
 
@@ -44,6 +45,9 @@ const App = () => {
         </Route>
         <Route path="/ranking" element={<NavLayout />}>
           <Route index element={<Ranking />} />
+        </Route>
+        <Route path="/admin" element={<NavLayout />}>
+          <Route index element={<Admin />} />
         </Route>
       </Routes>
     </>

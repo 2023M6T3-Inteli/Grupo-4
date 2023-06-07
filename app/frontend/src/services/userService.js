@@ -54,7 +54,18 @@ const userService = {
             })
     
             return user
-    }   
+    },
+    verifyAdmin: async () => {
+        const token = cookies.get('token')
+
+        const user = await axios.get(`${API_URL}/v1/user/verifyAdmin`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        return user
+    },
 }
 
 export default userService;
