@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import s from '../styles/home.module.scss'
 import ProjectReduces from "../components/ProjectReduced/projectReduces";
 import ContentReduced from "../components/ContentReduced/contentReduced";
+import userService from "../services/userService";
 import CardProject from "../components/ProjectCard/ProjectCard";
+import ContentCard from "../components/ContentCard/ContentCard";
+import contentService from "../services/contentService";
+import projectService from "../services/projectService";
 
 const Home = (props) => {
 
@@ -11,15 +15,25 @@ const Home = (props) => {
     const [contents, setContents] = useState([]);
     const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         const fetchData = async () => {
           setisLoading(true);
-          const response = await fetch("/content.json");
-          const data = await response.json();
+
+          try {
+            const responseUser = await userService.getUser();
+            setUser(responseUser.data);
+          } catch (err) {
+            navigate("/home");
+          }
+     
+          const responseContent = await contentService.getContent();
+          const responseProject = await projectService.getProject();
     
-          setContents(data.contents);
-          setProjects(data.projects)
+          setContents(responseContent.data.reverse());
+          setProjects(responseProject.data.reverse());
+
           setisLoading(false);
         };
     
@@ -35,21 +49,25 @@ const Home = (props) => {
         <div className={s.highlights}>
             <h1>HIGHLIGHTS</h1>
 
-            <div className={s.scrollView}>
+            {/* <div className={s.scrollView}>
                 {  projects && 
                     projects.map((project) => {
                         return <CardProject project={project} user={project.user}/>;
                 })}    
-            </div>
+            </div> */}
         </div>
 
         <div className={s.topic}>
             <h1>TOPIC 1</h1>
 
             <div className={s.scrollView}>
+                {/* <ContentReduced/>
                 <ContentReduced/>
-                <ContentReduced/>
-                <ContentReduced/>
+                <ContentReduced/> */}
+            {!isLoading &&
+            contents.map((content) => {
+              return <ContentCard user={user} content={content} />;
+            })}
             </div>
         </div>
 
@@ -57,9 +75,10 @@ const Home = (props) => {
             <h1>TOPIC 2</h1>
 
             <div className={s.scrollView}>
-                <ContentReduced/>
-                <ProjectReduces/>
-                <ContentReduced/>
+            {!isLoading &&
+            contents.map((content) => {
+              return <ContentCard user={user} content={content} />;
+            })}
             </div>
         </div>
 
