@@ -432,9 +432,31 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 
 ## Teste de Funcionalidade 
-
-Link ou imagem da tabela com dados organizados dos testes realizados.
-
+| Funcionalidade a ser testada (ou requisito) | Casos de teste                                                    | Resultado | Observações                                      |
+|---------------------------------------------|------------------------------------------------------------------|-----------|-------------------------------------------------|
+| Criar projeto                               | O sistema permite a criação de projetos                           | Sucesso   |                                                 |
+| Remoção de projeto                          | O sistema permite a remoção de projetos criados                   | Falha     |                                                 |
+| Inscrição para projeto                      | O sistema permite que funcionários se inscrevam em qualquer projeto | Sucesso   |                                                 |
+| Inscrição para projeto                      | O sistema deve permite que os funcionários entrem em mais de um projeto | Sucesso   |                                                 |
+| Líderes definem requisitos do projeto       | O sistema permite que os líderes do projeto definam a data do projeto | Sucesso   |                                                 |
+| Líderes definem requisitos do projeto       | O sistema permite que os líderes do projeto aprovem ou não um funcionário que se inscreveu em seu projeto | Falha     | Funcionalidade ainda não está implementada     |
+| Líderes definem requisitos do projeto       | O sistema permite definir um limite de vagas ao criar um projeto | Sucesso   |                                                 |
+| Sistema de feedback                         | O sistema permite que os líderes do projeto deixem um feedback ao candidato sobre o resultado da inscrição | Falha     | Funcionalidade ainda não foi implementada       |
+| Busca por projetos com uso de filtro        | O sistema permite a filtragem de projetos por características específicas | Falha     | Funcionalidade ainda não foi implementada       |
+| Busca de conteúdos com uso do filtro         | O sistema permite o usuário filtrar os conteúdos por características especifícas | Falha     | Funcionalidade ainda não foi implementada       |
+| Requisitos implementados pelo líder do projeto | O sistema permite que os líderes do projeto definam quais funções terão no projeto | Sucesso   |                                                 |
+| Requisitos implementados pelo líder do projeto | O sistema permite definir a quantidade de vagas para cada função em um projeto | Sucesso   |                                                 |
+| Mostrar projetos finalizados                | O sistema permite mostrar os projetos já finalizados               | Falha     | Funcionalidade ainda não está integrada         |
+| Cancelar projeto                            | O sistema permite o cancelamento do projeto caso ele não tenha atingido o número mínimo de candidatos | Falha     |                                                 |
+| Status do projeto                           | O sistema permite o usuário visualizar todos os projetos com vagas em aberto | Sucesso   |                                                 |
+| Status do projeto                           | O sistema permite o usuário visualizar todos os projetos que estão em andamento | Sucesso   |                                                 |
+| Visualizar perfil                           | O sistema mostra no perfil dos usuários os projetos realizados por esse usuário | Falha     | Funcionalidade não está concluída                |
+| Visualizar perfil                           | O sistema permite a visualização do perfil dos funcionários        | Sucesso   | Não está concluída mas é possível visualizar o perfil |
+| Curtir conteúdos de interesse               | O sistema permite o usuário curtir um conteúdo que se interessou   | Sucesso   |                                                 |
+| Compartilhamento de conteúdos               | O sistema deve permitir o usuário compartilhar conteúdos que tem interesse | Falha     | Funcionalidade não está implementada             |
+| Denúncia de conteúdos                | O sistema deve permitir os usuários denunciarem conteúdos impróprios na aplicação | Sucesso   |                                                 |
+| Denúncia de conteúdos                | O sistema deve permitir os usuários moderadores excluírem conteúdos denunciados | Sucesso   |                                                 |
+| Recomendações de projetos e conteúdos | O sistema deve fazer recomendações ao usuário de acordo com suas preferências  | Falha     | Funcionalidade ainda não está implementada     |
 
 ## Teste de API 
 
