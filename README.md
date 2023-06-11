@@ -414,8 +414,21 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 ## Teste de Usabilidade 
 
-Link ou imagem da tabela com dados organizados dos testes realizados.
-
+| Funcionalidade a ser testada   | Caso de teste                           | Passo-a-passo e condições de reprodução do teste                                                                 | Usabilidade | Resultado | Observações                                      |
+|-------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------|-------------|-----------|-------------------------------------------------|
+| Logar                         | Funcionário logar na plataforma        | Funcionário preenche as lacunas com seu email de cadastro e senha e clica em entrar                                 | Alta        | Sucesso   |                                                 |
+| Criar projeto                 | Funcionário criar um projeto           | Funcionário clica em criar projeto, preenche todos os campos de informações necessários e clica em criar, e recebe um email de confirmação | Alta        | Sucesso   |                                                 |
+| Criar conteúdo                | Funcionário postar um conteúdo         | Funcionário vai na aba de criar conteúdo, preenche todas as informações e clica em postar                           | Alta        | Sucesso   |                                                 |
+| Editar projeto                | Funcionário editar o projeto que criou | Funcionário vai na aba de criar projetos, preenche as informações e cria o projeto. Após isso, ele acessa a aba de projetos e edita o projeto que criou | Baixa       | Falha     | Funcionalidade não implementada                 |
+| Adicionar/remover vagas       | Exibição da seção de vagas do projeto  | Dentro da inscrição do projeto aparece a opção de criar as vagas do projeto                                           | Alta        | Sucesso   |                                                 |
+|                               | Campos de adicionar a quantidade de pessoas por vaga | Depois de criar as vagas do projeto a pessoa selecionará a quantidade de vagas                                 | Alta        | Sucesso   |                                                 |
+|                               | Funcionário remover a vaga criada      | Depois de criar as vagas do projeto a pessoa removerá uma vaga que não acha mais necessária                         | Baixa       | Falha     | Funcionalidade não implementada                 |
+| Adicionar/remover Tags        | Funcionário adicionar as tags          | Ao criar um projeto ou um conteúdo, o funcionário preenche a lacuna de adicionar tags                                 | Alta        | Sucesso   |                                                 |
+|                               | Funcionário remover as tags            | Ao criar um projeto ou um conteúdo, o funcionário remove as tags desnecessárias                                       | Baixa       | Falha     | Funcionalidade não implementada                 |
+| Visualizar projeto            | Funcionário visualizar os projetos disponíveis | Ao acessar o Feed, o usuário clica em "Projects", visualiza todos os projetos disponíveis e consegue clicar nos projetos para ver mais detalhes | Alta        | Sucesso   |                                                 |
+| Visualizar conteúdo           | Funcionário visualizar os conteúdos disponíveis | Ao acessar o Feed, o usuário clica em "Contents", visualiza todos os conteúdos postados e consegue clicar nos conteúdos para ver mais detalhes | Alta        | Sucesso   |                                                 |
+| Aplicar no projeto            | Funcionário aplicar para um projeto que deseja participar | Ao acessar o Feed, o usuário clica em "Projects", acessa o projeto que tem interesse e clica em "Subscribe". Após isso, ele responde o questionário e clica novamente em "Subscribe" | Alta        | Sucesso   |                                                 |
+| Denunciar conteúdo            | Funcionário report
 
 ## Teste de Funcionalidade 
 
