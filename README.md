@@ -433,8 +433,9 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 
 # Documentação da API
+Link para acesso a documentação da API: http://localhost:3001/api-docs/#/
 
-![Print Swagger](C:\Users\stefa\OneDrive\Documentos\Faculdade\Modulo 3 - B\Repositorio Grupo\Grupo-4\docs\img\ftoSwagger.PNG)
+![Print Swagger](Grupo-4\docs\img\ftoSwagger.PNG)
 
 
 # Manual do Usuário

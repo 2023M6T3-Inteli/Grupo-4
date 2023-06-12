@@ -12,6 +12,8 @@ const unsureAuthenticated = require('../middlewares/unsureAuthenticated');
  * @swagger
  * /v1/project/create:
  *   post:
+ *     security:
+ *       - BearerAuth: []
  *     description: Create a new project
  *     parameters:
  *       - name: title
@@ -76,6 +78,8 @@ router.post(
  * @swagger
  * /v1/project/getProject/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get a project by ID
  *     parameters:
  *       - name: id
@@ -97,6 +101,8 @@ router.get(
  * @swagger
  * /v1/project/update/{id}:
  *   put:
+ *     security:
+ *       - BearerAuth: []
  *     description: Update a project by ID
  *     parameters:
  *       - name: id
@@ -119,6 +125,8 @@ router.put(
  * @swagger
  * /v1/project/{id}:
  *   delete:
+ *     security:
+ *       - BearerAuth: []
  *     description: Delete a project by ID
  *     parameters:
  *       - name: id
@@ -141,6 +149,8 @@ router.delete(
  * @swagger
  * /v1/project/getAll:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get all projects
  *     responses:
  *       200:

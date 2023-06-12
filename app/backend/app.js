@@ -17,7 +17,16 @@ const swaggerOptions = {
         name: 'Developer Name'
       },
       servers: ['http://localhost:3001']
-    }
+    },
+    components: {
+      securitySchemes: {
+        BearerAuth: {   // This can be any name you want
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',   // Optional, as per https://swagger.io/docs/specification/authentication/bearer-authentication/
+        },
+      },
+    },
   },
   apis: ['./routes/*.js']
 };

@@ -12,6 +12,8 @@ const unsureAuthenticated = require("../middlewares/unsureAuthenticated");
  * @swagger
  * /v1/user:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get the authenticated user
  *     responses:
  *       200:
@@ -23,6 +25,8 @@ router.get("/", unsureAuthenticated.unsureAuthenticated, userController.GetUserC
  * @swagger
  * /v1/user/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get a user by ID
  *     parameters:
  *       - name: id
@@ -43,6 +47,8 @@ router.get
  * @swagger
  * /v1/user/register:
  *   post:
+ *     security:
+ *       - BearerAuth: []
  *     description: Register a new user
  *     parameters:
  *       - name: email
@@ -97,6 +103,8 @@ router.post(
  * @swagger
  * /v1/user/auth:
  *   post:
+ *     security:
+ *       - BearerAuth: []
  *     description: Authenticate a user
  *     parameters:
  *       - name: email
@@ -123,6 +131,8 @@ router.post
  * @swagger
  * /v1/user/update/{id}:
  *   put:
+ *     security:
+ *       - BearerAuth: []
  *     description: Update a user by ID
  *     parameters:
  *       - name: id
@@ -144,6 +154,8 @@ router.put
  * @swagger
  * /v1/user/delete/{id}:
  *   delete:
+ *     security:
+ *       - BearerAuth: []
  *     description: Delete a user by ID
  *     parameters:
  *       - name: id

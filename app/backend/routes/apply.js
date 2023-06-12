@@ -11,6 +11,8 @@ const unsureAuthenticated = require('../middlewares/unsureAuthenticated');
  * @swagger
  * /v1/apply/create:
  *   post:
+ *     security:
+ *       - BearerAuth: []
  *     description: Create new application
  *     parameters:
  *       - name: why
@@ -45,6 +47,8 @@ router.post(
  * @swagger
  * /v1/apply/getApplyByProjectId/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get application by project ID
  *     parameters:
  *       - name: id
@@ -67,6 +71,8 @@ router.get(
  * @swagger
  * /v1/apply/getApplyByUserId/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get application by user ID
  *     parameters:
  *       - name: id
@@ -78,6 +84,7 @@ router.get(
  *       200:
  *         description: Success
  */
+
 router.get(
     "/getApplyByUserId/:id",
     [param("id", "Id do usuário é necessário").exists({ checkFalsy: true })],
@@ -89,6 +96,8 @@ router.get(
  * @swagger
  * /v1/apply/getApplyByOfferId/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get application by offer ID
  *     parameters:
  *       - name: id
@@ -111,6 +120,8 @@ router.get(
  * @swagger
  * /v1/apply/updateStatus/{id}:
  *   put:
+ *     security:
+ *       - BearerAuth: []
  *     description: Update application status
  *     parameters:
  *       - name: id
@@ -139,6 +150,8 @@ router.put(
  * @swagger
  * /v1/apply/delete/{id}:
  *   delete:
+ *     security:
+ *       - BearerAuth: []
  *     description: Delete application
  *     parameters:
  *       - name: id

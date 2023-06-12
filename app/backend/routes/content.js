@@ -45,6 +45,8 @@ router.post
  * @swagger
  * /v1/content/getContent/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get content by ID
  *     parameters:
  *       - name: id
@@ -67,6 +69,8 @@ router.get(
  * @swagger
  * /v1/content/getContent:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get all content
  *     responses:
  *       200:
@@ -81,6 +85,8 @@ router.get(
  * @swagger
  * /v1/project/update/{id}:
  *   put:
+ *     security:
+ *       - BearerAuth: []
  *     description: Update a content by ID
  *     parameters:
  *       - name: id
@@ -103,6 +109,8 @@ router.put(
  * @swagger
  * /v1/project/delete/{id}:
  *   delete:
+ *     security:
+ *       - BearerAuth: []
  *     description: Delete a content by ID
  *     parameters:
  *       - name: id
@@ -125,6 +133,8 @@ router.delete(
  * @swagger
  * /v1/content/report/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Report content
  *     parameters:
  *       - name: id
@@ -147,6 +157,8 @@ router.get(
  * @swagger
  * /v1/content/rate:
  *   post:
+ *     security:
+ *       - BearerAuth: []
  *     description: Rate content
  *     parameters:
  *       - name: contentId
@@ -175,6 +187,8 @@ router.post(
  * @swagger
  * /v1/content/getRating/{id}:
  *   get:
+ *     security:
+ *       - BearerAuth: []
  *     description: Get content rating
  *     parameters:
  *       - name: id
