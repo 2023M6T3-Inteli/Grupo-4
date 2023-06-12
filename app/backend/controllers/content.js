@@ -186,6 +186,39 @@ const getRating = async (req, res) => {
   }
 };
 
+const getAllReportedContent = async (req, res) => {
+  //Chamada para o service
+  try {
+    //Tratamento das respostas do método da classe
+    const result = await Content.getAllReportedContent();
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const closeReport = async (req, res) => {
+  const { id } = req.params;
+
+  //Valida se algum paremetro é inválido
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      error: errors.errors[0].msg,
+    });
+  }
+
+  //Chamada para o service
+  try {
+    //Tratamento das respostas do método da classe
+    const result = await Content.closeReport(id);
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 
 
 module.exports = {
@@ -196,5 +229,7 @@ module.exports = {
   Delete,
   Report,
   rateContent,
-  getRating
+  getRating,
+  getAllReportedContent,
+  closeReport
 };

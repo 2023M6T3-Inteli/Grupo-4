@@ -78,7 +78,7 @@ router.get(
  */
 router.get(
   "/getContent",
-  // unsureAuthenticated.unsureAuthenticated,
+  unsureAuthenticated.unsureAuthenticated,
   contentController.GetAllContent
 );
 /**
@@ -206,6 +206,19 @@ router.get(
   unsureAuthenticated.unsureAuthenticated,
   contentController.getRating
 );
+
+router.get(
+  "/getReported",
+  unsureAuthenticated.unsureAuthenticated,
+  contentController.getAllReportedContent
+)
+
+router.get(
+  "/closeReport/:id",
+  [param("id", "Id do Conteúdo é necessário").exists({ checkFalsy: true })],
+  unsureAuthenticated.unsureAuthenticated,
+  contentController.closeReport
+)
 
 
 module.exports = router;

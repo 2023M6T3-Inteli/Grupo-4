@@ -100,6 +100,33 @@ const contentService = {
 
     return reportContent;
   },
+
+  getReported: async () => {
+    const token = cookies.get("token");
+
+    const reported = await axios.get(`${API_URL}/v1/content/getReported`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return reported;
+  },
+
+  closeReport: async (contentId) => {
+    const token = cookies.get("token");
+
+    const reported = await axios.get(
+      `${API_URL}/v1/content/closeReport/${contentId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return reported;
+  }
 };
 
 export default contentService;

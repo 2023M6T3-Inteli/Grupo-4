@@ -7,6 +7,7 @@ const userController = require("../controllers/user");
 
 //Middlewares
 const unsureAuthenticated = require("../middlewares/unsureAuthenticated");
+const { unsureAdmin } = require("../middlewares/unsureAdmin");
 
 /**
  * @swagger
@@ -168,10 +169,16 @@ router.put
  *         description: Success
  */
 router.get(
-        "/getAll", 
-        unsureAuthenticated.unsureAuthenticated, 
-        userController.getAll
+    "/getAll", 
+    unsureAuthenticated.unsureAuthenticated, 
+    userController.getAll
 );
+
+router.get(
+    "/verifyAdmin",
+    unsureAdmin,
+    userController.verifyAdmin
+)
 
 //Exporta o ROUTER
 module.exports = router;

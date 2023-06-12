@@ -162,6 +162,10 @@ const getAll = async (req, res) => {
     }
 }
 
+const verifyAdmin = async (req, res, next) => {
+    res.status(200).send(`User ${req.id} is admin`)
+}
+
 //Exporta as funções do controller para o ROUTER
 module.exports = {
     Create,
@@ -170,5 +174,6 @@ module.exports = {
     Delete,
     GetUser,
     GetUserCalling,
-    getAll
+    getAll,
+    verifyAdmin
 }

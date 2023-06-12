@@ -9,12 +9,12 @@ import { motion } from "framer-motion"
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./ContentCardView.module.scss";
+import styles from "./ContentCardViewAdmin.module.scss";
 import contentService from "../../services/contentService";
 import { BoxLoading } from "react-loadingg";
 import StarRating from "../StarRating/StarRating";
 
-const ContentCardView = ({ handleClose, content, user }) => {
+const ContentCardViewAdmin = ({ handleClose, content, user }) => {
   const { title, description, tags, links, id } = content;
 
   const [owner, setOwner] = useState({});
@@ -42,10 +42,10 @@ const ContentCardView = ({ handleClose, content, user }) => {
     }
   }
 
-  async function reportContent() {
+  async function closeReport() {
     try {
       setisLoading(true);
-      await contentService.reportContent(content.id);
+      await contentService.closeReport(content.id);
       navigate(0)
     } catch (error) {
       console.log(error);
@@ -66,24 +66,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
             <button onClick={handleClose}>
               <IoIosArrowBack size={25} />
             </button>
-            <div className={styles.starsContainer}>
-            <StarRating contentId={id}/>
-          </div>
-          </div>
-          <div>
-            <AiOutlineHeart size={25} />
-            <button onClick={() => {setIsOptions(!isOptions)}}><CiMenuKebab size={25} fill="white" /></button>
-            {
-              isOptions && (
-                <div className={styles.optionsContent}>
-                  <button onClick={() => {reportContent()}}><MdReport fill="white" size={18}/>Report</button>
-                  {(owner.id == user.id) && <button onClick={() => {deleteContent()}}><BsFillTrashFill fill="white" size={18}/>Delete</button>}
-                </div>
-              )
-            }
-            
-          </div>
-          
+          </div>          
         </header>
         <div className={styles.postContentContainer}>
           <h1>{title}</h1>
@@ -142,7 +125,8 @@ const ContentCardView = ({ handleClose, content, user }) => {
             </div>
           </div>
           <div className={styles.blueStars}>
-            <img src="/temporary/blue-stars.svg" alt="stars_icon" />
+            <button className={styles.deleteBtn} onClick={() => {deleteContent()}}>Deletar</button>
+            <button className={styles.closeBtn} onClick={() => {closeReport()}}>Fechar Reclamação</button>
           </div>
         </main>
         
@@ -151,4 +135,4 @@ const ContentCardView = ({ handleClose, content, user }) => {
   } 
 };
 
-export default ContentCardView;
+export default ContentCardViewAdmin;
