@@ -464,14 +464,15 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 ### Teste Mensageria de Recomendação
 
-![Sistema de Recomendação e mensageria instantanea](docs\img\printresultadocolab.png)
-![Sistema de Recomendação e mensageria instantanea](docs\img\resultadosocket.png)
+<img src="https://i.imgur.com/oRRoBfN.png"></img>
+<img src="https://i.imgur.com/hgktqgu.png"></img>
 
 
 # Documentação da API
 Link para acesso a documentação da API: http://localhost:3001/api-docs/#/
 
-![Print Swagger](Grupo-4\docs\img\ftoSwagger.PNG)
+<img src="https://i.imgur.com/xA9LEQH.png"></img>
+<img src="https://i.imgur.com/eUSAZxL.png"></img>
 
 
 # Manual do Usuário
