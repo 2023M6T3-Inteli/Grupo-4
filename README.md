@@ -275,6 +275,9 @@ Atualizar a cada revisão/atualização da arquitetura, mantendo todas as 3 vers
 ## Versão 2
 <img src="https://imgur.com/UkTlRNK.png"></img>
 
+## Versão 3
+<img src="https://imgur.com/UkTlRNK.png"></img>
+
 ## Fluxo de Dados
 <img src="https://imgur.com/txCjN9e.png"></img>
 
