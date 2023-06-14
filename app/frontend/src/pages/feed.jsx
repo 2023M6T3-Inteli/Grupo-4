@@ -25,18 +25,59 @@ const Feed = (props) => {
     const fetchData = async () => {
       setisLoading(true);
 
+      let reccomendationTag;
+
+      let responseUser;
+
       try {
-        const responseUser = await userService.getUser();
+        responseUser = await userService.getUser();
         setUser(responseUser.data);
       } catch (err) {
         navigate("/");
       }
 
-      const responseContent = await contentService.getContent();
-      const responseProject = await projectService.getProject();
+      const responseContent = (
+        await contentService.getContent()
+      ).data.reverse();
+  
+      console.log(responseContent)
 
-      setContents(responseContent.data.reverse());
-      setProjects(responseProject.data.reverse());
+      const responseProject = (
+        await projectService.getProject()
+      ).data.reverse();
+
+      if (responseUser.data.tags.length > 0) {
+        reccomendationTag = responseUser.data.tags[0];
+      } else {
+        reccomendationTag = "Toy Story";
+      }
+
+      const responseReccomendation = (
+        await contentService.getRecommendation(reccomendationTag)
+      ).data;
+
+      if (responseReccomendation) {
+        const formattedResponse = responseReccomendation
+          .substring(1, responseReccomendation.length - 1)
+          .split('", "');
+
+
+
+        responseContent.forEach((content, index) => {
+          if (index < formattedResponse.length) {
+            if (formattedResponse[index][0] === '"') {
+              formattedResponse[index] = formattedResponse[index].substring(
+                1,
+                formattedResponse[index].length
+              );
+            }
+            content.title = formattedResponse[index];
+          }
+        });
+      }
+
+      setContents(responseContent);
+      setProjects(responseProject);
 
       setisLoading(false);
     };

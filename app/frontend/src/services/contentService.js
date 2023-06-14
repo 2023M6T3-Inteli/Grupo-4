@@ -19,6 +19,14 @@ const contentService = {
     return content;
   },
 
+  getRecommendation: async (tag) => {
+    const recommendation = await axios.get(
+      `${API_URL}/v1/content/getRecommendation/${tag}`
+    );
+
+    return recommendation;
+  },
+
   createContent: async (content) => {
     const token = cookies.get("token");
 
@@ -126,7 +134,7 @@ const contentService = {
     );
 
     return reported;
-  }
+  },
 };
 
 export default contentService;

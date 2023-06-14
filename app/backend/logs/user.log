@@ -67,3 +67,11 @@
 [2023-06-09T12:23:44.260] [INFO] user - User d2a24479-cda6-45f3-9e0e-acc325836410 authenticated successfully
 [2023-06-09T20:47:52.901] [INFO] user - User d2a24479-cda6-45f3-9e0e-acc325836410 authenticated successfully
 [2023-06-09T20:47:54.166] [INFO] user - User d2a24479-cda6-45f3-9e0e-acc325836410 authenticated successfully
+[2023-06-13T18:23:18.781] [WARN] user - Login with email lui.alencar@sou.inteli.edu.br tried to authnticate
+[2023-06-13T18:23:42.159] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully
+[2023-06-13T19:26:10.677] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully
+[2023-06-13T19:46:42.360] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully
+[2023-06-13T20:16:18.855] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully
+[2023-06-14T11:12:33.365] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully
+[2023-06-14T11:15:55.060] [WARN] user - Login with email john.doe@example.com tried to authnticate
+[2023-06-14T11:17:30.491] [INFO] user - User 1187adb8-2e7b-430a-9cee-25cd4d897fae authenticated successfully

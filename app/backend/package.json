@@ -24,6 +24,7 @@
     "jsonwebtoken": "^9.0.0",
     "kafkajs": "^2.2.4",
     "log4js": "^6.9.1",
+    "mqtt": "^4.3.7",
     "prisma": "^4.14.0",
     "supertest": "^6.3.3",
     "swagger-jsdoc": "^6.2.8",

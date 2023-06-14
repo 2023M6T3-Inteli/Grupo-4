@@ -208,6 +208,13 @@ router.get(
 );
 
 router.get(
+  "/getRecommendation/:tag",
+  [param("tag", "Tag do usuário é necessário").exists({ checkFalsy: true })],
+  // unsureAuthenticated.unsureAuthenticated,
+  contentController.getRecommendation
+);
+
+router.get(
   "/getReported",
   unsureAuthenticated.unsureAuthenticated,
   contentController.getAllReportedContent
