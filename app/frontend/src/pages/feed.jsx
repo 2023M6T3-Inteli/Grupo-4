@@ -47,7 +47,7 @@ const Feed = (props) => {
       ).data.reverse();
 
       if (responseUser.data.tags.length > 0) {
-        reccomendationTag = responseUser.data.tags[0];
+        reccomendationTag = responseUser.data.tags[0].name;
       } else {
         reccomendationTag = "Toy Story";
       }
@@ -57,21 +57,9 @@ const Feed = (props) => {
       ).data;
 
       if (responseReccomendation) {
-        const formattedResponse = responseReccomendation
-          .substring(1, responseReccomendation.length - 1)
-          .split('", "');
-
-
-
         responseContent.forEach((content, index) => {
-          if (index < formattedResponse.length) {
-            if (formattedResponse[index][0] === '"') {
-              formattedResponse[index] = formattedResponse[index].substring(
-                1,
-                formattedResponse[index].length
-              );
-            }
-            content.title = formattedResponse[index];
+          if (index < responseReccomendation.length) {
+            content.title = responseReccomendation[index];
           }
         });
       }
