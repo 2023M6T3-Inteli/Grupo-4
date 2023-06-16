@@ -469,6 +469,8 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 <img src="https://i.imgur.com/oRRoBfN.png"></img>
 <img src="https://i.imgur.com/hgktqgu.png"></img>
+(https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/99938c71-cd5a-4a5c-b5ba-d37773fd2b84)
+(https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/18edeb65-b7dd-4770-8185-fde9e85e9aff)
 
 
 # Documentação da API
