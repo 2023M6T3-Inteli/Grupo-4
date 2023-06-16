@@ -469,6 +469,8 @@ Link ou imagem da tabela com dados organizados dos testes realizados.
 
 <img src="https://i.imgur.com/oRRoBfN.png"></img>
 <img src="https://i.imgur.com/hgktqgu.png"></img>
+![teste_mensageria](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/bfc4dd3c-9a52-4b68-be0a-a90a42c761e1)
+![test_recomendation](https://github.com/2023M6T3-Inteli/Grupo-4/assets/99264876/e99f7838-d3e2-43ad-85a3-e443bb4a7964)
 
 
 # Documentação da API
