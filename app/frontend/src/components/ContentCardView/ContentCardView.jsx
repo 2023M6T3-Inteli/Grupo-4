@@ -25,8 +25,6 @@ const ContentCardView = ({ handleClose, content, user }) => {
   const titleInputRef = useRef();
   const descriptionInputRef = useRef();
 
-  //let tagsArray = JSON.parse(tags.replace(/'/g, '"'));
-
   const linksArray = JSON.parse(links.replace(/'/g, '"'));
 
   const navigate = useNavigate();
@@ -43,16 +41,18 @@ const ContentCardView = ({ handleClose, content, user }) => {
     const content = {
       title,
       description,
-    }
+    };
 
-    const response = await contentService.updateContent(id, content)
-
-    if (response.status === 200) {
-      toast.success("Content updated successfully");
-      setEdit(false);
-    }
-      
-  }
+    const response = await contentService
+      .updateContent(id, content)
+      .then(() => {
+        toast.success("Content updated successfully");
+        setEdit(false);
+      })
+      .then(() => {
+        window.location.reload();
+      });
+  };
 
   async function getOwner() {
     const response = await userService.getUserById(content.ownerId);
@@ -220,14 +220,11 @@ const ContentCardView = ({ handleClose, content, user }) => {
           </div>
           {edit ? (
             <div className={styles.editBtnContainer}>
+              <button onClick={() => setEdit(false)}>Cancelar</button>
 
-            <button onClick={() => setEdit(false)}>
-              Cancelar
-            </button>
-
-            <button onClick={editContentHandler} className={styles.editBtn}>
-              Editar
-            </button>
+              <button onClick={editContentHandler} className={styles.editBtn}>
+                Editar
+              </button>
             </div>
           ) : (
             <div className={styles.blueStars}>

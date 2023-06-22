@@ -262,7 +262,7 @@ class Content {
 
   async getRecommendation(tag) {
     try {
-      const response = await publish("Tag Receiver", tag);
+      const response = await publish("Tag Receiver/g4", tag);
       return response;
     } catch (err) {
       throw new Error(`Informação não enviada, pelo erro: ${err}`);

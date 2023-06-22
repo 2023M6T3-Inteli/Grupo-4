@@ -56,7 +56,7 @@ const Feed = (props) => {
         await contentService.getRecommendation(reccomendationTag)
       ).data;
 
-      if (responseReccomendation) {
+      if (responseReccomendation !== "No message received") {
         responseContent.forEach((content, index) => {
           if (index < responseReccomendation.length) {
             content.title = responseReccomendation[index];

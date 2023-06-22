@@ -3,7 +3,7 @@ const mqtt = require("mqtt");
 // initialize the MQTT client
 var client = mqtt.connect("mqtt://mqtt-dashboard.com");
 
-const topic = "Recommendation Generator";
+const topic = "Recommendation Generator/g4";
 
 // setup the callbacks
 client.on("connect", () => {
