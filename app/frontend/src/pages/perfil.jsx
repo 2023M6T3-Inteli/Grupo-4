@@ -14,6 +14,7 @@ const Perfil = (props) => {
   const [contentPage, setContentPage] = useState(true);
   const [projectPage, setProjectPage] = useState(false);
   const [modal, setModal] = useState(false);
+  const [file, setFile] = useState(null);
   const [user, setUser] = useState({
     area: "",
     contents: [],
@@ -27,6 +28,62 @@ const Perfil = (props) => {
     password: "",
   });
 
+  const convertBase64ToFile = (base64String, filename) => {
+    var arr = base64String.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n)
+
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n)
+    }
+
+    return new File([u8arr], filename, { type: mime })
+  }
+
+  async function resizeImageFn(file) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = function (event) {
+      let image_url = event.target.result;
+
+      let image = document.createElement('img');
+      image.src = image_url;
+
+      image.onload = function (e) {
+        let canvas = document.createElement('canvas');
+        let MAX_WIDTH = 220;
+        let MAX_HEIGHT = 220;
+        
+        canvas.width = MAX_WIDTH;
+        canvas.height = MAX_HEIGHT;
+
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        let new_image_url = canvas.toDataURL("image/jpeg", 90);
+        
+        let new_image = document.createElement('img');
+        new_image.src = new_image_url;
+
+        const file = convertBase64ToFile(new_image_url, "profile.jpeg")
+
+        setFile(file)
+      }
+    }
+
+    console.log("file:", file)
+  }
+
+  const handleFileSelected = async (e) => {
+    const files = Array.from(e.target.files)
+    console.log("files:", files)
+
+    
+    await resizeImageFn(files[0])
+  }
   //const [xp, setXp] = useState(1400);
 
   const navigate = useNavigate();
@@ -93,6 +150,12 @@ const Perfil = (props) => {
             <div>
               <button className={styles.btnIconsHeader}> 
                 <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+              </button>
+            </div>
+            <div>
+              <input onChange={handleFileSelected} type="file" className={styles.fileInp}></input>
+              <button disabled className={styles.btnIconsHeader}> 
+                <i class="fa-regular fa-image fa-2x"></i>
               </button>
             </div>
           </div>

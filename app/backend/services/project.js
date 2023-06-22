@@ -97,6 +97,37 @@ class Project {
     return projectOut;
   }
 
+  async update(id, data) {
+    //Verify if project exists
+    const projectExists = await prisma.project.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!projectExists) {
+      loggerProject.error(
+        "Someone tried to update a project that doesn't exists | ID (project) passed: " + id
+      );
+      throw new Error("Project not found");
+    }
+
+    try {
+      const projectUpdated = await prisma.project.update({
+        where: {
+          id: id,
+        },
+        data,
+      });
+
+      loggerProject.info(`Project ${projectUpdated.id} updated successfully`);
+      return projectUpdated;
+    } catch (error) {
+      loggerProject.error(`Problems on server updating project: ${error}`);
+      throw new Error("Error updating project");
+    }
+  }
+
   async delete(id) {
     //Verify if project exists
     const project = await prisma.project.findUnique({
@@ -166,7 +197,6 @@ class Project {
               area: true,
             },
           },
-          tags: true,
           offers: true,
         },
       });

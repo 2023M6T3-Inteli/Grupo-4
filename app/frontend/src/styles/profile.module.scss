@@ -29,6 +29,15 @@
     }
 }
 
+.fileInp {
+    color: transparent;
+    font-size: 0pt;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    opacity: 0;
+}
+
 .profileImage {
     width: 100%;
     display: flex;
