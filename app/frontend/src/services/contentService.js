@@ -43,6 +43,22 @@ const contentService = {
     return newContent;
   },
 
+  updateContent: async (contentId, data) => {
+    const token = cookies.get("token");
+
+    const newContent = await axios.put(
+      `${API_URL}/v1/content/update/${contentId}`,
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return newContent;
+  },
+
   deleteContent: async (contentId) => {
     const token = cookies.get("token");
 

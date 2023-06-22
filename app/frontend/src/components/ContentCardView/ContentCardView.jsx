@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { AiOutlineHeart, AiOutlineLink, AiFillTag } from "react-icons/ai";
 import { CiMenuKebab } from "react-icons/ci";
-import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import { MdReport } from "react-icons/md";
 import userService from "../../services/userService";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -20,12 +20,39 @@ const ContentCardView = ({ handleClose, content, user }) => {
   const [owner, setOwner] = useState({});
   const [isOptions, setIsOptions] = useState(false);
   const [isLoading, setisLoading] = useState(false);
+  const [edit, setEdit] = useState(false);
+
+  const titleInputRef = useRef();
+  const descriptionInputRef = useRef();
 
   //let tagsArray = JSON.parse(tags.replace(/'/g, '"'));
 
   const linksArray = JSON.parse(links.replace(/'/g, '"'));
 
   const navigate = useNavigate();
+
+  const editContentHandler = async () => {
+    const title = titleInputRef.current.value;
+    const description = descriptionInputRef.current.value;
+
+    if (title.trim().length === 0 || description.trim().length === 0) {
+      toast.error("Please fill all the fields");
+      return;
+    }
+
+    const content = {
+      title,
+      description,
+    }
+
+    const response = await contentService.updateContent(id, content)
+
+    if (response.status === 200) {
+      toast.success("Content updated successfully");
+      setEdit(false);
+    }
+      
+  }
 
   async function getOwner() {
     const response = await userService.getUserById(content.ownerId);
@@ -36,7 +63,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
     try {
       setisLoading(true);
       await contentService.deleteContent(content.id);
-      navigate(0)
+      navigate(0);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +73,7 @@ const ContentCardView = ({ handleClose, content, user }) => {
     try {
       setisLoading(true);
       await contentService.reportContent(content.id);
-      navigate(0)
+      navigate(0);
     } catch (error) {
       console.log(error);
     }
@@ -56,8 +83,8 @@ const ContentCardView = ({ handleClose, content, user }) => {
     getOwner();
   }, []);
 
-  if(isLoading) {
-    return <BoxLoading color="#0672cb" size="large" />
+  if (isLoading) {
+    return <BoxLoading color="#0672cb" size="large" />;
   } else {
     return (
       <div className={styles.container}>
@@ -67,26 +94,65 @@ const ContentCardView = ({ handleClose, content, user }) => {
               <IoIosArrowBack size={25} />
             </button>
             <div className={styles.starsContainer}>
-            <StarRating contentId={id}/>
-          </div>
+              <StarRating contentId={id} />
+            </div>
           </div>
           <div>
             <AiOutlineHeart size={25} />
-            <button onClick={() => {setIsOptions(!isOptions)}}><CiMenuKebab size={25} fill="white" /></button>
-            {
-              isOptions && (
-                <div className={styles.optionsContent}>
-                  <button onClick={() => {reportContent()}}><MdReport fill="white" size={18}/>Report</button>
-                  {(owner.id == user.id) && <button onClick={() => {deleteContent()}}><BsFillTrashFill fill="white" size={18}/>Delete</button>}
-                </div>
-              )
-            }
-            
+            <button
+              onClick={() => {
+                setIsOptions(!isOptions);
+              }}
+            >
+              <CiMenuKebab size={25} fill="white" />
+            </button>
+            {isOptions && (
+              <div className={styles.optionsContent}>
+                <button
+                  onClick={() => {
+                    reportContent();
+                  }}
+                >
+                  <MdReport fill="white" size={18} />
+                  Report
+                </button>
+                {owner.id == user.id && (
+                  <button
+                    onClick={() => {
+                      setEdit(true);
+                    }}
+                  >
+                    <BsFillPencilFill fill="white" size={18} />
+                    Edit
+                  </button>
+                )}
+                {owner.id == user.id && (
+                  <button
+                    onClick={() => {
+                      deleteContent();
+                    }}
+                  >
+                    <BsFillTrashFill fill="white" size={18} />
+                    Delete
+                  </button>
+                )}
+              </div>
+            )}
           </div>
-          
         </header>
         <div className={styles.postContentContainer}>
-          <h1>{title}</h1>
+          {edit ? (
+            <input
+              className={styles.editInput}
+              type="text"
+              name="title"
+              id="title"
+              placeholder="title"
+              ref={titleInputRef}
+            />
+          ) : (
+            <h1>{title}</h1>
+          )}
           <div className={styles.userBx}>
             <div className={styles.imgBx}>
               {/* <img src={user.picture} alt="user_profile" /> */}
@@ -102,7 +168,18 @@ const ContentCardView = ({ handleClose, content, user }) => {
           </div>
         </div>
         <main>
-          <p className={styles.description}>{description}</p>
+          {edit ? (
+            <input
+              className={styles.editInput}
+              type="text"
+              name="description"
+              id="description"
+              placeholder="description"
+              ref={descriptionInputRef}
+            />
+          ) : (
+            <p className={styles.description}>{description}</p>
+          )}
           <div className={styles.mediaContainer}>
             {linksArray &&
               linksArray.map((link) => {
@@ -141,14 +218,26 @@ const ContentCardView = ({ handleClose, content, user }) => {
               ))}
             </div>
           </div>
-          <div className={styles.blueStars}>
-            <img src="/temporary/blue-stars.svg" alt="stars_icon" />
-          </div>
+          {edit ? (
+            <div className={styles.editBtnContainer}>
+
+            <button onClick={() => setEdit(false)}>
+              Cancelar
+            </button>
+
+            <button onClick={editContentHandler} className={styles.editBtn}>
+              Editar
+            </button>
+            </div>
+          ) : (
+            <div className={styles.blueStars}>
+              <img src="/temporary/blue-stars.svg" alt="stars_icon" />
+            </div>
+          )}
         </main>
-        
       </div>
     );
-  } 
+  }
 };
 
 export default ContentCardView;

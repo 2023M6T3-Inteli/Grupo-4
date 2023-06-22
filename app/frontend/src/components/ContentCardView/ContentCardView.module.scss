@@ -1,4 +1,4 @@
-.container{
+.container {
   overflow-y: scroll;
 }
 
@@ -139,4 +139,49 @@
     flex-direction: row;
     gap: 1rem;
   }
+}
+
+.editInput {
+  width: 100%;
+  font-size: 1.8rem;
+  background-color: transparent;
+  color: var(--neutral-100);
+  border-bottom: 1.5px solid var(--neutral-600);
+  padding: 0.4rem 1.5rem;
+  margin: 0 2rem 2rem 0;
+
+  &::placeholder {
+    font-size: 1.6rem;
+  }
+}
+
+.editBtnContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  button {
+    width: 140px;
+    height: 40px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    font-size: 12pt;
+    font-weight: 400;
+    border: none;
+    background: var(--red);
+    color: var(--white);
+    transition: 300ms;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
+
+.editBtn {
+  background-color: var(--primary-600)!important;
+  color: var(--neutral-50)!important;
 }
