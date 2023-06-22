@@ -484,6 +484,42 @@ Link para acesso a documentação da API: http://localhost:3001/api-docs/#/
 
 Fornecer instruções detalhadas sobre como usar o software corretamente. É uma ferramenta valiosa para ajudar os usuários a compreender as funções do software, instalar o software, configurar as preferências do usuário, entre outras tarefas. O manual do usuário geralmente inclui screenshots, animações e outros recursos visuais para tornar a experiência do usuário mais clara e intuitiva. Além disso, ele também pode incluir informações sobre solução de problemas, dicas e truques, bem como informações de contato para suporte técnico. É importante que a seção de manual do usuário seja atualizada frequentemente para garantir que os usuários tenham acesso à informação mais recente e precisa sobre o software.
 
+ ## 1. Login 
+
+ Para acessar a plataforma, é necessário conectar ao seu acesso da Dell e preencher os campos email e senha como mostrado a seguir:
+
+A figura abaixo exibe a tela de login da plataforma.
+
+ <img src="https://i.imgur.com/qUV655A.png"></img>
+<img src="https://i.imgur.com/cSxGLSL.png"></img>
+
+### 1.1 Formato Login
+
+O login apresenta dois campos de inserção de dados, sendo eles programados para receberem formatos específicos de textos. No primeiro campo, "email", é necessário que o preenchimento seja realizado com a parte local, símbolo @ e nome do domínio utilizado.
+O campo reservado para a senha, pode ser preenchido (após o primeiro acesso e o cadastramento do usuário), mediante a preferência do usuário. Os tipos de caracteres suportados, são:
+1) Texto; 
+2) Números;
+3) Caractere especial.
+   
+ ## 2. Pagina Inicial
+
+ Após o login concluído, a página inicial da plataforma é aberta, nela o usuário irá visualizar os cards de conteúdos com algumas informações, e ao clicar irá poder visualizar mais informações do conteúdo, na parte superior da tela temos os filtros que podem ser aplicados para procurar algum conteúdo específico e na lateral, o sidebar para navegação entre as telas. 
+
+ <img src="https://i.imgur.com/10e1Qj9.png"></img>
+
+ ## 3. Sidebar
+ Na lateral das páginas temos o sidebar que serve como uma forma de navegação entre as páginas, ela fica inicial fechada, mas pode se expandir e mostrar o nome das páginas tornando mais fácil a navegação e fechada ocupa pouco espaço na tela. Temos as páginas, Home, Feed, Creation, Profile, Ranking e o Logout.
+
+ <img src="https://i.imgur.com/lE6TIs4.png"></img>
+
+ 
+ ## 4.
+ ## 5
+ ## 6.
+ ## 7. 
+ ## 8. 
+ ## 9. 
+<img src="https://imgur.com/cQE0bqc.png"></img>
 
 # Referências
 
