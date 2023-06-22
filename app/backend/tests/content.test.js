@@ -3,6 +3,7 @@ const service = require("../services/content");
 const Content = new service.Content();
 
 let idToDelete;
+let tag = "Iron Man"
 
 describe("Creating Content", () => {
   it("Should create a content", async () => {
@@ -31,6 +32,12 @@ describe("Creating Content", () => {
     const result = await Content.getContent(idToDelete);
 
     return expect(result.id).toBe(idToDelete);
+  });
+
+  it("Should get a recommendation by a tag", async () => {
+    const result = await Content.getContent(tag);
+
+    return expect(typeof(result)).toBe("Object" || "Array");
   });
 
   it("Should update a content by id", async () => {

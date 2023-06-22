@@ -17,6 +17,7 @@ client.on("error", function (error) {
   console.log(error);
 });
 
+let lastMessage = null
 async function publish(topic, message) {
   client.publish(topic, message)
   
@@ -26,7 +27,7 @@ async function publish(topic, message) {
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(lastMessage);
+      resolve(lastMessage ? lastMessage : "No message received");
     }, 10000);
   });
 }
