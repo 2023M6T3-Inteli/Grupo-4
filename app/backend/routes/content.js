@@ -6,6 +6,7 @@ const contentController = require('../controllers/content');
 
 //Middlewares
 const unsureAuthenticated = require('../middlewares/unsureAuthenticated');
+const unsureAdmin = require('../middlewares/unsureAdmin');
 
 /**
  * @swagger
@@ -217,6 +218,7 @@ router.get(
 router.get(
   "/getReported",
   unsureAuthenticated.unsureAuthenticated,
+  unsureAdmin.unsureAdmin,
   contentController.getAllReportedContent
 )
 
@@ -224,6 +226,7 @@ router.get(
   "/closeReport/:id",
   [param("id", "Id do Conteúdo é necessário").exists({ checkFalsy: true })],
   unsureAuthenticated.unsureAuthenticated,
+  unsureAdmin.unsureAdmin,
   contentController.closeReport
 )
 

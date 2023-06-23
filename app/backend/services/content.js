@@ -289,6 +289,52 @@ class Content {
       throw new Error("Error getting rating");
     }
   }
+
+  async getAllReportedContent() {
+    try {
+      const content = await prisma.content.findMany({
+        where: {
+          visible: false,
+        },
+        include: {
+          tags: true,
+        }
+      });
+
+      loggerContent.info(`Reported content founded successfully`);
+      return content;
+    } catch (error) {
+      loggerContent.error(`Error getting reported content`);
+      throw new Error("Error getting reported content");
+    }
+  }
+
+  async closeReport(id) {
+    const content = await prisma.content.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!content) {
+      throw new Error("Content not found");
+    }
+
+    try {
+      await prisma.content.update({
+        where: {
+          id: id,
+        },
+        data: {
+          visible: true,
+        }
+      });
+      loggerContent.info(`Content ${id} updated successfully - UPDATING CONTENT TO VISIBLE - CLOSE REPORT`);
+    } catch (error) {
+      loggerContent.error(`Error updating content ${id} - UPDATING CONTENT TO VISIBLE - CLOSE REPORT`);
+      throw new Error("Error updating content");
+    }
+  }
 }
 
 module.exports = {
