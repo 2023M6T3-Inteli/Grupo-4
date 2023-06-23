@@ -517,25 +517,46 @@ O campo reservado para a senha, pode ser preenchido (após o primeiro acesso e o
  ## 4. Pagina de visualizar projetos
  Para acessar os projetos, utilize a navbar para clicar em feed, depois em projects:
  
-	<img src="https://i.imgur.com/Mrxfq1i.png"></img>
+<img src="https://i.imgur.com/Mrxfq1i.png"></img>
  
 Depois de clicar o usuário será direcionado para a página a seguir: Onde ele encontrara projetos criados por outros usuarios 
- 	<img src="https://i.imgur.com/pgtqwX0.png"></img>
+ <img src="https://i.imgur.com/pgtqwX0.png"></img>
 
 Depois de escolher é possivel acessar os projetos
 
-	<img src="https://i.imgur.com/VTA9PvK.png"></img>
+<img src="https://i.imgur.com/VTA9PvK.png"></img>
 
 
- ## 5.
 
+### 4.1 Formulario de inscrição
+<img src="https://i.imgur.com/VTA9PvK.png"></img>
+
+
+ ## 5. Pagina de visualizar conteudo
+ <img src="https://i.imgur.com/Mrxfq1i.png"></img>
+ <img src="https://i.imgur.com/10e1Qj9.png"></img>
+ <img src="https://i.imgur.com/sW7mfxI.png"></img>
+
+
+ ## 6. Perfil
+<img src="https://i.imgur.com/bHtCRqr.png"></img>
+<img src="https://i.imgur.com/0QF1Toi.png"></img>
+<img src="https://i.imgur.com/gXrQiXb.png"></img>
+ 
+ ## 7. Ranking
+ <img src="https://i.imgur.com/zJc6Yvk.png"></img>
+ <img src="https://i.imgur.com/B4KCDVh.png"></img>
 
  
- ## 6.
- ## 7. 
- ## 8. 
- ## 9. 
-<img src="https://imgur.com/cQE0bqc.png"></img>
+ ## 8. Criar Projeto
+ <img src="https://i.imgur.com/mU80D6n.png"></img>
+<img src="https://i.imgur.com/VnVe9NK.png"></img>
+
+ 
+ ## 9. Criar Conteudo 
+  <img src="https://i.imgur.com/mU80D6n.png"></img>
+   <img src="https://i.imgur.com/CwuI12G.png"></img>
+
 
 # Referências
 
