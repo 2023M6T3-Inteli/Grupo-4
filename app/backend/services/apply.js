@@ -135,6 +135,9 @@ class Apply {
     }
 
     async delete(applyId) {
+
+        console.log(applyId)
+
         try {
             const apply = await prisma.applies.delete({
                 where: {

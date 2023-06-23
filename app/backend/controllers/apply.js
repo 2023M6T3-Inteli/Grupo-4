@@ -153,7 +153,7 @@ const deleteApply = async (req, res) => {
     //Chamada para o service
     try {
         //Tratamento das respostas do método da classe
-        const result = await Apply.deleteApply(id);
+        const result = await Apply.delete(id);
         res.send(result);
     } catch (err) {
         res.status(500).send(err.message);

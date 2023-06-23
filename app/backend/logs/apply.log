@@ -102,3 +102,55 @@ Note: Lines with + are required, lines with ? are optional.
 [2023-06-23T01:48:16.201] [INFO] apply - Applies founded for offer: c3570734-1f68-4ae5-a026-9f6efd725852 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
 [2023-06-23T01:48:18.621] [ERROR] apply - Apply not found for offer: c30fe063-1450-4c85-803b-632f59a78d14 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478
 [2023-06-23T01:48:18.767] [ERROR] apply - Apply not found for offer: c30fe063-1450-4c85-803b-632f59a78d14 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478
+[2023-06-23T02:03:16.794] [ERROR] apply - Apply not found for offer: c30fe063-1450-4c85-803b-632f59a78d14 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478
+[2023-06-23T02:03:16.947] [ERROR] apply - Apply not found for offer: c30fe063-1450-4c85-803b-632f59a78d14 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478
+[2023-06-23T02:03:23.242] [INFO] apply - Apply 60b8c2eb-ed25-40ad-bca6-70aca94385eb created successfully
+[2023-06-23T02:05:22.586] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:05:22.737] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:06:06.080] [INFO] apply - Applies founded for offer: c30fe063-1450-4c85-803b-632f59a78d14 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:06:06.227] [INFO] apply - Applies founded for offer: c30fe063-1450-4c85-803b-632f59a78d14 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:12:38.784] [INFO] apply - Applies founded for offer: c3570734-1f68-4ae5-a026-9f6efd725852 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:12:38.932] [INFO] apply - Applies founded for offer: c3570734-1f68-4ae5-a026-9f6efd725852 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:15:37.782] [INFO] apply - Applies founded for offer: c3570734-1f68-4ae5-a026-9f6efd725852 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:18:30.384] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:18:30.532] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:18:41.879] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:18:42.026] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:18:59.599] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:19:50.794] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:20:49.550] [ERROR] apply - Error deleting apply: Error: 
+Invalid `prisma.applies.delete()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\apply.js:139:54
+
+  136 
+  137 async delete(applyId) {
+  138     try {
+→ 139         const apply = await prisma.applies.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+[2023-06-23T02:21:20.627] [ERROR] apply - Error deleting apply: Error: 
+Invalid `prisma.applies.delete()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\apply.js:142:54
+
+  139 console.log(applyId)
+  140 
+  141 try {
+→ 142     const apply = await prisma.applies.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+[2023-06-23T02:21:35.857] [ERROR] apply - Error deleting apply: Error: 
+Invalid `prisma.applies.delete()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\apply.js:142:54
+
+  139 console.log(applyId)
+  140 
+  141 try {
+→ 142     const apply = await prisma.applies.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+[2023-06-23T02:21:53.674] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:22:38.572] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:22:38.723] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:22:39.210] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:22:39.669] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:23:12.495] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:24:00.771] [INFO] apply - Applies founded for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478 successfully
+[2023-06-23T02:24:05.048] [INFO] apply - Apply 44d215ca-e422-46d1-a268-d496d07105e7 deleted successfully
+[2023-06-23T02:24:05.202] [ERROR] apply - Apply not found for offer: 5da372c2-813d-40c7-98a9-40fb2c6db8c0 and user: 9edcb9fa-5773-4d60-ba8b-01a5e1e3f478

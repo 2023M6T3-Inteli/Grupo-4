@@ -67,6 +67,20 @@ const projectService = {
     });
 
     return applied;
+  },
+
+  deleteApply: async (id) => {
+    const token = cookies.get("token");
+
+    console.log(id)
+
+    const deleted = await axios.delete(`${API_URL}/v1/apply/delete/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return deleted;
   }
 };
 
