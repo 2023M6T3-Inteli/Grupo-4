@@ -93,6 +93,29 @@ class Apply {
         }
     }
 
+    async GetByOfferIdAndUserId(projectId, userId) {
+        try {
+            const apply = await prisma.applies.findMany({
+                where: {
+                    projectId: projectId,
+                    userId: userId
+                }
+            });
+
+            if (apply.length == 0) {
+                loggerApply.error(`Apply not found for offer: ${projectId} and user: ${userId}`);
+                return false
+            }
+
+            loggerApply.info(`Applies founded for offer: ${projectId} and user: ${userId} successfully`);
+            return apply;
+        } catch (error) {
+            loggerApply.error(`Error getting apply: ${error}`)
+            throw new Error(error);
+        }
+    }
+
+
     async updateStatus(applyId, status) {
         try {
             const apply = await prisma.applies.update({

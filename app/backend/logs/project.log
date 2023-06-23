@@ -83,3 +83,45 @@ The column `main.Project.coleaderId` does not exist in the current database.
 [2023-05-29T19:29:48.458] [INFO] project - Project 70a1f724-fe2f-4bce-8271-164af4ae9d16 created successfully
 [2023-05-29T19:41:56.732] [INFO] project - Roles created successfully for project 00f98923-d69f-4f8a-b116-7083481ddebb
 [2023-05-29T19:41:59.394] [INFO] project - Project 00f98923-d69f-4f8a-b116-7083481ddebb created successfully
+[2023-06-23T01:30:02.676] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\project.js:165:45
+
+  162 async getAllProjects() {
+  163   try {
+  164     //Getting all projects
+→ 165     const projects = await prisma.project.findMany({
+            include: {
+          ?   owner?: true,
+          ?   offers?: true,
+              roles: true,
+              ~~~~~
+          ?   projectUsers?: true,
+          ?   _count?: true
+            }
+          })
+
+
+Unknown field `roles` for include statement on model Project. Available options are listed in green. Did you mean `offers`?
+
+[2023-06-23T01:30:02.695] [ERROR] project - Problems on server getting all projects: Error: 
+Invalid `prisma.project.findMany()` invocation in
+E:\pepeh\Documents\GitHub\Grupo-4\app\backend\services\project.js:165:45
+
+  162 async getAllProjects() {
+  163   try {
+  164     //Getting all projects
+→ 165     const projects = await prisma.project.findMany({
+            include: {
+          ?   owner?: true,
+          ?   offers?: true,
+              roles: true,
+              ~~~~~
+          ?   projectUsers?: true,
+          ?   _count?: true
+            }
+          })
+
+
+Unknown field `roles` for include statement on model Project. Available options are listed in green. Did you mean `offers`?
+

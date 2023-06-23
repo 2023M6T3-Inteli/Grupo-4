@@ -56,6 +56,18 @@ const projectService = {
 
     return apply;
   },
+
+  getUserApplied: async (id) => {
+    const token = cookies.get("token");
+
+    const applied = await axios.get(`${API_URL}/v1/apply/getUserApplied/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return applied;
+  }
 };
 
 export default projectService;

@@ -7,7 +7,7 @@ import styles from "./ProjectCard.module.scss";
 import { useLocation } from "react-router-dom";
 
 const ProjectCard = ({ project, user }) => {
-  const { title, description, deadline, owner, tags } = project;
+  const { id, title, description, deadline, owner, tags, offers } = project;
   const [modalOpen, setModalOpen] = useState(false);
 
   let tagsArray = [];

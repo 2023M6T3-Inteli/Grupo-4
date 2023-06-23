@@ -220,6 +220,11 @@ class User {
                     }
                 },
                 tags: true,
+                applies: {
+                    include: {
+                        project: true,
+                    }
+                },
             }
         })
 

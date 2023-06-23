@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import { IoIosArrowBack } from "react-icons/io";
@@ -14,9 +14,11 @@ import ApplyModal from "../ApplyModal/applyModal";
 import CentralModal from "../CentralModal/Modal";
 
 import styles from "./VisualizeProject.module.scss";
+import projectService from "../../services/projectService";
 
 const ProjectCardView = ({ project, user, handleClose }) => {
   const {
+    id,
     title,
     status,
     description,
@@ -25,6 +27,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
     deadline,
     tags,
     owner,
+    offers
   } = project;
 
   let tagsArray = [];
@@ -32,9 +35,21 @@ const ProjectCardView = ({ project, user, handleClose }) => {
   tagsArray = JSON.parse(tags.replace(/'/g, '"'));
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [alreadyApplied, setAlreadyApplied] = useState([]);
 
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
+
+  const getApplied = async () => {
+    const res = await projectService.getUserApplied(id);
+
+    setAlreadyApplied(res.data);
+  }
+
+
+  useEffect( () => {
+    getApplied()
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -124,7 +139,14 @@ const ProjectCardView = ({ project, user, handleClose }) => {
             <p>ROLES</p>
           </div>
           <div />
-          <div className={styles.rowrole}>
+          {
+            offers.map((offer) => (
+              <div className={styles.rowrole}>
+                <p>{offer.name} | available: {offer.qntVagas} roles</p>
+              </div>
+            ))
+          }
+          {/* <div className={styles.rowrole}>
             <p>Development | available: 6 roles</p>
           </div>
           <div className={styles.rowrole}>
@@ -132,7 +154,7 @@ const ProjectCardView = ({ project, user, handleClose }) => {
           </div>
           <div className={styles.rowrole}>
             <p>Marketing | available: 5 roles</p>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -145,11 +167,15 @@ const ProjectCardView = ({ project, user, handleClose }) => {
         </div>
       </div>
 
-      <div className={styles.button}>
-        <button onClick={() => (modalOpen ? close() : open())}>
-          Subscribe
-        </button>
-      </div>
+      {
+        !alreadyApplied &&
+        <div className={styles.button}>
+          <button onClick={() => (modalOpen ? close() : open())}>
+            Subscribe
+          </button>
+        </div>
+      }
+      
 
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
         {modalOpen && (

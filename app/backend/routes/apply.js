@@ -116,6 +116,13 @@ router.get(
     applyController.GetApplyByOfferId
 );
 
+router.get(
+    "/getUserApplied/:id",
+    [param("id", "Id da oferta é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated.unsureAuthenticated,
+    applyController.GetByOfferIdAndUserId
+)
+
 /**
  * @swagger
  * /v1/apply/updateStatus/{id}:

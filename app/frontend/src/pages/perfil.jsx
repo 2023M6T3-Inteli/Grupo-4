@@ -236,7 +236,11 @@ const Perfil = (props) => {
             }
             {
               projectPage && (
-                <div>{JSON.stringify(user.projects)}</div>
+                // <div>{JSON.stringify(user.projects)}</div>
+                user.applies.map((apply) => {
+                  // return <CardProject user={user} project={apply.project} />;
+                  return <div>{JSON.stringify(apply.project)}</div>
+                })
                 // user.projects.map((project) => {
                 //   // return <CardProject user={user} project={project} />;
                 //   return <div>{JSON.stringify(project)}</div>

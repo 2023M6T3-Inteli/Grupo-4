@@ -39,12 +39,12 @@ const Feed = (props) => {
       const responseContent = (
         await contentService.getContent()
       ).data.reverse();
-  
-      console.log(responseContent)
 
       const responseProject = (
         await projectService.getProject()
       ).data.reverse();
+
+      console.log(responseProject)
 
       if (responseUser.data.tags.length > 0) {
         reccomendationTag = responseUser.data.tags[0].name;
