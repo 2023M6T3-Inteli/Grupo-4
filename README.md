@@ -512,9 +512,25 @@ O campo reservado para a senha, pode ser preenchido (após o primeiro acesso e o
 
  <img src="https://i.imgur.com/lE6TIs4.png"></img>
 
+
  
- ## 4.
- ## 5
+ ## 4. Pagina de visualizar projetos
+ Para acessar os projetos, utilize a navbar para clicar em feed, depois em projects:
+ 
+	<img src="https://i.imgur.com/Mrxfq1i.png"></img>
+ 
+Depois de clicar o usuário será direcionado para a página a seguir: Onde ele encontrara projetos criados por outros usuarios 
+ 	<img src="https://i.imgur.com/pgtqwX0.png"></img>
+
+Depois de escolher é possivel acessar os projetos
+
+	<img src="https://i.imgur.com/VTA9PvK.png"></img>
+
+
+ ## 5.
+
+
+ 
  ## 6.
  ## 7. 
  ## 8. 
