@@ -1,4 +1,4 @@
-<center>
+[Manual do usuário - mód 6.pdf](https://github.com/2023M6T3-Inteli/Grupo-4/files/11857810/Manual.do.usuario.-.mod.6.pdf)<center>
 [template-documento1](../img/template-documento1.jpg)
 </center>
 <table>
@@ -556,6 +556,8 @@ Depois de escolher é possivel acessar os projetos
  ## 9. Criar Conteudo 
   <img src="https://i.imgur.com/mU80D6n.png"></img>
    <img src="https://i.imgur.com/CwuI12G.png"></img>
+   
+[Manual do usuário - mód 6.pdf](https://github.com/2023M6T3-Inteli/Grupo-4/files/11857809/Manual.do.usuario.-.mod.6.pdf)
 
 
 # Referências
